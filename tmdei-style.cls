@@ -312,7 +312,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 \newcommand{\dissertationdisclamer}{A dissertation submitted in partial fulfilment of the \\ requirements for the degree of Master of Science, Area of}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dissertationdisclamer}{A dissertation submitted in partial fulfillment of \\ the requirements for the degree of Master of Science, Specialisation Area of}
-\providecaptionname{portuguese}{\dissertationdisclamer}{Disserta\c{c}\~ao para obten\c{c}\~ao do Grau de Mestre em \\ Engenharia Inform\'atica, \'Area de Especializa\c{c}\~ao em\\} % Portuguese 
+\providecaptionname{portuguese}{\dissertationdisclamer}{Disserta\c{c}\~ao para obten\c{c}\~ao do \\Grau de Mestre em Engenharia Inform\'atica,\\ \'Area de Especializa\c{c}\~ao em} % Portuguese 
 \newcommand{\supervisorlabel}{Supervisor}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\supervisorlabel}{Supervisor}
 \providecaptionname{portuguese}{\supervisorlabel}{Orientador}
@@ -519,7 +519,9 @@ breaklinks=true,
 \newcommand{\code}[1]{\texttt{#1}}
 \newcommand{\file}[1]{\texttt{\bfseries#1}}
 \newcommand{\option}[1]{\texttt{\itshape#1}}
-
 %----------------------------------------------------------------------------------------
+
+% My Commands
+\newcommand{\inquotes}[1]{``#1''}
 
 \endinput
