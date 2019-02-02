@@ -10,7 +10,7 @@ O conceito de \gls{MES}, um sistema que, além de gerir as operações dum deter
 
 A \textbf{conceção de um módulo de linguagem natural para interface com o Critical Manufacturing \gls{MES}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
 
-\section{Objetivos, Âmbito e Pressupostos}
+\section{Objetivos}
 \label{sec:pre1_objectives}
 De uma maneira geral, com este trabalho pretende-se desenvolver uma solução baseada em linguagem natural que promova a interação do utilizador com o sistema \gls{MES}. Com o intuito de solucionar o problema enunciado na secção~\ref{sec:pre1_problem}, definem-se os seguintes objetivos:
 
@@ -48,7 +48,7 @@ De uma maneira geral, com este trabalho pretende-se desenvolver uma solução ba
     \item
     \label{enum:pre1_objectives_7}
     {
-        \textit{Avaliar a qualidade da solução desenvolvida} -- com base nas metodologias de avaliação definidas, concluir acerca da qualidade da solução e do contributo do trabalho para a resolução do problema (\textit{a definir});
+        \textit{Avaliar a qualidade da solução desenvolvida} -- com base nas estratégias de avaliação definidas em~\ref{enum:pre1_qualitystrategies}, concluir acerca da qualidade da solução e do contributo do trabalho para a resolução do problema (\textit{a definir});
     }
     \item
     \label{enum:pre1_objectives_8}
@@ -57,7 +57,9 @@ De uma maneira geral, com este trabalho pretende-se desenvolver uma solução ba
     }
 \end{enumerate}
 
-Embora os objetivos estejam definidos, surge a necessidade de explicitar sucintamente o âmbito do trabalho e os pressupostos a ter em consideração. Por conseguinte, os seguintes assuntos não serão abordados:
+\section{Âmbito}
+
+Embora os objetivos estejam definidos, surge a necessidade de explicitar sucintamente o âmbito do trabalho, bem como os pressupostos a ter em consideração. Por conseguinte, os seguintes assuntos não serão abordados:
 
 \begin{itemize}
     \item
@@ -66,7 +68,7 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
     }
     \item
     {
-        As soluções e bibliotecas de linguagem natural que não mostrem evidências de relevância para o problema, tendo em conta os critérios de preço, adesão da comunidade de desenvolvimento e complexidade (objetivo~\ref{enum:pre1_objectives_2});
+        As soluções e bibliotecas de linguagem natural que não mostrem evidências de relevância para o problema, tendo em conta os critérios de preço, adesão da comunidade de desenvolvimento e respetiva complexidade (objetivo~\ref{enum:pre1_objectives_2});
     }
     \item 
     {
@@ -74,28 +76,82 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
     }
     \item 
     {
-        
+        A integração com o Critical Manufacturing \gls{MES}, apesar de ser levada em consideração aquando o desenho da solução (objetivos~\ref{enum:pre1_objectives_4}, \ref{enum:pre1_objectives_6} e \ref{enum:pre1_objectives_7}).
     }
 \end{itemize}
 
+O termo \inquotes{Domínio} é empregue ao longo do texto para denotar um conjunto de características que descrevem uma família de conceitos comuns a um determinado processo. Por exemplo, duas empresas que produzem equipamentos médicos, apesar de poderem ter processos de fabrico diferentes, abordam o mesmo domínio.
 
+Neste trabalho assume-se que a solução a desenvolver, embora pensada para integrar em diversos (diferentes) processos de manufatura, é uma prova de conceito, pelo que deverá considerar um processo fabril (a ser definido) e consequentemente, lidar com a semântica específica desse domínio.
 
 \section{Critérios de Sucesso}
 \label{sec:pre1_success_criteria}
-\textit{A definir}
+
+A avaliação do resultado final é imprescindível para concluir acerca do trabalho. Dessa forma, especificam-se a metodologia de avaliação para solução desenvolvida e os critérios de sucesso a serem considerados.
+
+Para metodologia de avaliação deste trabalho foram definidas as seguintes estratégias:
+
+\begin{enumerate}
+\label{enum:pre1_qualitystrategies}
+    \item 
+    {
+        \textit{Garantir que a solução analisa e responde corretamente a um conjunto de perguntas pré-definidas} -- a solução deverá responder adequadamente a um conjunto limitado de perguntas:
+        \begin{itemize}
+            \item 
+            {
+                Quantas operações foram executadas por semana, durante o mês M?
+            }
+            \item
+            {
+                Qual o número de operações O por produto e turno, durante o mês M?
+            }
+            \item
+            {
+                Qual a média de X de operações O, no passo P do processo, por turno, no mês M? 
+            }
+            \item
+            {
+                Qual o número de materiais cujo valor de X é inferior a Y, para o passo P do processo, agrupando por G?
+            }
+        \end{itemize}
+        
+        Nas questões apresentadas, as letras representam as variáveis próprias do domínio, que o utilizador conhece e que o sistema deve ser capaz de reconhecer.
+    }
+    \item
+    {
+        \textit{Prover a solução de um mecanismo de feedback para auto-aprendizagem} -- o que permitirá ao módulo adaptar-se às necessidades do utilizador, melhorando a qualidade das suas respostas. Numa fase inicial, este mecanismo consiste simplesmente em questionar o utilizador sobre a exatidão da resposta apresentada.
+    }
+\end{enumerate}
+
+De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos respetivos objetivos:
+
+\begin{enumerate}
+    \item 
+    {
+        \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:pre1_objectives});
+    }
+    \item
+    {
+        \textit{A solução apresentada é extensível a outros domínios e facilmente integrada no Critical Manufacturing \gls{MES}} -- garante-se assim que a arquitetura especificada considerou diversos domínios, facilidade e capacidade de integração com o produto, ainda mesmo sendo um protótipo (objetivos~\ref{enum:pre1_objectives_3}, \ref{enum:pre1_objectives_4} e \ref{enum:pre1_objectives_6});
+    }
+    \item
+    {
+        \textit{Prova de conceito dá resposta correta ao domínio definido} -- que implica responder corretamente às questões listadas em \ref{enum:pre1_qualitystrategies}, garantindo que semântica foi bem definida e que o requisito de qualidade está cumprido (objetivos~\ref{enum:pre1_objectives_5}, \ref{enum:pre1_objectives_6} e \ref{enum:pre1_objectives_7}).
+    }
+\end{enumerate}
 
 % ----------------------------------------
 % CONTRIBUIÇÕES
 % ----------------------------------------
 \chapter{Contribuições Esperadas}
 \label{chap:pre2}
-\textit{A definir}
 
 % ----------------------------------------
-% METODOLOGIA E PLANO DE TRABALHO
+% METODO DE TRABALHO
 % ----------------------------------------
-\chapter{Método de trabalho}
-\label{chap:pre3}
+%\chapter{Método de trabalho}
+%\label{chap:pre3}
+%\textit{A definir}
 
 % ----------------------------------------
 % CONTEXTO
