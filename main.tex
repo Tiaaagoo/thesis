@@ -40,10 +40,10 @@ nohyperreflinkcolor, % hyperref links are not colored (comment to color links, f
 headsepline, % Uncomment to get a line under the header
 ]{tmdei-style} % The class file specifying the document structure
 
+\usepackage{rotating}
 \usepackage{soul}
 \usepackage{tikz} % Required for creating graphics programmatically (can be removed if not used)
 %\usetikzlibrary{arrows} % Required for fancy arrows in TiKZ graphics (can be removed if not used)
-
 \usepackage{pgfplots} % Required for drawing high--quality function plots (can be removed if not used)
 \pgfplotsset{compat=newest}
 
@@ -77,13 +77,13 @@ headsepline, % Uncomment to get a line under the header
 
 \supervisor{Dr. Paulo Gandra da Sousa} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 
-\cosupervisor{Eng.º Ricardo \textsc{Magalhães}} % Your co-supervisor's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
+\cosupervisor{Eng.º Ricardo Magalhães} % Your co-supervisor's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
 
-\committeepresident{Dr. Jonny Smith, Professor, DEI/ISEP} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
+\committeepresident{} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
 
-\committeemembers{Dr. Jaimie Smith, Professor, DEI/ISEP\\Dr. Jones Smith, Professor, DEI/ISEP\\Dr. Jagger Smith, Professor, DEI/ISEP} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
+\committeemembers{} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
 
-\keywords{Inteligência Artificial, \textit{Text Mining}, Processamento de Linguagem Natural, \textit{Manufacturing Execution System}, \textit{Querying}} % Please define up to 6 keywords that better describe your work, print it elsewhere with \keywordnames
+\keywords{Inteligência Artificial, Processamento de Linguagem Natural, \textit{Manufacturing Execution System}, \textit{Querying}} % Please define up to 6 keywords that better describe your work, print it elsewhere with \keywordnames
 
 \university{\href{http://www.isep.ipp.pt}{Instituto Superior de Engenharia do Porto}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 
@@ -94,6 +94,10 @@ headsepline, % Uncomment to get a line under the header
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+
+% Variables
+\def\companyname{Critical Manufacturing}
+\def\productname{Critical Manufacturing MES}
 
 \begin{document}
 
@@ -134,7 +138,7 @@ headsepline, % Uncomment to get a line under the header
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-\input{appendices/appendixA}
+%\input{appendices/appendixA}
 %\input{appendices/appendixB}
 %\input{appendices/appendixC}
 

@@ -523,5 +523,6 @@ breaklinks=true,
 
 % My Commands
 \newcommand{\inquotes}[1]{``#1''}
-
+\newcommand{\idest}[1]{\textit{i.e.}, #1}
+\newcommand{\exempligratia}[1]{\textit{e.g.}, #1}
 \endinput

@@ -6,9 +6,9 @@ Neste capítulo são apresentados o enunciado do problema (secção~\ref{sec:pre
 \section{Enunciado do problema}
 \label{sec:pre1_problem}
 
-O conceito de \gls{MES}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0. O Critical Manufacturing \gls{MES} é um destes sistemas. Contudo, a sua incapacidade parcial de adaptar-se às características dos utilizadores, torna-o difícil de usar, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
+O conceito de \gls{MES}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0. O {\productname} é um destes sistemas. Contudo, a sua incapacidade parcial de adaptar-se às características dos utilizadores, torna-o difícil de usar, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
 
-A \textbf{conceção de um módulo de linguagem natural para interface com o Critical Manufacturing \gls{MES}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
+A \textbf{conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
 
 \section{Objetivos}
 \label{sec:pre1_objectives}
@@ -38,7 +38,7 @@ De uma maneira geral, com este trabalho pretende-se desenvolver uma solução ba
     \item
     \label{enum:pre1_objectives_5}
     {
-        \textit{Descrever a semântica de domínio} -- identificação dos domínios a explorar e construção de uma base de conhecimento semântico para o módulo (\textit{a definir});
+        \textit{Descrever a semântica de domínio} -- identificação dos domínios a explorar e construção de uma base de conhecimento semântico (\idest{um dicionário}) para o módulo (\textit{a definir});
     }
     \item
     \label{enum:pre1_objectives_6}
@@ -64,7 +64,7 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
 \begin{itemize}
     \item
     {
-        O enquadramento do problema com outros sistemas \gls{MES}. Apenas é contemplada a realidade do problema no contexto do Critical Manufacturing \gls{MES} (objetivo~\ref{enum:pre1_objectives_1});
+        O enquadramento do problema com outros sistemas \gls{MES}. Apenas é contemplada a realidade do problema no contexto do {\productname} (objetivo~\ref{enum:pre1_objectives_1});
     }
     \item
     {
@@ -76,7 +76,7 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
     }
     \item 
     {
-        A integração com o Critical Manufacturing \gls{MES}, apesar de ser levada em consideração aquando o desenho da solução (objetivos~\ref{enum:pre1_objectives_4}, \ref{enum:pre1_objectives_6} e \ref{enum:pre1_objectives_7}).
+        A integração com o {\productname}, apesar de ser levada em consideração aquando o desenho da solução (objetivos~\ref{enum:pre1_objectives_4}, \ref{enum:pre1_objectives_6} e \ref{enum:pre1_objectives_7}).
     }
 \end{itemize}
 
@@ -132,7 +132,7 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
     }
     \item
     {
-        \textit{A solução apresentada é extensível a outros domínios e facilmente integrada no Critical Manufacturing \gls{MES}} -- garante-se assim que a arquitetura especificada considerou diversos domínios, facilidade e capacidade de integração com o produto, ainda mesmo sendo um protótipo (objetivos~\ref{enum:pre1_objectives_3}, \ref{enum:pre1_objectives_4} e \ref{enum:pre1_objectives_6});
+        \textit{A solução apresentada é extensível a outros domínios e facilmente integrada no {\productname}} -- garante-se assim que a arquitetura especificada considerou diversos domínios, facilidade e capacidade de integração com o produto, ainda mesmo sendo um protótipo (objetivos~\ref{enum:pre1_objectives_3}, \ref{enum:pre1_objectives_4} e \ref{enum:pre1_objectives_6});
     }
     \item
     {
@@ -145,6 +145,35 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
 % ----------------------------------------
 \chapter{Contribuições Esperadas}
 \label{chap:pre2}
+
+O trabalho a ser desenvolvido pretende providenciar uma solução para o problema descrito anteriormente (ver secção \ref{sec:pre1_problem}). Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus competidores. No decorrer deste trabalho serão abordados temas relativos a \gls{MES}, \gls{IA}, nomeadamente \gls{PLN} e Mineração de Texto e, por fim, Armazenamento de Dados e \textit{Business Intelligence}. 
+
+Resumidamente, as contribuições esperadas são a seguir enunciadas:
+
+\begin{itemize}
+    \item
+    {
+        Estado da arte no domínio de Processamento de Linguagem Natural aplicadas à conversão de texto para \gls{SQL} e sistemas análogos à solução a desenvolver;
+    }
+    \item 
+    {
+        Documentação dos requisitos de sistema, incluindo análise e desenho, constando os respetivos artefactos de \gls{UML};
+    }
+    \item 
+    {
+        Dicionário semântico do domínio a ser definido para o módulo;
+    }
+    \item
+    {
+        Especificação e desenvolvimento do protótipo, considerando a futura integração com o sistema {\productname};
+    }
+    \item
+    {
+        Conceção do mecanismo de \textit{feedback} permitindo a adaptação ao utilizador e consequentemente, a auto-aprendizagem do sistema.
+    }
+\end{itemize}
+
+De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{IA}, mais especificamente na área da Linguagem Natural, aplicada ao contexto dos sistemas \gls{MES}.
 
 % ----------------------------------------
 % METODO DE TRABALHO
@@ -171,6 +200,89 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
 % ----------------------------------------
 % PLANO DE TRABALHO
 % ---------------------------------------- 
-\chapter{Plano de Trabalho}
+\chapter{Plano e Método de Trabalho}
 \label{chap:pre7}
-\textit{A definir}
+
+Um plano de trabalho é uma ferramenta importante na gestão de qualquer projeto, na medida em que permite ter visibilidade da sua extensão temporal, das tarefas a realizar e do período associado a cada uma delas. Na figura~\ref{fig:planning-gantt_chart} demonstra-se o diagrama de \textit{Gantt}, contendo as tarefas inerentes a cada uma das fases do projeto, descriminadas na tabela abaixo.
+
+\begin{table}[!ht]
+\centering
+\caption{Fases do projeto, periodicidade e respetiva duração}
+\label{tab:project-phases}
+\resizebox{\textwidth}{!}
+{
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textbf{Fase do Projeto} & \textbf{Data Prevista de Início} & \textbf{Data Prevista de Fim} & \textbf{Duração (dias)} \\ \hline
+    Conceção                 & 01-Jan-2019                      & 16-Fev-2019                   & 46                      \\
+    Análise                  & 11-Fev-2019                      & 08-Março 2019                 & 25                      \\
+    Desenvolvimento          & 04-Março-2019                    & 17-Maio-2019                  & 74                      \\
+    Validação                & 17-Maio-2019                     & 12-Junho-2019                 & 26                      \\
+    Documentação             & 01-Jan-2019                      & 30-Junho-2019                 & 180                     \\ \hline
+    \end{tabular}
+}
+\end{table}
+
+A tabela~\ref{tab:project-phases} carece de informação sucinta de cada uma das fases, pelo que se passam a descrever:
+
+\begin{itemize}
+    \item 
+    {
+        \textit{Conceção} -- engloba as tarefas que relacionadas com o problema, o seu enquadramento, o estudo do valor e estado da arte. Ou seja, a visão do projeto;
+    }
+    \item
+    {
+        \textit{Análise} -- nesta fase, faz-se o levantamento dos requisitos, a escolha e definição da semântica de domínio, estipulam-se a(s) tecnologia(s) a utilizar e especifica-se a arquitetura para o módulo. A presente fase consiste no estudo e preparação para o desenho da solução; 
+    }
+    \item
+    {
+        \textit{Desenvolvimento} -- desenvolve-se a solução conjeturada na fase anterior, envolvendo um período de experimentação de código base da arquitetura definida (para possível reestruturação ou ajuste);
+    }
+    \item
+    {
+        \textit{Validação} -- avalia-se a solução com base nos critérios definidos na secção~\ref{sec:pre1_success_criteria} e consequentemente, podem-se registar melhorias para o módulo. É nesta fase que também se demonstra a solução às partes interessadas do trabalho (\exempligratia{\gls{CEO}, \gls{CTO}, {\supname}, orientador do projeto, {\cosupname}, responsável pelo projeto etc.});
+    }
+    \item
+    {
+        \textit{Documentação} -- engloba a escrita da tese como veículo de transmissão de conhecimento obtido e de outros documentos de suporte, a serem usados no contexto empresarial (\exempligratia{documento de especificação de requisitos de \textit{software}, especificação arquitetural de \textit{software}, manual de instalação e outros que façam sentido}).
+    }
+\end{itemize}
+
+Quanto ao método de trabalho a seguir na realização deste trabalho, são considerados os seguintes passos:
+
+\begin{enumerate}
+    \item 
+    {
+        \textit{Revisão de literatura disponível sobre o contexto do problema} -- com o objetivo de perceber o estado atual do {\productname} e as implicações que o módulo trará, assim como concluir acerca do valor da solução para o produto;
+    }
+    \item
+    {
+        \textit{Revisão de literatura existente acerca de \gls{PLN} e paradigmas arquiteturais relacionados} -- adquirir conhecimentos sobre técnicas e ferramentas de \gls{PLN}, principalmente analisando soluções já existentes, identificando aspetos relevantes para o trabalho e outros que não foram contemplados;
+    }
+    \item
+    {
+        \textit{Idealização do módulo} -- depois da análise dos conhecimentos adquiridos com as revisões realizadas nos passos descritos anteriormente, parte-se para o levantamento dos requisitos junto das partes interessadas do projeto, resultando na concepção de um módulo capaz de lhes dar resposta; 
+    }
+    \item
+    {
+        \textit{Estudo do domínio de negócio} -- com o intuito de entender a semântica do negócio em questão e definir um dicionário a ser usado pela solução;
+    }
+    \item
+    {
+        \textit{Implementação do módulo e validação} -- o foco é pôr em prática a solução conceptualizada nas fases anteriores. Após a implementação, são realizam-se testes com vista a perceber se os resultados obtidos são os esperados e proceder às melhorias que forem evidentes;
+    }
+    \item
+    {
+        \textit{Elaboração da documentação} --  por fim, passa-se à escrita do presente documento e de documentos de suporte, baseando-se nas observações, nas experiências e conclusões obtidas ao longo do projeto.
+    }
+\end{enumerate}
+
+\clearpage
+\begin{sidewaysfigure}[!ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]
+    {pre-thesis/assets/gantt.jpg}
+    \caption{Diagrama de \textit{Gantt} referente ao planeamento do projeto}
+    \label{fig:planning-gantt_chart}
+\end{sidewaysfigure}
+\clearpage
