@@ -1,18 +1,18 @@
 \chapter{Problema}
 \label{chap:pre1}
 
-Neste capítulo são apresentados o enunciado do problema (secção~\ref{sec:pre1_problem}), os objetivos do trabalho, o âmbito e pressupostos associados (secção~\ref{sec:pre1_objectives}) e, por fim, os critérios de sucesso a considerar para a avaliação final do trabalho (seccção~\ref{sec:pre1_success_criteria}).
+Neste capítulo apresenta-se o problema que o presente trabalho visa resolver. O enunciado do problema, como o próprio nome indica, aborda o problema, descrevendo-o de forma concisa (Secção~\ref{sec:pre1_problem}). Essa descrição permite definir os objetivos do trabalho (Secção~\ref{sec:pre1_objectives}), complementando-os com âmbito e pressupostos associados (Secção~\ref{sec:pre1_objectives}). Por fim, estabelece-se a avaliação da solução, ou seja, as metodologias contempladas para avaliar o resultado obtido, bem como os critérios de sucesso a considerar para a avaliação final do trabalho (Secção~\ref{sec:pre1_success_criteria}).
 
 \section{Enunciado do problema}
 \label{sec:pre1_problem}
 
-O conceito de \gls{MES}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0. O {\productname} é um destes sistemas. Contudo, a sua incapacidade parcial de adaptar-se às características dos utilizadores, torna-o difícil de usar, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
+O conceito de \gls{MES}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0, uma iniciativa que se destina a criar fábricas inteligentes, usando tecnologias como os \gls{CPS}, a \gls{IoT} e \textit{Cloud Computing}~\parencite{intelligent_manufacturing_context_industry40_review}. O {\productname} é um destes sistemas. Contudo, a sua incapacidade parcial de adaptar-se às características dos utilizadores, torna-o difícil de usar numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
 
-A \textbf{conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
+\textbf{A conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
 
 \section{Objetivos}
 \label{sec:pre1_objectives}
-De uma maneira geral, com este trabalho pretende-se desenvolver uma solução baseada em linguagem natural que promova a interação do utilizador com o sistema \gls{MES}. Com o intuito de solucionar o problema enunciado na secção~\ref{sec:pre1_problem}, definem-se os seguintes objetivos:
+De uma maneira geral, com este trabalho pretende-se desenvolver uma solução baseada em linguagem natural que promova a interação do utilizador com o sistema \gls{MES}. Com o intuito de solucionar o problema enunciado na Secção~\ref{sec:pre1_problem}, definem-se os seguintes objetivos:
 
 \begin{enumerate}
     \item
@@ -28,27 +28,27 @@ De uma maneira geral, com este trabalho pretende-se desenvolver uma solução ba
     \item
     \label{enum:pre1_objectives_3}
     {
-        \textit{Definir a solução mais adequada, considerando as diversas opções apresentadas} -- comparação e avaliação das diversas opções identificadas, selecionando a(s) mais adequada(s), justificando essa(s) escolha(s) (Capítulo~\ref{chap:Chapter3});
+        \textit{Definir a solução mais adequada, considerando as diversas opções apresentadas} -- comparação e avaliação das diversas opções identificadas (Capítulo~\ref{chap:Chapter3});
     }
     \item
     \label{enum:pre1_objectives_4}
     {
-        \textit{Especificação da arquitetura do módulo} -- que permita responder aos requisitos definidos e antecipar soluções para possíveis problemas (\textit{a definir});
+        \textit{Especificação da arquitetura do módulo} -- que permita responder aos requisitos definidos e antecipar soluções para possíveis problemas;
     }
     \item
     \label{enum:pre1_objectives_5}
     {
-        \textit{Descrever a semântica de domínio} -- identificação dos domínios a explorar e construção de uma base de conhecimento semântico (\idest{um dicionário}) para o módulo (\textit{a definir});
+        \textit{Descrever a semântica de domínio} -- identificação dos domínios a explorar e construção de uma base de conhecimento semântico (\idest{um dicionário}) para o módulo;
     }
     \item
     \label{enum:pre1_objectives_6}
     {
-        \textit{Desenvolvimento de prova de conceito} -- implementação da solução de acordo com a arquitetura conceptualizada (\textit{a definir});
+        \textit{Desenvolvimento de prova de conceito} -- implementação da solução de acordo com a arquitetura conceptualizada;
     }
     \item
     \label{enum:pre1_objectives_7}
     {
-        \textit{Avaliar a qualidade da solução desenvolvida} -- com base nas estratégias de avaliação definidas em~\ref{enum:pre1_qualitystrategies}, concluir acerca da qualidade da solução e do contributo do trabalho para a resolução do problema (\textit{a definir});
+        \textit{Avaliar a qualidade da solução desenvolvida} -- com base nas estratégias de avaliação definidas em~\ref{enum:pre1_qualitystrategies}, concluir acerca da qualidade da solução e do contributo do trabalho para a resolução do problema;
     }
     \item
     \label{enum:pre1_objectives_8}
@@ -82,14 +82,15 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
 
 O termo \inquotes{Domínio} é empregue ao longo do texto para denotar um conjunto de características que descrevem uma família de conceitos comuns a um determinado processo. Por exemplo, duas empresas que produzem equipamentos médicos, apesar de poderem ter processos de fabrico diferentes, abordam o mesmo domínio.
 
-Neste trabalho assume-se que a solução a desenvolver, embora pensada para integrar em diversos (diferentes) processos de manufatura, é uma prova de conceito, pelo que deverá considerar um processo fabril (a ser definido) e consequentemente, lidar com a semântica específica desse domínio.
+Neste trabalho assume-se que a solução a desenvolver, embora pensada para integrar em diferentes processos de manufatura, é uma prova de conceito, pelo que deverá considerar um processo fabril (a ser definido) e consequentemente, lidar com a semântica específica desse domínio.
 
-\section{Critérios de Sucesso}
+\section{Avaliação da Solução}
 \label{sec:pre1_success_criteria}
 
-A avaliação do resultado final é imprescindível para concluir acerca do trabalho. Dessa forma, especificam-se a metodologia de avaliação para solução desenvolvida e os critérios de sucesso a serem considerados.
+A avaliação do resultado final é imprescindível para concluir acerca do sucesso do trabalho, permitindo perceber se a conjetura fundada a respeito da solução é aceite. Desse modo, especificam-se a metodologia de avaliação para solução desenvolvida e os critérios de sucesso a serem considerados.
 
-Para metodologia de avaliação deste trabalho foram definidas as seguintes estratégias:
+\subsection{Metodologia de Avaliação}
+Com o propósito de perceber se a solução desenvolvida é adequada para o {\productname} e para o utilizador final, definem-se as seguintes estratégias para a metodologia de avaliação deste trabalho:
 
 \begin{enumerate}
 \label{enum:pre1_qualitystrategies}
@@ -99,19 +100,19 @@ Para metodologia de avaliação deste trabalho foram definidas as seguintes estr
         \begin{itemize}
             \item 
             {
-                Quantas operações foram executadas por semana, durante o mês M?
+                Quantas operações foram executadas por semana, durante o mês $M$?
             }
             \item
             {
-                Qual o número de operações O por produto e turno, durante o mês M?
+                Qual o número de operações $O$ por produto e turno, durante o mês $M$?
             }
             \item
             {
-                Qual a média de X de operações O, no passo P do processo, por turno, no mês M? 
+                Qual a média de $X$ de operações $O$, no passo $P$ do processo, por turno, no mês $M$? 
             }
             \item
             {
-                Qual o número de materiais cujo valor de X é inferior a Y, para o passo P do processo, agrupando por G?
+                Qual o número de materiais cujo valor de $X$ é inferior a $Y$, para o passo $P$ do processo, agrupando por $G$?
             }
         \end{itemize}
         
@@ -123,13 +124,13 @@ Para metodologia de avaliação deste trabalho foram definidas as seguintes estr
     }
 \end{enumerate}
 
+Ambas estratégias possibilitam perceber a adequabilidade da solução para o produto e para o utilizador, quer numa perspetiva de facilidade de utilização, quer na exatidão da resposta dada.
+
+\subsection{Critérios de Sucesso}
+
 De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos respetivos objetivos:
 
 \begin{enumerate}
-    \item 
-    {
-        \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:pre1_objectives});
-    }
     \item
     {
         \textit{A solução apresentada é extensível a outros domínios e facilmente integrada no {\productname}} -- garante-se assim que a arquitetura especificada considerou diversos domínios, facilidade e capacidade de integração com o produto, ainda mesmo sendo um protótipo (objetivos~\ref{enum:pre1_objectives_3}, \ref{enum:pre1_objectives_4} e \ref{enum:pre1_objectives_6});
@@ -137,6 +138,10 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
     \item
     {
         \textit{Prova de conceito dá resposta correta ao domínio definido} -- que implica responder corretamente às questões listadas em \ref{enum:pre1_qualitystrategies}, garantindo que semântica foi bem definida e que o requisito de qualidade está cumprido (objetivos~\ref{enum:pre1_objectives_5}, \ref{enum:pre1_objectives_6} e \ref{enum:pre1_objectives_7}).
+    }
+    \item 
+    {
+        \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:pre1_objectives});
     }
 \end{enumerate}
 
@@ -146,7 +151,7 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
 \chapter{Contribuições Esperadas}
 \label{chap:pre2}
 
-O trabalho a ser desenvolvido pretende providenciar uma solução para o problema descrito anteriormente (ver secção \ref{sec:pre1_problem}). Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus competidores. No decorrer deste trabalho serão abordados temas relativos a \gls{MES}, \gls{IA}, nomeadamente \gls{PLN} e Mineração de Texto e, por fim, Armazenamento de Dados e \textit{Business Intelligence}. 
+O trabalho a ser desenvolvido pretende providenciar uma solução para o problema descrito anteriormente (ver Secção \ref{sec:pre1_problem}). Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{um protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus concorrentes. No decorrer deste trabalho serão abordados temas relativos a \gls{MES}, a \gls{IA}, nomeadamente \gls{PLN} e a Mineração de Texto e, por fim, a Armazenamento de Dados e \textit{Business Intelligence}. 
 
 Resumidamente, as contribuições esperadas são a seguir enunciadas:
 
@@ -173,7 +178,7 @@ Resumidamente, as contribuições esperadas são a seguir enunciadas:
     }
 \end{itemize}
 
-De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{IA}, mais especificamente na área da Linguagem Natural, aplicada ao contexto dos sistemas \gls{MES}.
+De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{IA}, mais especificamente na área da \gls{PLN}, aplicada ao contexto dos sistemas \gls{MES} e que servirá como base para a integração duma solução deste tipo no {\productname}.
 
 % ----------------------------------------
 % METODO DE TRABALHO
@@ -203,27 +208,27 @@ De uma forma geral, é realçada a contribuição para o avanço do conhecimento
 \chapter{Plano e Método de Trabalho}
 \label{chap:pre7}
 
-Um plano de trabalho é uma ferramenta importante na gestão de qualquer projeto, na medida em que permite ter visibilidade da sua extensão temporal, das tarefas a realizar e do período associado a cada uma delas. Na figura~\ref{fig:planning-gantt_chart} demonstra-se o diagrama de \textit{Gantt}, contendo as tarefas inerentes a cada uma das fases do projeto, descriminadas na tabela abaixo.
+Um plano de trabalho é uma ferramenta importante na gestão de qualquer projeto, na medida em que permite ter visibilidade da sua extensão temporal, das tarefas a realizar e do período associado a cada uma delas. Na Figura~\ref{fig:planning-gantt_chart} demonstra-se o diagrama de \textit{Gantt}, contendo as tarefas inerentes a cada uma das fases do projeto, descriminadas na tabela abaixo.
 
 \begin{table}[!ht]
-\centering
 \caption{Fases do projeto, periodicidade e respetiva duração}
 \label{tab:project-phases}
+\centering
 \resizebox{\textwidth}{!}
 {
-    \begin{tabular}{|l|l|l|l|}
-    \hline
-    \textbf{Fase do Projeto} & \textbf{Data Prevista de Início} & \textbf{Data Prevista de Fim} & \textbf{Duração (dias)} \\ \hline
+    \begin{tabular}{l|l|l|l}
+    \toprule
+    \tabhead{Fase do Projeto} & \tabhead{Data Prevista de Início} & \tabhead{Data Prevista de Fim} & \tabhead{Duração (dias)} \\ \midrule
     Conceção                 & 01-Jan-2019                      & 16-Fev-2019                   & 46                      \\
     Análise                  & 11-Fev-2019                      & 08-Março 2019                 & 25                      \\
     Desenvolvimento          & 04-Março-2019                    & 17-Maio-2019                  & 74                      \\
     Validação                & 17-Maio-2019                     & 12-Junho-2019                 & 26                      \\
-    Documentação             & 01-Jan-2019                      & 30-Junho-2019                 & 180                     \\ \hline
+    Documentação             & 01-Jan-2019                      & 30-Junho-2019                 & 180                     \\ \bottomrule
     \end{tabular}
 }
 \end{table}
 
-A tabela~\ref{tab:project-phases} carece de informação sucinta de cada uma das fases, pelo que se passam a descrever:
+A Tabela~\ref{tab:project-phases} carece de informação sucinta de cada uma das fases, pelo que se passam a descrever:
 
 \begin{itemize}
     \item 
