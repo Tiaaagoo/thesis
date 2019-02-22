@@ -1,0 +1,56 @@
+\begin{tikzpicture}
+  \path[mindmap, concept color=black!50,text=white,
+    every node/.append style={concept, minimum size=0.5cm, inner sep=0.2mm},
+    level 1 concept/.append style={text width=1.5cm,font=\scriptsize},
+    level 2 concept/.append style={text width=1.27cm,font=\tiny\bfseries,level distance=50}
+  ]
+    % Root
+    node[text width=2.3cm,font=\small] {Projeto}
+    %
+    [clockwise from=0]
+    child[concept color=black!25,text=black,level distance=80] { node {Restrições}
+      [clockwise from=120]
+      child { node {Uso Interno} }
+      child { node {Custo} }
+      child { node {Eficiência} }
+      child { node {Aprendizagem da Ferramenta} }
+      child { node {Usabilidade da Solução} }
+    }
+    %
+    child[concept color=black!25,text=black,level distance=115] { node {Requisitos}
+      [clockwise from=0]
+      child { node {Semântica Temporal} }
+      child { node {Semântica de Domínio} }
+      child { node {Integração com Produto} }
+      child { node {Auto-aprendizagem} }
+    }
+    %
+    child[concept color=black!25,text=black,level distance=75] { node {Estado da arte} 
+      [clockwise from=-115]
+      child { node {Soluções Análogas} }
+      child { node {Ferramentas} }
+    }
+    %
+    child[concept color=black!25,text=black,level distance=75] { node {Tecnologia}
+      [counterclockwise from=75]
+      child { node {PLN} }
+      child { node {Interfaces de Linguagem Natural} }
+      child { node {\textit{Data Warehouses}} }
+    }
+    %
+    child[concept color=black!25,text=black,level distance=120] { node {Clientes}
+      [counterclockwise from=-30]
+      child { node {Semi\\condutores} }
+      child { node {Equipamentos Médicos} }
+      child { node {Montagem Eletrónica} }
+      child { node {Energia Solar} }
+      child { node {Outros} }
+    }
+    child[concept color=black!25,text=black,level distance=135] { node {Utilizadores}
+      [counterclockwise from=-35]
+      child { node {Engenheiros de Produção} }
+      child { node {Engenheiros de Qualidade} }
+      child { node {Responsáveis de Linha} }
+      child { node {Operadores} }
+    };
+\end{tikzpicture}
