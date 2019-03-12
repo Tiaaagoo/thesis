@@ -6,19 +6,19 @@ Neste capítulo apresenta-se o problema que o presente trabalho visa resolver. O
 \section{Enunciado do problema}
 \label{sec:pre1_problem}
 
-O conceito de \gls{MES}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0, uma iniciativa que se destina a criar fábricas inteligentes, usando tecnologias como os \gls{CPS}, a \gls{IoT} e \textit{Cloud Computing}~\parencite{intelligent_manufacturing_context_industry40_review}. O {\productname} é um destes sistemas. Contudo, a capacidade de adaptação às características dos utilizador é um requisito complexo, que nem sempre é passível de ser cumprido. Isso pode tornar o produto difícil de usar, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
+O conceito de \gls{mes}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0, uma iniciativa que se destina a criar fábricas inteligentes, usando tecnologias como os \glspl{cps}, a \gls{iot} e \textit{Cloud Computing}~\parencite{intelligent_manufacturing_context_industry40_review}. O {\productname} é um destes sistemas. Contudo, a capacidade de adaptação às características dos utilizador é um requisito complexo, que nem sempre é passível de ser cumprido. Isso pode tornar o produto difícil de usar, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
 
 \textbf{A conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
 
 \section{Objetivos}
 \label{sec:pre1_objectives}
-De uma maneira geral, com este trabalho pretende-se desenvolver uma solução baseada em linguagem natural que promova a interação do utilizador com o sistema \gls{MES}. Com o intuito de solucionar o problema enunciado na Secção~\ref{sec:pre1_problem}, definem-se os seguintes objetivos:
+De uma maneira geral, com este trabalho pretende-se desenvolver uma solução baseada em linguagem natural que promova a interação do utilizador com o sistema \gls{mes}. Com o intuito de solucionar o problema enunciado na Secção~\ref{sec:pre1_problem}, definem-se os seguintes objetivos:
 
 \begin{enumerate}
     \item
     \label{enum:pre1_objectives_1}
     {
-        \textit{Contextualizar o problema numa perspetiva de negócio} -- análise detalhada do problema, as implicações que tem para negócio e para o produto \gls{MES}, descrevendo o valor intrínseco à solução (Capítulo~\ref{chap:Chapter2});
+        \textit{Contextualizar o problema numa perspetiva de negócio} -- análise detalhada do problema, as implicações que tem para negócio e para o produto \gls{mes}, descrevendo o valor intrínseco à solução (Capítulo~\ref{chap:Chapter2});
     }
     \item
     \label{enum:pre1_objectives_2}
@@ -70,7 +70,7 @@ Embora os objetivos estejam definidos, surge a necessidade de explicitar sucinta
 \begin{itemize}
     \item
     {
-        O enquadramento do problema com outros sistemas \gls{MES}. Apenas é contemplada a realidade do problema no contexto do {\productname} (objetivo~\ref{enum:pre1_objectives_1});
+        O enquadramento do problema com outros \glspl{mes}. Apenas é contemplada a realidade do problema no contexto do {\productname} (objetivo~\ref{enum:pre1_objectives_1});
     }
     \item
     {
@@ -152,18 +152,18 @@ De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos
 % ----------------------------------------
 \subsection{Contribuições Esperadas}
 
-O trabalho a ser desenvolvido pretende providenciar uma solução para o problema descrito anteriormente (Secção \ref{sec:pre1_problem}). Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{um protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus concorrentes. No decorrer deste trabalho serão abordados temas relativos a \gls{MES}, a \gls{IA}, nomeadamente \gls{PLN} e a Mineração de Texto e, por fim, a Armazenamento de Dados e \textit{Business Intelligence}. 
+O trabalho a ser desenvolvido pretende providenciar uma solução para o problema descrito anteriormente (Secção \ref{sec:pre1_problem}). Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{um protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus concorrentes. No decorrer deste trabalho serão abordados temas relativos a \gls{mes}, a \gls{ia}, especificamente \gls{pln}, e \textit{Business Intelligence}.
 
 Resumidamente, as contribuições esperadas são a seguir enunciadas:
 
 \begin{itemize}
     \item
     {
-        Estado da arte no domínio de Processamento de Linguagem Natural, aplicadas à conversão de texto para \gls{SQL} e sistemas análogos à solução a desenvolver;
+        Estado da arte no domínio de Processamento de Linguagem Natural, aplicadas à conversão de texto para \gls{sql} e sistemas análogos à solução a desenvolver;
     }
     \item 
     {
-        Documentação dos requisitos de sistema, incluindo análise e desenho, constando os respetivos artefactos de \gls{UML};
+        Documentação dos requisitos de sistema, incluindo análise e desenho, constando os respetivos artefactos de \gls{uml};
     }
     \item 
     {
@@ -179,7 +179,7 @@ Resumidamente, as contribuições esperadas são a seguir enunciadas:
     }
 \end{itemize}
 
-De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{IA}, mais especificamente na área da \gls{PLN}, aplicada ao contexto dos sistemas \gls{MES} e que servirá como base para a integração duma solução deste tipo no {\productname}.
+De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{ia}, mais especificamente na área da \gls{pln}, aplicada ao contexto dos sistemas \gls{mes} e que servirá como base para a integração duma solução deste tipo no {\productname}.
 
 % ----------------------------------------
 % METODO DE TRABALHO
@@ -235,7 +235,7 @@ A Tabela~\ref{tab:project-phases} carece de informação sucinta de cada uma das
     }
     \item
     {
-        \textit{Validação} -- avalia-se a solução com base nos critérios definidos na secção~\ref{sec:pre1_solutionevaluation} e consequentemente, podem-se registar melhorias para o módulo. É nesta fase que também se demonstra a solução às partes interessadas do trabalho (\exempligratia{\gls{CEO}, \gls{CTO}, {\supname}, orientador do projeto, {\cosupname}, responsável pelo projeto etc.});
+        \textit{Validação} -- avalia-se a solução com base nos critérios definidos na secção~\ref{sec:pre1_solutionevaluation} e consequentemente, podem-se registar melhorias para o módulo. É nesta fase que também se demonstra a solução às partes interessadas do trabalho (\exempligratia{\gls{ceo}, \gls{cto}, {\supname}, orientador do projeto, {\cosupname}, responsável pelo projeto etc.});
     }
     \item
     {
@@ -252,7 +252,7 @@ Quanto ao método de trabalho a seguir na realização deste trabalho, são cons
     }
     \item
     {
-        \textit{Revisão de literatura existente acerca de \gls{PLN} e paradigmas arquiteturais relacionados} -- adquirir conhecimentos sobre técnicas e ferramentas de \gls{PLN}, principalmente analisando soluções já existentes, identificando aspetos relevantes para o trabalho e outros que não foram contemplados;
+        \textit{Revisão de literatura existente acerca de \gls{pln} e paradigmas arquiteturais relacionados} -- adquirir conhecimentos sobre técnicas e ferramentas de \gls{pln}, principalmente analisando soluções já existentes, identificando aspetos relevantes para o trabalho e outros que não foram contemplados;
     }
     \item
     {
