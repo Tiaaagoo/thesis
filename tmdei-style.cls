@@ -318,7 +318,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \providecaptionname{portuguese}{\supervisorlabel}{Orientador}
 \newcommand{\cosupervisorlabel}{Co-Supervisor}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\cosupervisorlabel}{Co-Supervisor}
-\providecaptionname{portuguese}{\cosupervisorlabel}{Co-Orientador}
+\providecaptionname{portuguese}{\cosupervisorlabel}{Coorientador}
 \newcommand{\evallabel}{Evaluation Committee}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\evallabel}{Evaluation Committee}
 \providecaptionname{portuguese}{\evallabel}{J\'uri}
