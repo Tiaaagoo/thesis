@@ -21,7 +21,7 @@ A Figura~\ref{fig:precise_architecture} apresenta a arquitetura deste sistema, n
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.6\textwidth]{ch03/assets/precise_architecture.jpg}
+    \includegraphics[width=.65\textwidth]{ch03/assets/precise_architecture.jpg}
     \caption{Arquitetura do sistema PRECISE, extraído de~\textcite{towards_theory_nli_databases}}
     \label{fig:precise_architecture}
 \end{figure}
@@ -37,7 +37,7 @@ Relativamente à arquitetura do NALIX (Figura~\ref{fig:nalix_architecture}), o s
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.74\textwidth]{ch03/assets/nalix_architecture.jpg}
+    \includegraphics[width=.7\textwidth]{ch03/assets/nalix_architecture.jpg}
     \caption{Arquitetura do sistema NALIX, extraído de~\textcite{nalix_interactive_nli_querying_xml}}
     \label{fig:nalix_architecture}
 \end{figure}
@@ -49,18 +49,21 @@ Este sistema -- \textit{Generic Interactive Natural Language Interface to Databa
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=.6\textwidth]{ch03/assets/ginlidb_architecture.jpg}
+    \includegraphics[width=.62\textwidth]{ch03/assets/ginlidb_architecture.jpg}
     \caption{Arquitetura do sistema GINLIDB, extraído de~\textcite{ginlidb}}
     \label{fig:ginlidb_architecture}
 \end{figure}
 
 O GINLIDB destaca-se pelo seu processo de análise sintática, no qual usa \gls{atn}, que verifica se a estrutura dos \textit{tokens} é permitida na estrutura gramatical. Este processo é suportado pelo \textit{parser} desenvolvido para o sistema usando uma gramática de contexto livre. Outro destaque deste sistema diz respeito à base de conhecimento usada, que é extensível pelo utilizador, permitindo adicionar novas palavras no dicionário, associar-lhes os respetivos sinónimos e definir o \textit{schema} da base de dados em uso, mapeando assim o domínio. Em termos de resultados, o sistema mostrou-se capaz de responder às questões mais comuns, embora não tenha sido testado em diferentes domínios~\parencite{ginlidb}.
 
-\subsection{Sumário do Casos de Estudo}
+\subsection{Sumário}
+Na tabela apresentada em seguida, descriminam-se os casos de estudo abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica.
 
 \begin{table}[!ht]
-\caption{Sumário dos casos de estudo de \gls{ilnbd}}
+\caption{Sumário dos casos de estudo de \glsfirst{ilnbd}, baseado em \textcite{survey_nlidb}}
 \label{tab:study_cases}
 \centering
 \resizebox{\textwidth}{!}{\input{ch03/assets/studycases_summary_table.tex}}
 \end{table}
+
+Uma análise cuidada sobre os projetos apresentados na Tabela~\ref{tab:study_cases} demonstra que não existe uma abordagem ou técnica recorrente. Para a solução a desenvolver, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \textit{Deep Learning} podem constituir um novo passo na implementação de \gls{ilnbd}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a ser consideradas e cuja conceção da solução irá ter em consideração.
