@@ -1,9 +1,40 @@
-\section{Avaliação da Solução}
+\section{Avaliação e Experimentação}
 \label{sec:chap01_solutionevaluation}
-A avaliação do resultado final é imprescindível para concluir acerca do sucesso do trabalho, permitindo perceber se a conjetura fundada a respeito da solução é aceite. Desse modo, especificam-se a metodologia de avaliação para solução desenvolvida e os critérios de sucesso a serem considerados.
+A avaliação do resultado final é imprescindível para a concluir acerca do sucesso do presente trabalho, permitindo perceber se a conjetura fundada a respeito da prova de conceito é aceite. Desse modo, formula-se a hipótese colocada para a abordagem escolhida, a respetiva metodologia de avaliação e experimentação e os critérios de sucesso a serem considerados.
+
+\subsection{Formulação das Hipóteses}
+\label{sec:chap01_hypothesis}
+Para a resolução do problema da empresa explicitado em~\ref{sec:chap01_problem}, o qual foca a melhoria da interação do {\productname} com o utilizador, surgem as seguintes questões:
+
+\begin{enumerate}
+    \item
+    {
+        A integração de um módulo de linguagem natural pode, de facto, melhorar a usabilidade do produto e consequentemente, simplificar processo de apoio à decisão?
+    }
+    \item
+    {
+        De que forma se pode avaliar a adequabilidade das respostas da solução às necessidades básicas dos utilizadores?
+    }
+\end{enumerate}
+
+Embora as perguntas anteriores sejam relevantes para a formulação de hipóteses para a solução final, e devem ser tidas em consideração na abordagem escolhida, não terão um peso significativo na avaliação do resultado deste trabalho. O foco desta tese, tal como descrito na Secção~\ref{sec:chap01_objectives}, é o desenvolvimento de um protótipo, em que a abordagem pode ser seguida para a implementação de uma solução definitiva no {\productname}. Assim, surge outra pergunta mais pertinente para esta fase e respetiva hipótese:
+
+\begin{itemize}
+    \item
+    {  
+        \textit{Questão} -- Qual a abordagem adequada para a tradução de linguagem natural numa linguagem capaz de extrair conhecimento de armazéns de dados?
+    }
+    \item
+    {
+        \textit{Hipótese} -- A abordagem escolhida permite a extração de conhecimento de armazéns de dados a partir de linguagem natural.
+    }
+\end{itemize}
+
+A hipótese apresentada auxilia na definição da metodologia de avaliação a adotar na presente tese. A refutação ou aceitação da hipótese formulada permite concluir acerca do trabalho realizado, e da necessidade de reformulação ou adoção de novas hipóteses.
 
 \subsection{Metodologia de Avaliação}
-Com o propósito de perceber se a solução desenvolvida é adequada para o {\productname} e para o utilizador final, definem-se as seguintes estratégias para a metodologia de avaliação deste trabalho:
+\label{sec:chap01_evaluationmethodologies}
+Com o propósito de perceber se a abordagem tomada no protótipo desenvolvido é adequado para o {\productname} e para o utilizador final, e levando em consideração a hipótese formulada anteriormente, definem-se as seguintes estratégias para a metodologia de avaliação deste trabalho:
 
 \begin{enumerate}
 \label{enum:chap01_qualitystrategies}
@@ -13,7 +44,7 @@ Com o propósito de perceber se a solução desenvolvida é adequada para o {\pr
         \begin{itemize}
             \item 
             {
-                Quantas operações foram executadas por semana, durante o mês $M$?
+                Quantas operações $O$ foram executadas por semana, durante o mês $M$?
             }
             \item
             {
@@ -29,30 +60,38 @@ Com o propósito de perceber se a solução desenvolvida é adequada para o {\pr
             }
         \end{itemize}
         
-        Nas questões apresentadas, as letras representam as variáveis próprias do domínio, que o utilizador conhece e que o sistema deve ser capaz de reconhecer.
+        Nas questões apresentadas, as letras representam as variáveis inerentes ao domínio, que o utilizador conhece e que o sistema deve ser capaz de reconhecer.
     }
     \item
     {
-        \textit{Usar as respostas recolhidas pelo mecanismo de feedback para conclusão acerca da usabilidade da solução} -- as respostas fornecidas pelo utilizador permitirão perceber se a solução contempla as suas necessidades e quais as medidas ou requisitos podem ser futuramente implementados, com a perspetiva de melhorar a qualidade do sistema.
+        \textit{Usar as respostas devolvidas pelo protótipo para concluir acerca da sua exatidão} -- as respostas fornecidas pelo protótipo, face à resposta expectável, permitirão perceber se a abordagem seguida é adequada.
     }
 \end{enumerate}
 
-Ambas estratégias possibilitam perceber a adequabilidade da solução para o produto e para o utilizador, quer numa perspetiva de facilidade de utilização, quer na exatidão da resposta dada.
+Ambas estratégias possibilitam perceber a adequabilidade da abordagem para solução a ser integrada no produto e para o utilizador, quer numa perspetiva de facilidade de utilização, quer na exatidão da resposta dada.
 
 \subsection{Critérios de Sucesso}
-De seguida, enumeram-se os critérios de sucesso para o trabalho, associados aos respetivos objetivos:
+De seguida, enumeram-se os critérios de sucesso para o trabalho:
 
 \begin{enumerate}
-    \item
-    {
-        \textit{A solução apresentada é extensível a outros domínios e facilmente integrada no {\productname}} -- garante-se assim que a arquitetura especificada considerou diversos domínios, facilidade e capacidade de integração com o produto, ainda mesmo sendo um protótipo (objetivos~\ref{enum:chap01_objectives_3}, \ref{enum:chap01_objectives_4} e \ref{enum:chap01_objectives_6});
-    }
-    \item
-    {
-        \textit{Prova de conceito dá resposta correta ao domínio definido} -- que implica responder corretamente às questões listadas em \ref{enum:chap01_qualitystrategies}, garantindo que semântica foi bem definida e que o requisito de qualidade está cumprido (objetivos~\ref{enum:chap01_objectives_5}, \ref{enum:chap01_objectives_6}, \ref{enum:chap01_objectives_7} e \ref{enum:chap01_objectives_8}).
-    }
     \item 
     {
-        \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:chap01_objectives});
+        \textit{A hipótese apresentada anteriormente é aceite} -- a abordagem escolhida apresenta resultados satisfatórios face à metodologia de avaliação definida para este trabalho;
     }
+    \item
+    {
+        \textit{A abordagem apresentada é extensível e de fácil integração no {\productname}} -- garante-se que a arquitetura especificada considerou a existência de diversos domínios, facilidade e capacidade de integração com o produto;
+    }
+    \item
+    {
+        \textit{Prova de conceito dá resposta correta às questões que lhe são colocadas} -- que implica responder corretamente às questões listadas em~\ref{enum:chap01_qualitystrategies}, garantindo que a resposta fornecida é semelhante ou igual à resposta que seria esperada;
+    }
+    \item
+    {
+        \textit{A abordagem é adotada ou refinada de forma a que possa ser usada na solução final} -- a abordagem revela-se efetiva na resolução do problema, e com o levantamento de possíveis melhorias, pode ser implementada no {\productname}.
+    }
+    % \item 
+    % {
+    %     \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:chap01_objectives});
+    % }
 \end{enumerate}

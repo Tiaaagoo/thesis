@@ -336,7 +336,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\null\vfil
 	\begin{center}
 	{\Huge \bfseries \ttitle}\\ % Thesis title
-	\ifdefined\tsubtitle {\huge \bfseries \tsubtitle} \\ \fi % Thesis sub title, if exists
+	\bigskip
+	\ifdefined\tsubtitle {\huge \tsubtitle} \\ \fi % Thesis sub title, if exists
 	\vfill
 	{\huge \bfseries \authorname}\\
 	\vfill
