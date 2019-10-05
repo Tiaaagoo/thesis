@@ -2,6 +2,9 @@
 \label{chap:Chapter3}
 O presente capítulo tem como objetivo apresentar os conceitos pertinentes para a execução e compreensão do trabalho, as ferramentas de \gls{pln} disponíveis no mercado, relevantes para a resolução do problema e os projetos que focam um problema de cariz semelhante. Na Secção~\ref{sec:chap03_pln} é introduzido o conceito de Processamento de Linguagem Natural, enquadrando-o com a solução a desenvolver. A Secção~\ref{sec:chap03_marketstudy} explora-se o mercado numa perspetiva de encontrar casos de estudo para a solução a desenvolver. Por fim, a Secção~\ref{sec:chap03_existingtools} discrimina as ferramentas mais significativas para a área \gls{pln} e em que medida é que cada uma pode, ou não, contribuir para o trabalho e a Secção~\ref{sec:chap03_approaches} distingue algumas abordagens postas em prática, com o objetivo de testar e avaliar, no ponto de vista de aplicabilidade, cada uma delas.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Processamento de Linguagem Natural}
 \label{sec:chap03_pln}
 O \glsfirst{pln} é um campo da Ciência da Computação, \glsfirst{ia} e Linguística que explora a forma como os computadores podem ser usados na compreensão, manipulação e geração automática da linguagem natural, em forma de texto ou voz~\parencite{nlp, applied_natural_language_processing_with_python, pln_extracao_conhecimento}. Nos últimos anos, a área tem-se tornado bastante popular com o acesso fácil a informação através da Internet, estando presente em implementações de \textit{chatbots}, verificadores ortográficos em telemóveis e assistentes de \gls{ia} nos \textit{smartphones}, tais como a Cortana\footnote{Disponível em \url{https://www.microsoft.com/en-us/cortana}.} ou Siri\footnote{Disponível em \url{https://www.apple.com/siri/}.}~\parencite{pln_extracao_conhecimento, applied_natural_language_processing_with_python}. 
@@ -54,7 +57,7 @@ O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da 
 
 Um sistema \gls{pln} pode envolver todos ou alguns destes níveis, cujas atividades permitem solucionar pequenas partes de um problema mais complexo. Algumas destas tarefas ou ferramentas incluem técnicas de segmentação de palavras e construção frásica, \textit{parsing} sintático e estatístico, métodos de desenho de modelos de conhecimento estruturados, redes neuronais e modelos de linguagem neuronal~\parencite{nlp, speech_language_processing}.
 
-\subsection{Linguagem Natural para Bases de Dados}
+\subsection{Interfaces de Linguagem Natural}
 Uma interface de linguagem natural é um componente que aceita expressões de consulta ou comandos em linguagem natural e providencia as respostas apropriadas, ou seja, esta deve ser capaz de traduzir as frases nas respetivas ações para o sistema~\parencite{nlp}. Neste contexto particular, importa explorar as \gls{ilnbd}, as quais permitem os utilizadores executarem pesquisas em bases de dados usando a linguagem natural~\parencite{overview_nlidb_approaches_implementation_airline, novel_approach_building_generic_portable_contextual_nlidb_system}.
 
 As \gls{ilnbd} apresentam um problema clássico na área de \gls{pln} e constitui um campo de estudo em desenvolvimento. Genericamente, a solução inerente a este problema podem ser divida em duas fases: processamento linguístico, em que a frase de pesquisa é mapeada e traduzida para a \textit{query} de \gls{sql} correspondente, usando funções de mapeamento adequadas; processamento na base de dados, na qual é executado a gestão de acesso ao sistema e execução da respetiva consulta~\parencite{overview_nlidb_approaches_implementation_airline}. Este tipo de sistemas é capaz de responder a uma grande variedade de \textit{queries} de linguagem natural mas são pouco usados comercialmente, principalmente pela pouca robustez nas capacidades de processamento de contexto~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}, pela falta de cobertura linguística ou pelo facto de utilizador poder assumir inteligência por parte do sistema~\parencite{survey_nlidb, overview_nlidb_approaches_implementation_airline}. Ainda assim, existem várias vantagens que contribuem para o desenvolvimento deste tipo de aplicações, nomeadamente a facilidade e simplicidade de utilização, o facto de ser mais adequado para questões que envolvem negação ou quantificação ou a sua tolerância a erros gramaticais~\parencite{survey_nlidb, nlidb_brief_review, overview_nlidb_approaches_implementation_airline}.
@@ -106,14 +109,24 @@ Apesar da sua semelhança com os sistemas baseados em sintaxe, a ideia inerente 
 \subsubsection*{Sistemas de Representação Intermediária de Linguagem}
 Atualmente, os sistemas \gls{ilnbd} transformam a linguagem natural numa representação intermediária, definida internamente. Assim, a \textit{query} lógica representada na linguagem intermédia expressa o significado da questão colocada pelo utilizador em termos dos conceitos do domínio, os quais são independentes da estrutura da base de dados. Posteriormente, a \textit{query} lógica é traduzida na linguagem genérica de base de dados e avaliada. Esta arquitetura surgiu da dificuldade de traduzir diretamente a linguagem natural para a \gls{sql}, ou outra semelhante. O processo de transformação da \textit{query} lógica para a linguagem de base de dados pode conter várias fases, dependendo da necessidade do sistema~\parencite{nlidb_brief_review}.
 
-\section{Casos de Estudo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Trabalhos de referência}
+\label{sec:chap03_mainmarketstudy}
+\tbd
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Outros Trabalhos}
 \label{sec:chap03_marketstudy}
 A investigação neste campo de estudo tem vindo a desenvolver-se desde o século XX~\parencite{survey_nlidb}. Assim sendo, é importante apresentar e examinar os casos mais pertinentes para o protótipo em desenvolvimento neste trabalho, na perspetiva de perceber quais as inovações que cada um deles trouxe para a área das \glspl{ilnbd} e em que medida se enquadram com o problema em resolução.
 
 \subsection{LUNAR}
 O LUNAR é um sistema que dá resposta ao domínio de amostras de rochas trazidas da lua e foi o primeiro sistema \gls{ilnbd}~\parencite{nlidb_brief_review, survey_nlidb}. O desenvolvimento deste sistema surgiu da necessidade de possibilitar aos cientistas envolvidos no estudo das rochas lunares poderem obter informação para formular e testar as suas hipóteses, de uma forma simples e intuitiva. O LUNAR permitia ao cientista executar diversas ações como fazer questões, computar médias e taxas, criar listas baseadas em critérios de seleção ou comparar medidas de diferentes investigadores, usando informação de duas bases de dados, uma contendo dados de análises químicas e a outra com dados de referências bibliográficas. Apesar de ter sido desenvolvido como protótipo, este sistema apresentou um desempenho satisfatório, sendo que cerca de 78\% dos pedidos foram respondidos com sucesso~\parencite{lunar_sciences_nlis}.
 
-\subsection{LADDER}
+\subsection*{LADDER}
 O LADDER é um sistema desenhado para consultar informação sobre navios da Marinha Americana, por forma a auxiliar os gestores da Marinha no processo de tomada de decisão~\parencite{nlidb_brief_review, developing_nli_complex_data}. O sistema, que usa gramática semântica para tratar \textit{queries} a uma base de dados distribuída, apresenta uma arquitetura de três camadas, cada uma correspondente a um componente do sistema: o INLAND -- \textit{Infomal Natural Language Access to Navy Data} --, é responsável por aceitar a \textit{query} de linguagem natural, produzir a respetiva \textit{query} de base de dados a partir da decomposição da mesma em fragmentos, sendo posteriormente combinados para unidades sintáticas a alto nível, para que sejam reconhecidas, dando origem a um comando enviado para o próximo componente; o IDA -- \textit{Intelligent Data Access} --, compõe uma resposta com base no comando recebido e organiza a sequência correta de \textit{queries} a realizar; o FAM -- \textit{File Access Manager} --, o último componente, tem a responsabilidade de gerir o acesso à base de dados distribuída~\parencite{developing_nli_complex_data}.
 
 \subsection{CHAT-80}
@@ -164,19 +177,26 @@ Este sistema -- \textit{Generic Interactive Natural Language Interface to Databa
 
 O GINLIDB destaca-se pelo seu processo de análise sintática, no qual usa \gls{atn}, que verifica se a estrutura dos \textit{tokens} é permitida na estrutura gramatical. Este processo é suportado pelo \textit{parser} desenvolvido para o sistema usando uma gramática de contexto livre. Outro destaque deste sistema diz respeito à base de conhecimento usada, que é extensível pelo utilizador, permitindo adicionar novas palavras no dicionário, associar-lhes os respetivos sinónimos e definir o \textit{schema} da base de dados em uso, mapeando assim o domínio. Em termos de resultados, o sistema mostrou-se capaz de responder às questões mais comuns, embora não tenha sido testado em diferentes domínios~\parencite{ginlidb}.
 
-\subsection{Sumário}
+\subsection{Sinopse}
 Na tabela apresentada em seguida, descriminam-se os casos de estudo abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica.
 
 \begin{table}[!ht]
 \caption{Sumário dos casos de estudo de \glsfirst{ilnbd}, baseado em \textcite{survey_nlidb}}
 \label{tab:study_cases}
 \centering
-\resizebox{\textwidth}{!}{\input{ch03/assets/studycases_summary_table.tex}}
+\resizebox{\textwidth}{!}{
+\renewcommand{\arraystretch}{1.25}
+\footnotesize
+\input{ch03/assets/studycases_summary_table.tex}
+}
 \end{table}
 
 Uma análise cuidada sobre os projetos apresentados na Tabela~\ref{tab:study_cases} demonstra que não existe uma abordagem ou técnica recorrente. Para a solução a desenvolver, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \gls{ml} ou \gls{dl} podem constituir um novo passo na implementação de \gls{ilnbd}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a ser consideradas e cuja conceção da solução irá ter em consideração.
 
-\section{Ferramentas de Processamento de Linguagem Natural}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ferramentas para Processamento de Linguagem Natural}
 \label{sec:chap03_existingtools}
 Atualmente, são disponibilizadas várias ferramentas para lidar com o \gls{pln}, sendo que se torna necessário destacar as mais relevantes e perceber qual pode ser a mais adequada na resolução do problema , dadas as particularidades de cada uma. Posteriormente, faz-se o comparativo de todas as ferramentas, selecionando aquela que se revela ser a mais apropriada, usando uma matriz de decisão para o efeito.
 
@@ -196,6 +216,9 @@ O projeto Google Brain\footnote{Disponível em \url{https://ai.google/research/t
 
 Num contexto de \gls{pln}, usando TensorFlow, pode aplicar-se redes neuronais convolucionais para tarefas de classificação, como análise de sentimento, deteção de \textit{spam} ou categorização de tópicos~\parencite{understanding_convolution_neural_networks_nlp}. Embora as redes neuronais convolucionais sejam tipicamente usadas na identificação de imagens, podem também ser usadas em tarefas \gls{pln}, usando as palavras como entrada, ao invés dos pixeis, sendo a sua computação rápida e eficiente~\parencite{understanding_convolution_neural_networks_nlp}.
 
+\subsection{Rasa}
+O Rasa é uma \textit{framework} \textit{open source} que permite o desenvolvimento de \textit{chatbots}, possibilitando, entre muitas outras capacidades, a compreensão de intenções e entidades envolvidas na conversação~\parencite{rasa_official}. Esta \textit{framework} baseia algumas das suas funcionalidades em ferramentas \gls{pln} já existentes, dando-lhe flexibilidade nas tarefas inerentes à compreensão da linguagem natural~\parencite{rasa_open_source_language_understanding}. Também importante referir que o Rasa é modular, ou seja, é constituído por dois componentes: o Rasa NLU, responsável pela compreensão da linguagem, classificando intenções e extraindo entidades; o Rasa Core, o motor de construção de diálogos; sendo possível usar cada um deles em conjunto ou isoladamente, facilitando também a integração com outros sistemas~\parencite{rasa_open_source_language_understanding, rasa_official}. O domínio consumido pelo Rasa é configurável, através de ficheiros \gls{json} ou \textit{Markdown}, e os seus componentes disponibilizam uma \gls{api} apoiada em \gls{http}, o que contribui para a escalabilidade e facilidade de integração do sistema, respetivamente~\parencite{rasa_open_source_language_understanding}.
+
 \subsection{Amazon Lex}
 O Lex é um produto do \textit{Amazon Web Services} (mais conhecida como AWS), uma plataforma de serviços da Amazon na \textit{cloud}, para construir interfaces de conversação integradas com qualquer aplicação, usando voz ou texto, fornecendo funcionalidades de reconhecimento automático de discurso, respetiva conversão para texto e compreensão de linguagem natural, o que possibilita a identificação das intenções manifestadas pelo utilizador, duma forma simples de usar, implantar e escalar~\parencite{amazon_lex_official}. Como demonstrado em~\textcite{aws_ml_blog_conversational_business}, o Amazon Lex garante a sua customização por forma a desenvolver um \textit{chatbot} capaz de interagir com o utilizador, convertendo os seus pedidos de linguagem natural para \gls{sql}, obtendo os dados de uma base de dados relacional, e por fim, apresentá-los.
 
@@ -205,10 +228,10 @@ O Watson Assistant é um produto do IBM Watson, um plataforma de serviços na \t
 \subsection{Microsoft LUIS}
 O LUIS, acrónimo para \textit{Language Understanding Intelligent Service}, é um serviço da Microsoft, baseado na \textit{cloud} e parte do produto \textit{Cognitive Services}, e que por sua vez integra na plataforma Azure, que aplica métodos de \gls{ml} à linguagem natural, permitindo obter informação relevante acerca da mesma~\parencite{microsoft_luis_official}. O intuito do LUIS é tornar possível a criação de soluções que apliquem modelos específicos de \gls{ml} para a compreensão de linguagem específica de um determinado domínio, sem qualquer tipo de perícia nesta área~\parencite{luis_fast_easy_language_understanding}. Assim, o LUIS permite a construção do próprio modelo, através da identificação de entidades, de intenções e das frases que lhes são associadas, oferecendo diversas ferramentas ao desenvolvedor para que este processo seja mais simples~\parencite{microsoft_luis_official}. Relativamente à sua aplicabilidade ao problema, a combinação do LUIS com o QnA Maker (outro serviço integrante do \textit{Cognitive Services}) resulta numa solução capaz de identificar as intenções e entidades, entregando respostas pré-fabricadas ou informação de uma determinada fonte~\parencite{microsoft_luis_use_nl_processing_service}.
 
-\subsection{Sumário}
-As ferramentas apresentadas previamente podem ser divididas por tipo; as quatro primeiras referem-se a bibliotecas ou \textit{frameworks} -- NLTK, Stanford CoreNLP, spaCy e TensorFlow --, as últimas três dizem respeito a serviços disponibilizados na \textit{cloud} - Amazon Lex, IBM Watson Assistant e Microsoft LUIS. Por essa razão, sendo que o objetivo é perceber qual a ferramenta mais adequada, é importante notar que a natureza de cada uma é diferente, o que influencia o comparativo entre elas. Portanto, essa comparação não deve ser feita pelas funcionalidades que cada uma oferece, mas sim pelo o valor que poderá trazer à solução, ou seja, pelos critérios e/ou restrições que cumprem.
+\subsection{Sinopse}
+As ferramentas apresentadas previamente podem ser divididas por tipo; as cinco primeiras referem-se a bibliotecas ou \textit{frameworks} -- NLTK, Stanford CoreNLP, spaCy, TensorFlow e Rasa --, as últimas três dizem respeito a serviços disponibilizados na \textit{cloud} - Amazon Lex, IBM Watson Assistant e Microsoft LUIS. Por essa razão, sendo que o objetivo é perceber qual a ferramenta mais adequada, é importante notar que a natureza de cada uma é diferente, o que influencia o comparativo entre elas. Portanto, essa comparação não deve ser feita pelas funcionalidades que cada uma oferece, mas sim pelo o valor que poderá trazer à solução, ou seja, pelos critérios e/ou restrições que cumprem.
 
-Assim sendo, deve-se indicar o conjunto de critérios mais relevantes, alguns já mencionados na Secção~\ref{sec:chap02_valueanalysis}, no tópico de geração, enriquecimento e seleção de ideias para o módulo. Para auxiliar no processo de decisão, opta-se por se usar uma matriz de decisão, uma ferramenta que permite identificar rapidamente a melhor alternativa, a partir de um conjunto pré-definido de critérios e da escala de avaliação~\parencite{decisions_engineering_design}.
+Para auxiliar no processo de decisão, opta-se pelo uso de uma matriz de decisão, uma ferramenta que permite identificar rapidamente a melhor alternativa, a partir de um conjunto pré-definido de critérios e da escala de avaliação~\parencite{decisions_engineering_design}.
 Para os critérios de avaliação consideram-se que têm todos o mesmo grau de importância, pelo que são descritos a seguir.
 
 \begin{itemize}
@@ -240,164 +263,19 @@ Quanto à escala de avaliação, opta-se por três níveis: um ($1$) até três 
 \caption{Comparativo das ferramentas de processamento de linguagem natural}
 \label{tab:tools_comparison}
 \centering
-\resizebox{\textwidth}{!}{\input{ch03/assets/tools_comparison.tex}}
+\resizebox{\textwidth}{!}{
+\renewcommand{\arraystretch}{1.3}
+\footnotesize
+\input{ch03/assets/tools_comparison.tex}
+}
 \end{table}
 
-A matriz de decisão apresentada na tabela anterior aponta o spaCy como a ferramenta mais adequada para o módulo de linguagem natural, pois cumpre a maioria dos critérios e não se trata de uma ferramenta na \textit{cloud}, visto que esta última é uma restrição da empresa. Em suma, tanto o spaCy como o TensorFlow são bons candidatos para o desenvolvimento da solução final, embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. Também é importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta.
+A matriz de decisão apresentada na Tabela~\ref{tab:tools_comparison} aponta o spaCy e o Rasa como as ferramentas mais adequadas para o módulo de linguagem natural, pois cumprem a maioria dos critérios e não se tratam de ferramentas na \textit{cloud}, visto que esta última é uma restrição da empresa. Em suma, tanto o spaCy como o Rasa são bons candidatos para o desenvolvimento da solução final, embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. É importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta. Já no caso do Rasa, os módulos disponibilizados parecem ser suficientes para a resolução do problema, sendo importante estudar com mais detalhe esta \textit{framework}.
 
 No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \textit{cloud} é aceitável -- o Microsoft LUIS, por exemplo --, visto que se pretende validar uma abordagem. Teoricamente, o reconhecimento de intenções e entidades, uma abordagem seguida pelas ferramentas da \textit{cloud} e que estão indicadas na bibliografia, parece constituir uma forma robusta de responder ao problema, pelo que poderão ser exploradas na prática.
 
-\section{Análise Exploratória}
-\label{sec:chap03_approaches}
-Com o propósito de colocar em prática o estudo levado a cabo até este ponto, decidiu-se fazer experimentações envolvendo algumas abordagens e ferramentas apresentadas nas secções anteriores. Posto isto, optou-se por desenvolver pequenas provas de conceito, num período bem definido, de forma a fazer uma rápida avaliação das abordagens, técnicas e ferramentas usadas. Para cada uma, é abordado em que consiste, algumas observações pertinentes e referência dos pontos favoráveis e desfavoráveis.
-
-\subsection{Gramática Baseada em Semântica}
-Como proposto em~\textcite[p.~361-403]{natural_language_processing_with_python}, o uso do NLTK permite o desenvolvimento de gramáticas que possibilitam a análise de uma frase pela sua semântica, tal como o exemplo demonstrado a seguir.
-
-\begin{lstlisting}[language=Python,caption={Excerto de uma gramática extraída de~\textcite{natural_language_processing_with_python}},numbers=none,label=lst:grammarexample,basicstyle=\scriptsize]
-S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
-VP[SEM=(?v + ?pp)] -> IV[SEM=?v] PP[SEM=?pp]
-VP[SEM=(?v + ?ap)] -> IV[SEM=?v] AP[SEM=?ap]
-NP[SEM=(?det + ?n)] -> Det[SEM=?det] N[SEM=?n]
-PP[SEM=(?p + ?np)] -> P[SEM=?p] NP[SEM=?np]
-AP[SEM=?pp] -> A[SEM=?a] PP[SEM=?pp]
-NP[SEM='Country="greece"'] -> 'Greece'
-NP[SEM='Country="china"'] -> 'China'
-Det[SEM='SELECT'] -> 'Which' | 'What'
-N[SEM='City FROM city_table'] -> 'cities'
-IV[SEM=''] -> 'are'
-A[SEM=''] -> 'located'
-P[SEM=''] -> 'in'
-\end{lstlisting}
-
-O código apresentado em~\ref{lst:grammarexample}, usando o NLTK, para a pergunta \inquotes{What cities are located in China?} permite gerar a seguinte \textit{query} de \gls{sql}: SELECT City FROM city\_table WHERE Country=\inquotes{china}. Com esta metodologia é possível mapear diretamente linguagem natural em \gls{sql}, sendo que a gramática funciona como a base de conhecimento. Por conseguinte, torna-se fácil a codificação de um \textit{parser} que usa as gramáticas definidas, verificando
-alguma é capaz de dar resposta à \textit{query} de linguagem natural.
-
-\subsubsection*{Pontos Favoráveis}
-\begin{itemize}
-    \item 
-    {
-        Viabilidade de desenvolvimento de uma solução customizada;
-    }
-    \item
-    {
-        Utilização de ferramenta \textit{open source};
-    }
-    \item 
-    {
-        Tradução imediata de linguagem natural para \gls{sql}. 
-    }
-\end{itemize}
-
-\subsubsection*{Pontos Desfavoráveis}
-\begin{itemize}
-    \item 
-    {
-        Dificuldade em criar ou estender gramáticas;
-    }
-    \item
-    {
-        Complexidade em adaptar para múltiplas línguas ou domínios;
-    }
-    \item
-    {
-        Necessidade de conhecimento linguístico, por forma a adaptar a gramática às regras de uma determinada língua;
-    }
-    \item
-    {
-        Ambiguidade da semântica. Diferentes expressões podem ou devem gerar o mesmo \gls{sql};
-    }
-    \item
-    {
-        Difícil de manter.
-    }
-\end{itemize}
-
-\subsection{Pesquisa Semântica}
-Nesta abordagem foi usada uma \textit{framework} que não consta nas ferramentas apresentadas na Secção~\ref{sec:chap03_existingtools}, principalmente porque o seu desenvolvimento encontra-se estagnado desde 2013. Ainda assim, é aceitável o seu uso para testar esta mesma abordagem, no ponto de vista prático. O Quepy é desenvolvido em \textit{Python} e tem como objetivo a transformação de linguagem natural em \textit{SPARQL Protocol and RDF Query Language} (SPARQL)\footnote{Disponível em \url{https://www.w3.org/TR/rdf-sparql-query/}.} e \textit{Metaweb Query Language} (MQL)\footnote{Disponível em \url{https://github.com/nchah/freebase-mql}.}, linguagens de \textit{query} usadas com tecnologia \gls{rdf}\footnote{Disponível em \url{https://www.w3.org/RDF/}.}, \inquotes{um modelo padrão para permuta de dados na Web}\footnote{Tradução livre do autor. No original \inquotes{is a standard model for data interchange on the Web.}.}, intrinsecamente ligado ao campo da Web Semântica~\parencite{resource_description_framework}.
-
-Neste caso, o uso do Quepy implica a definição da linguagem específica de domínio através de código \textit{Python}, respeitando as restrições colocadas na documentação da \textit{framework}, de maneira a que esta seja capaz de reconhecer o padrão introduzido.
-
-\begin{lstlisting}[language=python, caption={Excerto da definição semântica da frase que lida com listagem de produtos},numbers=none,label=lst:quepyexample,basicstyle=\scriptsize]
-from quepy.dsl import FixedType, FixedRelation
-from quepy.parsing import Lemma, QuestionTemplate
-
-class NameOf(FixedRelation):
-    "Name of the entity's property"
-    relation = "product_name"
-    reverse = True
-
-class IsProduct(FixedType):
-    "Defines the entity's type"
-    fixedtype = "product"
-
-class ListProducts(QuestionTemplate):
-    "Questions such as 'List products' or 'Listing products'"
-    regex = Lemma("list") + Lemma("product")
-
-    def interpret(self, match):
-        product = IsProduct()
-        name = NameOf(product)
-        return name, "enum"
-
-\end{lstlisting}
-
-No excerto demonstrado anteriormente em~\ref{lst:quepyexample}, define-se a expressão regular que caracteriza a questão esperada, para além de detalhes relacionados com a linguagem específica de domínio. A \textit{query} obtida pode ser posteriormente usada numa base de dados \gls{rdf}, como o objetivo de recolher os dados. De notar que, neste caso, sendo o propósito a consulta de uma base de dados relacional, seria necessária uma forma de a transpor ou replicar numa camada compatível com tecnologia \gls{rdf}. Para isso, existem ferramentas capazes de executar esse mapeamento, como por exemplo o D2RQ\footnote{Disponível em \url{http://d2rq.org/}.}.
-
-\subsubsection*{Pontos Favoráveis}
-\begin{itemize}
-    \item
-    {
-        Viabilidade de desenvolvimento de uma solução customizada;
-    }
-    \item
-    {
-        Tecnologia \textit{open source};
-    }
-    \item 
-    {
-        Linguagem específica de domínio permite abstração aos detalhes de implementação associados ao reconhecimento de linguagem natural;
-    }
-    \item
-    {
-        Reconhecimento da linguagem natural é feita através da análise de expressões regulares, o que torna fácil compreender a estrutura frásica;
-    }
-    \item
-    {
-        Transformação da linguagem natural numa representação que obedece à especificação da tecnologia \gls{rdf}, definida pela W3C.
-    }
-\end{itemize}
-
-\subsubsection*{Pontos Desfavoráveis}
-\begin{itemize}
-    \item
-    {
-        As regras de domínio e o modelo de dados devem ser definidos diretamente no código, não possibilitando a extensibilidade por configuração;
-    }
-    \item
-    {
-        Rigidez da linguagem usada, já que o uso de expressões regulares implica uma estrutura minimamente estática para que o reconhecimento seja bem sucedido;
-    }
-    \item
-    {
-        O uso de tecnologias \gls{rdf} levam a uma nova camada aplicacional, que envolve o uso de ferramentas não relacionadas com o \gls{pln} e que leva a mais esforço na manutenção do sistema;
-    }
-    \item
-    {
-        Necessidade de estudo aprofundado ou conhecimento pericial na área de Web Semântica.
-    }
-\end{itemize}
-
-\subsection{Reconhecimento de Intenções e Entidades}
-Neste contexto, foi utilizado o Microsoft LUIS, já descrito na Secção~\ref{sec:chap03_existingtools}. A razão para esta escolha deve-se principalmente a dois fatores: o facto de ser uma das plataformas mais usadas e documentadas, e pela Microsoft disponibilizar este tipo de ferramentas a quem possua subscrição de estudante.
-
-Para esta prova de conceito criou-se um \textit{chatbot} capaz de responder às perguntas colocadas pelo utilizador, identificando qual a intenção do utilizador e quais as entidades envolvidas.
-
-\subsubsection*{Pontos Favoráveis}
-\tbd
-
-\subsubsection*{Pontos Desfavoráveis}
-\tbd
-
-\subsection{Sumário}
-\tbd
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Síntese do Capítulo}
+\label{sec:chap03_chaptersummary}
