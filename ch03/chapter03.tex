@@ -1,18 +1,18 @@
 \chapter{Estado da Arte}
 \label{chap:Chapter3}
-O presente capítulo tem como objetivo apresentar os conceitos pertinentes para a execução e compreensão do trabalho, as ferramentas de \gls{pln} disponíveis no mercado, relevantes para a resolução do problema e os projetos que focam um problema de cariz semelhante. Na Secção~\ref{sec:chap03_pln} é introduzido o conceito de Processamento de Linguagem Natural, enquadrando-o com a solução a desenvolver. A Secção~\ref{sec:chap03_marketstudy} explora-se o mercado numa perspetiva de encontrar casos de estudo para a solução a desenvolver. Por fim, a Secção~\ref{sec:chap03_existingtools} discrimina as ferramentas mais significativas para a área \gls{pln} e em que medida é que cada uma pode, ou não, contribuir para o trabalho e a Secção~\ref{sec:chap03_approaches} distingue algumas abordagens postas em prática, com o objetivo de testar e avaliar, no ponto de vista de aplicabilidade, cada uma delas.
+O presente capítulo tem como objetivo a exploração da área de estudo associada ao problema. Começa-se por introduzir o conceito de \glsfirst{pln}, dando um contexto histórico e explorando os fundamentos desta temática. Posteriormente, introduz-se a temática mais específica do problema, descrevendo as suas características, nomeadamente os tipos de abordagem adotados e arquiteturas de sistema típicos. Segue-se a apresentação dos trabalhos relevantes para o campo de estudo, quer na realidade do problema, quer noutros cenários. Por último, exploram-se as ferramentas tipicamente usadas na resolução de problemas associados ao \gls{pln}, tentando apurar a mais adequada para a solução final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Processamento de Linguagem Natural}
 \label{sec:chap03_pln}
-O \glsfirst{pln} é um campo da Ciência da Computação, \glsfirst{ia} e Linguística que explora a forma como os computadores podem ser usados na compreensão, manipulação e geração automática da linguagem natural, em forma de texto ou voz~\parencite{nlp, applied_natural_language_processing_with_python, pln_extracao_conhecimento}. Nos últimos anos, a área tem-se tornado bastante popular com o acesso fácil a informação através da Internet, estando presente em implementações de \textit{chatbots}, verificadores ortográficos em telemóveis e assistentes de \gls{ia} nos \textit{smartphones}, tais como a Cortana\footnote{Disponível em \url{https://www.microsoft.com/en-us/cortana}.} ou Siri\footnote{Disponível em \url{https://www.apple.com/siri/}.}~\parencite{pln_extracao_conhecimento, applied_natural_language_processing_with_python}. 
+O \gls{pln} é um campo da Ciência da Computação, \glsfirst{ia} e Linguística, que explora a forma como os computadores podem ser usados na compreensão, manipulação e geração automática da linguagem natural, em forma de texto ou voz~\parencite{nlp, applied_natural_language_processing_with_python, pln_extracao_conhecimento}. Nos últimos anos, a área tem-se tornado bastante popular com o acesso fácil a informação através da Internet, estando presente em implementações de \textit{chatbots}, verificadores ortográficos em telemóveis e assistentes de \gls{ia} nos \textit{smartphones}, tais como a Cortana\footnote{Disponível em \url{https://www.microsoft.com/en-us/cortana}.} ou Siri\footnote{Disponível em \url{https://www.apple.com/siri/}.}~\parencite{pln_extracao_conhecimento, applied_natural_language_processing_with_python}. 
 
 \subsection{História}
-O início do \gls{pln} remonta aos anos 40, com o desenvolvimento da Ciência da Computação, aliada aos avanços na Linguística, que levou ao aparecimento da teoria da linguagens formais. Muito sucintamente, esta teoria consiste na modelação de estruturas complexas e respetivas regras, ou seja, permitem especificar e reconhecer linguagens a partir de modelos matemáticos (\exempligratia{um alfabeto é uma estrutura simples, a qual é constituída por letras que podem formar palavras, em diferentes idiomas}). Por outro lado, os avanços na \gls{ia}, particularmente com o modelo \gls{slp} apresentado na Figura~\ref{fig:slp}, também contribuíram para este campo~\parencite{applied_natural_language_processing_with_python}. O \gls{slp} é a base dos modelos neuronais usados nos dias de hoje. Warren McCulloch e Walter Pitts propuseram este modelo, baseado na analogia entre células nervosas (neurónios) e os processos computacionais, que permite computar a soma dos pesos ($w_{ni}$) associados a cada entrada ($x_{n}$), dando uma resposta binária consoante o valor da soma ($\sum$) varia de acordo com um determinado valor limite, decidindo se uma determinada ação será executada~\parencite{introduction_theory_neural_computation}.
-
-\begin{figure}[!t]
+O início do \gls{pln} remonta aos anos 40, com o desenvolvimento da Ciência da Computação, aliada aos avanços na Linguística, que levou ao aparecimento da teoria da linguagens formais. Muito sucintamente, esta teoria consiste na modelação de estruturas complexas e respetivas regras, ou seja, permitem especificar e reconhecer linguagens a partir de modelos matemáticos (\exempligratia{um alfabeto é uma estrutura simples, a qual é constituída por letras que podem formar palavras, em diferentes idiomas}). Por outro lado, os avanços na \gls{ia}, particularmente com o modelo \gls{slp}, apresentado na Figura~\ref{fig:slp}, também contribuíram para este campo~\parencite{applied_natural_language_processing_with_python}. O \gls{slp} é a base dos modelos neuronais usados nos dias de hoje. Warren McCulloch e Walter Pitts propuseram este modelo, baseado na analogia entre células nervosas (neurónios) e os processos computacionais, que permite computar a soma dos pesos ($w_{ni}$) associados a cada entrada ($x_{n}$), dando uma resposta binária consoante o valor da soma ($\sum$) varia de acordo com um determinado valor limite, decidindo se uma determinada ação será executada~\parencite{introduction_theory_neural_computation}.
+%
+\begin{figure}
     \centering
     \includegraphics[width=.8\textwidth]{ch03/assets/slp_model.jpg}
     \caption{\glsfirst{slp}, extraído de~\textcite{applied_natural_language_processing_with_python}}
@@ -22,7 +22,7 @@ O início do \gls{pln} remonta aos anos 40, com o desenvolvimento da Ciência da
 Ao longo dos anos, várias técnicas foram surgindo na tentativa de resolver problemas associados à compreensão da linguagem natural. Mas, nos últimos 20 anos, notou-se o aumento de interesse no \gls{pln}, juntamente com \gls{ml}, sobretudo devido ao aumento do poder computacional e à facilidade de acesso a dados etiquetados através da Internet~\parencite{applied_natural_language_processing_with_python}.
 
 \subsection{Fundamentos}
-O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da própria linguagem. O desenvolvimento deste tipo de aplicações incorre em alguns problemas tais como a processo de pensamento, a representação e significado linguístico e/ou conhecimento do domínio, que estão associados à ambiguidade da linguagem natural~\parencite{nlp, pln_extracao_conhecimento}. Por outras palavras, a ambiguidade surge quando não é possível atribuir um significado único a uma dada expressão. Se uma pessoa é capaz de o fazer, baseada na sua experiência, capacidade de interpretação de contexto ou na sua cultura, já um computador não tem essa mesma capacidade~\parencite{pln_extracao_conhecimento}. Por isso, \textcite{nlp} enuncia que, para ser capaz de compreender a linguagem natural, é importante considerar os vários níveis de conhecimento interdependentes que o ser humano usa na extração de significado:
+O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da própria linguagem~\parencite{nlp}. O desenvolvimento deste tipo de aplicações incorre em alguns problemas tais como a processo de pensamento, a representação e significado linguístico e/ou conhecimento do domínio, que estão associados à ambiguidade da linguagem natural~\parencite{nlp, pln_extracao_conhecimento}. Por outras palavras, a ambiguidade surge quando não é possível atribuir um significado único a uma dada expressão. Se uma pessoa é capaz de o fazer, baseada na sua experiência, capacidade de interpretação de contexto ou na sua cultura, já um computador não tem essa mesma capacidade~\parencite{pln_extracao_conhecimento}. Por isso, \textcite{nlp} enuncia que, para ser capaz de compreender a linguagem natural, é importante considerar os vários níveis de conhecimento interdependentes que o ser humano usa na extração de significado:
 
 \begin{itemize}
     \item 
@@ -57,27 +57,31 @@ O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da 
 
 Um sistema \gls{pln} pode envolver todos ou alguns destes níveis, cujas atividades permitem solucionar pequenas partes de um problema mais complexo. Algumas destas tarefas ou ferramentas incluem técnicas de segmentação de palavras e construção frásica, \textit{parsing} sintático e estatístico, métodos de desenho de modelos de conhecimento estruturados, redes neuronais e modelos de linguagem neuronal~\parencite{nlp, speech_language_processing}.
 
-\subsection{Interfaces de Linguagem Natural}
-Uma interface de linguagem natural é um componente que aceita expressões de consulta ou comandos em linguagem natural e providencia as respostas apropriadas, ou seja, esta deve ser capaz de traduzir as frases nas respetivas ações para o sistema~\parencite{nlp}. Neste contexto particular, importa explorar as \gls{ilnbd}, as quais permitem os utilizadores executarem pesquisas em bases de dados usando a linguagem natural~\parencite{overview_nlidb_approaches_implementation_airline, novel_approach_building_generic_portable_contextual_nlidb_system}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Interfaces de Linguagem Natural}
+\label{sec:chap03_nli}
+Uma \gls{iln} é um componente que aceita expressões de consulta ou comandos em linguagem natural e providencia as respostas apropriadas, ou seja, esta deve ser capaz de traduzir as frases nas respetivas ações para o sistema~\parencite{nlp}. Em geral, estas são usadas para consulta de informação, tipicamente mantida em bases de dados (relacionais), pelo que são frequentemente designadas na literatura por \glspl{ilnbd}~\parencite{overview_nlidb_approaches_implementation_airline, novel_approach_building_generic_portable_contextual_nlidb_system}.
 
-As \gls{ilnbd} apresentam um problema clássico na área de \gls{pln} e constitui um campo de estudo em desenvolvimento. Genericamente, a solução inerente a este problema podem ser divida em duas fases: processamento linguístico, em que a frase de pesquisa é mapeada e traduzida para a \textit{query} de \gls{sql} correspondente, usando funções de mapeamento adequadas; processamento na base de dados, na qual é executado a gestão de acesso ao sistema e execução da respetiva consulta~\parencite{overview_nlidb_approaches_implementation_airline}. Este tipo de sistemas é capaz de responder a uma grande variedade de \textit{queries} de linguagem natural mas são pouco usados comercialmente, principalmente pela pouca robustez nas capacidades de processamento de contexto~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}, pela falta de cobertura linguística ou pelo facto de utilizador poder assumir inteligência por parte do sistema~\parencite{survey_nlidb, overview_nlidb_approaches_implementation_airline}. Ainda assim, existem várias vantagens que contribuem para o desenvolvimento deste tipo de aplicações, nomeadamente a facilidade e simplicidade de utilização, o facto de ser mais adequado para questões que envolvem negação ou quantificação ou a sua tolerância a erros gramaticais~\parencite{survey_nlidb, nlidb_brief_review, overview_nlidb_approaches_implementation_airline}.
-
+As \glspl{ilnbd} apresentam um problema clássico na área de \gls{pln} e constitui um campo de estudo em desenvolvimento. Genericamente, a solução inerente a este problema pode ser divida em duas fases: processamento linguístico, em que a frase de pesquisa é mapeada e traduzida para a \textit{query} de \gls{sql} correspondente, usando funções de mapeamento adequadas; processamento na base de dados, na qual é executado a gestão de acesso ao sistema e execução da respetiva consulta~\parencite{overview_nlidb_approaches_implementation_airline}. Este tipo de sistemas é capaz de responder a uma grande variedade de \textit{queries} de linguagem natural mas são pouco usados comercialmente, principalmente pela pouca robustez nas capacidades de processamento de contexto~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}, pela falta de cobertura linguística ou pelo facto de utilizador poder assumir inteligência por parte do sistema~\parencite{survey_nlidb, overview_nlidb_approaches_implementation_airline}. Ainda assim, existem várias vantagens que contribuem para o desenvolvimento deste tipo de aplicações, nomeadamente a facilidade e simplicidade de utilização, o facto de ser mais adequado para questões que envolvem negação ou quantificação ou a sua tolerância a erros gramaticais~\parencite{survey_nlidb, nlidb_brief_review, overview_nlidb_approaches_implementation_airline}.
+%
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=.6\textwidth]{ch03/assets/non_contextual_nlidb.jpg}
-    \caption{Sistema \glsfirst{ilnbd} não-contextual, extraído de~\textcite{novel_approach_towards_incorporating_context_processing_nlidb}}
+    \includegraphics[width=.7\textwidth]{ch03/assets/non_contextual_nlidb.jpg}
+    \caption{Sistema não-contextual, extraído de~\textcite{novel_approach_towards_incorporating_context_processing_nlidb}}
     \label{fig:noncontextual_nlidb}
 \end{figure}
 
-Num ponto de vista processual, \textcite{novel_approach_towards_incorporating_context_processing_nlidb} menciona que os sistemas \gls{ilnbd} podem ser divididos em dois tipos: não-contextuais e contextuais. Num sistema não-contextual (Figura~\ref{fig:noncontextual_nlidb}) existe a necessidade de modelo semânticos de base, descrevendo regras de domínio. Na fase de análise sintática (\textit{Syntactic Analysis}) é extraída a informação linguística da \textit{query} de linguagem natural. Por sua vez, na análise semântica (\textit{Semantic Analysis}) identificam-se as entidades, atributos a partir da resposta da fase anterior e dos modelos semânticos. Finalmente, na fase de processamento de \textit{queries} (\textit{Query Processing}, as entidades identificadas são mapeadas num grafo, computando-se o caminho mais curto. Dessa forma, é gerada a \textit{query} \gls{sql} e executada para obter os resultados~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}. Já um sistema \gls{ilnbd} contextual (Figura~\ref{fig:contextual_nlidb}) recolhe informação acerca do contexto numa \inquotes{conversa} com o utilizador. Neste caso, as capacidades de processamento devem ser contidas na arquitetura através da inserção de uma nova etapa (\textit{Context Processing}), mantendo intactas as responsabilidades de cada fase~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}.
-
-\begin{figure}[!h]
+Num ponto de vista processual, \textcite{novel_approach_towards_incorporating_context_processing_nlidb} menciona que os sistemas de \glspl{ilnbd} podem ser divididos em dois tipos: não-contextuais e contextuais. Num sistema não-contextual (ver Figura~\ref{fig:noncontextual_nlidb}) existe a necessidade de modelo semânticos de base, descrevendo regras de domínio. Na fase de análise sintática (\textit{Syntactic Analysis}) é extraída a informação linguística da \textit{query} de linguagem natural. Por sua vez, na análise semântica (\textit{Semantic Analysis}) identificam-se as entidades, atributos a partir da resposta da fase anterior e dos modelos semânticos. Finalmente, na fase de processamento de \textit{queries} (\textit{Query Processing}, as entidades identificadas são mapeadas num grafo, computando-se o caminho mais curto. Dessa forma, é gerada a \textit{query} \gls{sql} e executada para obter os resultados~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}. Já uma \gls{ilnbd} contextual (ver Figura~\ref{fig:contextual_nlidb}) recolhe informação acerca do contexto numa \inquotes{conversa} com o utilizador. Neste caso, as capacidades de processamento devem ser contidas na arquitetura através da inserção de uma nova etapa (\textit{Context Processing}), mantendo intactas as responsabilidades de cada fase~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}.
+%
+\begin{figure}
     \centering
-    \includegraphics[width=.7\textwidth]{ch03/assets/contextual_nlidb.jpg}
-    \caption{Sistema \glsfirst{ilnbd} contextual, extraído de~\textcite{novel_approach_towards_incorporating_context_processing_nlidb}}
+    \includegraphics[width=.8\textwidth]{ch03/assets/contextual_nlidb.jpg}
+    \caption{Sistema contextual, extraído de~\textcite{novel_approach_towards_incorporating_context_processing_nlidb}}
     \label{fig:contextual_nlidb}
 \end{figure}
-
+%
 Relativamente às abordagens ou estratégias de desenvolvimento deste tipo de \textit{software}, são várias e cada uma delas apresentam particularidades que podem influenciar a forma como o sistema é desenhado~\parencite{nlidb_brief_review, survey_nlidb}:
 
 \begin{itemize}
@@ -95,82 +99,100 @@ Relativamente às abordagens ou estratégias de desenvolvimento deste tipo de \t
     }
 \end{itemize}
 
-Quanto à arquitetura dos sistemas \gls{ilnbd}, além de serem variadas, possuem também diferentes interpretações ao problema. Cada uma apresenta vantagens e desvantagens, pelo que é necessário explorar, de forma resumida, as características de cada.
+Quanto à arquitetura das \glspl{ilnbd}, além de serem variadas, possuem também diferentes interpretações ao problema. Cada uma apresenta vantagens e desvantagens, pelo que é necessário explorar, de forma resumida, as características de cada.
 
-\subsubsection*{Sistemas \textit{Pattern Matching}}
+\subsection{Sistemas \textit{Pattern Matching}}
 Os primeiros esforços no desenvolvimento de sistemas deste género começaram em meados do século XX. O conceito de \textit{Pattern Matching} permite mapear diretamente o \textit{input} do utilizador para a obter o resultado desejado. A implementação destes sistemas implica que os detalhes da base de dados estejam presentes no código, ou seja, torna a solução limitada a um contexto específico e ao número e complexidade de padrões existentes~\parencite{nlidb_brief_review}. A principal vantagem desta abordagem prende-se à simplicidade de implementação, pelo que não há necessidade em conceber módulos de interpretação ou \textit{parsing} da linguagem~\parencite{nlidb_brief_review, survey_nlidb}.
 
-\subsubsection*{Sistemas Baseados em Sintaxe}
+\subsection{Sistemas Baseados em Sintaxe}
 Os sistemas baseados em sintaxe possibilitam que a \inquotes{questão} do utilizador seja analisada sintaticamente, dando origem a uma árvore que é diretamente mapeada para uma expressão \gls{sql}. Para isso, estes sistemas usam uma gramática que descreve as estruturas sintáticas das perguntas dos utilizadores~\parencite{nlidb_brief_review}. Geralmente, é difícil mapear todas regras que constituem a gramática e o processo de escolha de quais as regras devem ser representadas é complexo. Outro problema é o facto de uma frase poder ter múltiplas corretas árvores de análise sintática, que aquando traduzidas, podem levar a diferentes resultados. Também a dificuldade de transformar a árvore de análise sintática diretamente numa linguagem genérica de base de dados é um problema complexo de resolver~\parencite{survey_nlidb}. A principal vantagem desta abordagem é o facto de fornecer informação acerca da estrutura frásica, possibilitando o mapeamento da semântica em regras produtivas (nós da árvore de análise sintática)~\parencite{nlidb_brief_review}.
 
-\subsubsection*{Sistemas de Gramática Semântica}
+\subsection{Sistemas de Gramática Semântica}
 Apesar da sua semelhança com os sistemas baseados em sintaxe, a ideia inerente a um sistema deste tipo é a simplificar a árvore de análise sintática, através da combinação de alguns nós ou remoção dos mesmos. Posto isto, um sistema de gramática semântica é capaz de refletir melhor a representação semântica da frase, sem as estruturas complexas na árvore, com a possibilidade de designar nomes para os nós, reduzindo a ambiguidade. As principais desvantagens desta abordagem prendem-se com a necessidade de conhecimento prévio do domínio, tornando-se difícil a transposição para um outro e a estrutura específica das árvores de análise sintática não poderia ser usado noutra aplicação~\parencite{survey_nlidb, nlidb_brief_review}.
 
-\subsubsection*{Sistemas de Representação Intermediária de Linguagem}
-Atualmente, os sistemas \gls{ilnbd} transformam a linguagem natural numa representação intermediária, definida internamente. Assim, a \textit{query} lógica representada na linguagem intermédia expressa o significado da questão colocada pelo utilizador em termos dos conceitos do domínio, os quais são independentes da estrutura da base de dados. Posteriormente, a \textit{query} lógica é traduzida na linguagem genérica de base de dados e avaliada. Esta arquitetura surgiu da dificuldade de traduzir diretamente a linguagem natural para a \gls{sql}, ou outra semelhante. O processo de transformação da \textit{query} lógica para a linguagem de base de dados pode conter várias fases, dependendo da necessidade do sistema~\parencite{nlidb_brief_review}.
+\subsection{Sistemas de Representação Intermediária de Linguagem}
+Atualmente, as \glspl{ilnbd} transformam a linguagem natural numa representação intermediária, definida internamente. Assim, a \textit{query} lógica representada na linguagem intermédia expressa o significado da questão colocada pelo utilizador em termos dos conceitos do domínio, os quais são independentes da estrutura da base de dados. Posteriormente, a \textit{query} lógica é traduzida na linguagem genérica de base de dados e avaliada. Esta arquitetura surgiu da dificuldade de traduzir diretamente a linguagem natural para a \gls{sql}, ou outra semelhante. O processo de transformação da \textit{query} lógica para a linguagem de base de dados pode conter várias fases, dependendo da necessidade do sistema~\parencite{nlidb_brief_review}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Trabalhos de referência}
+\section{Trabalhos de Referência}
 \label{sec:chap03_mainmarketstudy}
-\tbd
+A investigação e revisão dos trabalhos considerados mais representativos e relacionados com esta tese é fulcral, na perspetiva de perceber as inovações que cada um trouxe para o campo de estudo das \glspl{iln} e em que medida se enquadram com o problema em resolução.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Outros Trabalhos}
-\label{sec:chap03_marketstudy}
-A investigação neste campo de estudo tem vindo a desenvolver-se desde o século XX~\parencite{survey_nlidb}. Assim sendo, é importante apresentar e examinar os casos mais pertinentes para o protótipo em desenvolvimento neste trabalho, na perspetiva de perceber quais as inovações que cada um deles trouxe para a área das \glspl{ilnbd} e em que medida se enquadram com o problema em resolução.
+\subsection{Aplicados no Panorama Fabril}
+A pesquisa na literatura existente revela a existência de poucos casos de especificação e/ou implementação de \gls{iln} no contexto industrial, e nenhum dos casos se refere à aplicabilidade nos \glspl{mes}. Como referido inicialmente (ver Secção~\ref{sec:chap03_nli}), esta matéria é relativamente recente, cujo estudo está em desenvolvimento. Ainda assim, são expostos os trabalhos considerados de relevo neste âmbito.
 
-\subsection{LUNAR}
-O LUNAR é um sistema que dá resposta ao domínio de amostras de rochas trazidas da lua e foi o primeiro sistema \gls{ilnbd}~\parencite{nlidb_brief_review, survey_nlidb}. O desenvolvimento deste sistema surgiu da necessidade de possibilitar aos cientistas envolvidos no estudo das rochas lunares poderem obter informação para formular e testar as suas hipóteses, de uma forma simples e intuitiva. O LUNAR permitia ao cientista executar diversas ações como fazer questões, computar médias e taxas, criar listas baseadas em critérios de seleção ou comparar medidas de diferentes investigadores, usando informação de duas bases de dados, uma contendo dados de análises químicas e a outra com dados de referências bibliográficas. Apesar de ter sido desenvolvido como protótipo, este sistema apresentou um desempenho satisfatório, sendo que cerca de 78\% dos pedidos foram respondidos com sucesso~\parencite{lunar_sciences_nlis}.
+\subsubsection*{GSPAS}
+Denominado de \textit{Global Study Process Allocations System}, abreviado em GSPAS, é um sistema de \gls{ia} desenvolvido pela Ford e aplicado no planeamento de processo, análise dos processos de montagem e tradução de instruções para construção dos veículos~\parencite{intelligent_systems_manufacturing_ford}. A ideia inerente ao GSPAS é o uso de uma linguagem interna, denominada de \textit{Standard Language}, baseada em linguagem natural, mas obedecendo a um conjunto de regras padronizadas internamente, e que permite a execução de ações no processo. As especificações para a montagem de um determinado veículo são escritas em \inquotes{folhas de processo}\footnote{\textit{Manufacturing Process Sheets}. Documento que lista as operações a executar para obter o produto final.}, pelos engenheiros de produção, e são posteriormente entregues ao sistema, que lê as instruções usando técnicas de \gls{pln}, nomeadamente recorrendo a \gls{atn} para o \textit{parsing} sintático, converte-as num conjunto de operações a realizar e estima o tempo que cada operador necessita para cumprir as tarefas de montagem~\parencite{intelligent_systems_manufacturing_ford, machine_translation_global_enterprise_ford}.
 
-\subsection*{LADDER}
+Mediante o referido em~\textcite{intelligent_systems_manufacturing_ford}, a base de conhecimento do sistema é totalmente configurável, devido à natureza dinâmica do processo de fabrico automóvel, havendo a necessidade de atualização frequente do domínio. Também é mencionado que, só nos primeiros seis meses de funcionamento, este sistema foi capaz de identificar com sucesso 1100 \inquotes{folhas de processo} com problemas associados ao fator humano, prevenindo que fossem colocadas erradamente em produção, evitando mais de 17 milhões de dólares de prejuízo. O plano para futuro é integrar tecnologias \gls{rdf} e \gls{owl}, \textit{standards} da Ontologia e Web Semântica, com perspetiva de permitir aos engenheiros de produção consultar, em tempo apropriado, informação acerca do processo fabril~\parencite{intelligent_systems_manufacturing_ford}.
+
+\subsubsection*{Surukam-NLI}
+Este sistema consiste numa \gls{ilnbd} que aplica técnicas de  \textit{parsing} sintático e \gls{ml} para mapeamento semântico da linguagem natural, procurando extrair entidades e regras, que constituem a linguagem intermédia, e seguidamente usar esses elementos na conversão em \gls{sql}~\parencite{towards_building_domain_agnostic_nli}. Ele foi testado com base de dados \textit{AdventureWorks}\footnote{Disponível em \url{https://docs.microsoft.com/en-us/sql/samples/}.} da Microsoft, a qual contém cenários de cariz empresarial, designadamente contendo informação de recursos humanos (\exempligratia{salário de operadores, data de entrada}), vendas e \textit{marketing} (\exempligratia{dados de clientes e vendas}) e informação de produto (\exempligratia{tipos de produção, custo de produção})~\parencite{towards_building_domain_agnostic_nli}.
+%
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{ch03/assets/surukam-architecture.png}
+    \caption{Arquitetura do sistema Surukam-NLI, extraído de~\textcite{towards_building_domain_agnostic_nli}}
+    \label{fig:surukam_architecture}
+\end{figure}
+
+Na Figura~\ref{fig:surukam_architecture} consta a arquitetura do Sukuram-NLI, que é aqui explicada, a alto nível: dada uma \textit{query} de linguagem natural, esta é transformada numa representação intermédia (\textit{Intermediate Dictionary}) que contém as entidades e regras identificadas pelo \textit{Entity \& Constraint Recognizer}. De seguida, o \textit{SQL Query Generator}, baseado na esquema de base de dados previamente configurado, converte o \textit{input} recebido na \textit{query} \gls{sql} e executa-a contra a respetiva base de dados~\parencite{towards_building_domain_agnostic_nli}.
+
+As métricas retiradas evidenciam que este sistema possui uma precisão de cerca de 80\%, necessitando de mais pesquisa e estudo para abordar \textit{queries} complexas, que envolvem, por exemplo, operações complementares à conversão para \gls{sql} ou ambiguidade na linguagem natural~\parencite{towards_building_domain_agnostic_nli}.
+
+\subsection{Outras Aplicações}
+Para além dos trabalhos alcançados em contexto semelhante a esta tese, são apresentados outros igualmente relevantes na temática das \glspl{iln}, embora não aplicados na área industrial.
+
+\subsubsection*{LUNAR}
+O LUNAR é um sistema que dá resposta ao domínio de amostras de rochas trazidas da lua e foi a primeira \gls{ilnbd}~\parencite{nlidb_brief_review, survey_nlidb}. O desenvolvimento deste sistema surgiu da necessidade de possibilitar aos cientistas envolvidos no estudo das rochas lunares poderem obter informação para formular e testar as suas hipóteses, de uma forma simples e intuitiva. O LUNAR permitia ao cientista executar diversas ações como fazer questões, computar médias e taxas, criar listas baseadas em critérios de seleção ou comparar medidas de diferentes investigadores, usando informação de duas bases de dados, uma contendo dados de análises químicas e a outra com dados de referências bibliográficas. Apesar de ter sido desenvolvido como protótipo, este sistema apresentou um desempenho satisfatório, sendo que cerca de 78\% dos pedidos foram respondidos com sucesso~\parencite{lunar_sciences_nlis}.
+
+\subsubsection*{LADDER}
 O LADDER é um sistema desenhado para consultar informação sobre navios da Marinha Americana, por forma a auxiliar os gestores da Marinha no processo de tomada de decisão~\parencite{nlidb_brief_review, developing_nli_complex_data}. O sistema, que usa gramática semântica para tratar \textit{queries} a uma base de dados distribuída, apresenta uma arquitetura de três camadas, cada uma correspondente a um componente do sistema: o INLAND -- \textit{Infomal Natural Language Access to Navy Data} --, é responsável por aceitar a \textit{query} de linguagem natural, produzir a respetiva \textit{query} de base de dados a partir da decomposição da mesma em fragmentos, sendo posteriormente combinados para unidades sintáticas a alto nível, para que sejam reconhecidas, dando origem a um comando enviado para o próximo componente; o IDA -- \textit{Intelligent Data Access} --, compõe uma resposta com base no comando recebido e organiza a sequência correta de \textit{queries} a realizar; o FAM -- \textit{File Access Manager} --, o último componente, tem a responsabilidade de gerir o acesso à base de dados distribuída~\parencite{developing_nli_complex_data}.
 
-\subsection{CHAT-80}
-Segundo \textcite{nlidb_brief_review}, o CHAT-80 é um dos sistemas \gls{pln} mais referenciados nos anos 80. O CHAT-80 foi desenvolvido pensando na adaptabilidade a diversos domínios, de forma fácil e eficiente. Foi implementado em \textit{Prolog} e incluía uma base de conhecimento com factos geográficos de mais de 150 países (domínio de geografia mundial) e vocabulário inglês suficiente para interação com uma base de dados, que neste caso específico seria implementada totalmente em \textit{Prolog}. Os autores concordaram que a aplicação devia lidar com um conjunto restrito de linguagem natural relevante para o domínio, uma vez que dessa forma se torna uma linguagem de \textit{query} formal mas acessível para o utilizador~\parencite{efficient_easily_adaptable_system_interpreting_nlq}.
+\subsubsection*{Chat-80}
+Segundo \textcite{nlidb_brief_review}, o Chat-80 é um dos sistemas \gls{pln} mais referenciados nos anos 80. O Chat-80 foi desenvolvido pensando na adaptabilidade a diversos domínios, de forma fácil e eficiente. Foi implementado em \textit{Prolog} e incluía uma base de conhecimento com factos geográficos de mais de 150 países (domínio de geografia mundial) e vocabulário inglês suficiente para interação com uma base de dados, que neste caso específico seria implementada totalmente em \textit{Prolog}. Os autores concordaram que a aplicação devia lidar com um conjunto restrito de linguagem natural relevante para o domínio, uma vez que dessa forma se torna uma linguagem de \textit{query} formal mas acessível para o utilizador~\parencite{efficient_easily_adaptable_system_interpreting_nlq}.
 
-\subsection{JANUS}
-O JANUS é uma aplicação \gls{pln} com a capacidade de \inquotes{comunicar} com múltiplos sistemas, tais como bases de dados, sistemas periciais, dispositivos gráficos, sendo capaz de avaliar a \textit{query} de linguagem natural e inferir acerca de quais os recursos a utilizar, sem que o utilizador se apercebesse da complexidade do sistema~\parencite{nlidb_brief_review, access_multiple_underlying_system_janus}. O fluxo do JANUS consistia em extrair as expressões da \textit{query} de linguagem natural, usando uma linguagem desenvolvida para o efeito, denominada \textit{World Model Language}; traduzir essas expressões para uma representação simplificada e normalizada; aplicar o algoritmo desenvolvido para encontrar a combinação adequada de serviços a disponibilizar, de modo a satisfazer o pedido do utilizador; por fim, a criação e execução de um plano para extração da informação~\parencite{access_multiple_underlying_system_janus}.
+\subsubsection*{Janus}
+O Janus é uma aplicação \gls{pln} com a capacidade de \inquotes{comunicar} com múltiplos sistemas, tais como bases de dados, sistemas periciais, dispositivos gráficos, sendo capaz de avaliar a \textit{query} de linguagem natural e inferir acerca de quais os recursos a utilizar, sem que o utilizador se apercebesse da complexidade do sistema~\parencite{nlidb_brief_review, access_multiple_underlying_system_janus}. O fluxo do Janus consistia em extrair as expressões da \textit{query} de linguagem natural, usando uma linguagem desenvolvida para o efeito, denominada \textit{World Model Language}; traduzir essas expressões para uma representação simplificada e normalizada; aplicar o algoritmo desenvolvido para encontrar a combinação adequada de serviços a disponibilizar, de modo a satisfazer o pedido do utilizador; por fim, a criação e execução de um plano para extração da informação~\parencite{access_multiple_underlying_system_janus}.
 
-\subsection{PRECISE}
+\subsubsection*{PRECISE}
 O PRECISE é um sistema desenvolvido na Universidade de Washington, cuja base de dados alvo é relacional, usando \gls{sql}, e que introduz o conceito de frases semanticamente tratáveis, ou seja, \textit{queries} que podem ser traduzidas para uma representação semântica única~\parencite{overview_nlidb_approaches_implementation_airline, nlidb_brief_review}. \textcite{modern_nlidb_composing_statistical_parsing_semantic_tractability} menciona que a distinção entre questões semanticamente tratáveis e as complexas resulta num processo de tratamento da linguagem natural mais simples e pode ser usado para compensar erros de \textit{parsing} sintáticos. 
 
-A Figura~\ref{fig:precise_architecture} apresenta a arquitetura deste sistema, no qual se destaca o \textit{Parser Plugin}, um componente que permite ao PRECISE adaptar-se aos avanços na tecnologia de \textit{parsing}, sem que haja a necessidade de adaptar todo o sistema~\parencite{modern_nlidb_composing_statistical_parsing_semantic_tractability}. 
-
-\begin{figure}[!ht]
+A Figura~\ref{fig:precise_architecture} apresenta a arquitetura deste sistema, no qual se destaca o \textit{Parser Plugin}, um componente que permite ao Precise adaptar-se aos avanços na tecnologia de \textit{parsing}, sem que haja a necessidade de adaptar todo o sistema~\parencite{modern_nlidb_composing_statistical_parsing_semantic_tractability}. 
+%
+\begin{figure}
     \centering
-    \includegraphics[width=.65\textwidth]{ch03/assets/precise_architecture.jpg}
+    \includegraphics[width=.8\textwidth]{ch03/assets/precise_architecture.jpg}
     \caption{Arquitetura do sistema PRECISE, extraído de~\textcite{towards_theory_nli_databases}}
     \label{fig:precise_architecture}
 \end{figure}
-
+%
 Quanto aos restantes componentes: o \textit{Lexicon} extrai os \textit{tokens} de uma dada frase e encontra sinónimos dessas expressões; o \textit{Tokenizer} verifica se, para cada potencial \textit{token}, outras palavras estão também presentes na questão, e associa-lhes um um determinado tipo de elemento de base de dados (\exempligratia{valor, atributo, relação}); o \textit{Matcher} procede à correspondência entre os \textit{tokens} e os respetivos elementos da base de dados; o \textit{Query Generator}, como o próprio nome indica, é responsável por gerar a \textit{query} de \gls{sql}; o \textit{Equivalence Checker} testa se existem soluções distintas e, em caso de as encontrar, o sistema questiona o utilizador acerca da interpretação semântica da questão~\parencite{towards_theory_nli_databases}.
 
 Este sistema foi avaliado em dois domínios: o primeiro, referente a viagens aéreas e o segundo, associado à geografia dos Estados Unidos da América. De acordo com \textcite{nlidb_brief_review}, no primeiro caso, $95.8\%$ das questões são semanticamente tratáveis, pelo que a precisão do sistema atinge os $94\%$ e, no segundo caso, $77.5\%$ das questões são tratáveis em termos de semântica, obtendo $100\%$ de precisão, destacando-se assim o seu desempenho.
 
-\subsection{NALIX}
-O NALIX -- \textit{Natural Language Interface for an XML Database} -- é uma \gls{ilnbd} desenvolvida na Universidade de Michigan, com o intuito de obter informação genérica a partir de uma base de dados em \gls{xml}~\parencite{nalix_interactive_nli_querying_xml}. De acordo com~\textcite{nalix_interactive_nli_querying_xml}, o desafio consiste em traduzir uma \textit{query} de linguagem natural para uma \textit{query} corretamente estruturada para uso numa base de dados, permitindo assim ao utilizador usar operações complexas (\exempligratia{agregação, combinação, junção, entre outras}).
+\subsubsection*{NaLIX}
+O NaLIX -- \textit{Natural Language Interface for an XML Database} -- é uma \gls{ilnbd} desenvolvida na Universidade de Michigan, com o intuito de obter informação genérica a partir de uma base de dados em \gls{xml}~\parencite{nalix_interactive_nli_querying_xml}. De acordo com~\textcite{nalix_interactive_nli_querying_xml}, o desafio consiste em traduzir uma \textit{query} de linguagem natural para uma \textit{query} corretamente estruturada para uso numa base de dados, permitindo assim ao utilizador usar operações complexas (\exempligratia{agregação, combinação, junção, entre outras}).
 
-Relativamente à arquitetura do NALIX (Figura~\ref{fig:nalix_architecture}), o sistema consiste em duas partes: a primeira é responsável pela tradução da \textit{query} de linguagem natural para XQuery\footnote{Disponível em \url{https://www.w3schools.com/xml/xquery_intro.asp}.}, envolvendo os componentes \textit{Parse Tree Classifier}, \textit{Parse Tree Validator} e \textit{Parse Tree Translator}; a segunda suporta a formulação da \textit{query} de base de dados correspondente, usando os componentes \textit{Query Repository} e \textit{Message Generator}~\parencite{nalix_interactive_nli_querying_xml}.
-
-\begin{figure}[!ht]
+Relativamente à arquitetura do NaLIX (ver Figura~\ref{fig:nalix_architecture}), o sistema consiste em duas partes: a primeira é responsável pela tradução da \textit{query} de linguagem natural para XQuery\footnote{Disponível em \url{https://www.w3schools.com/xml/xquery_intro.asp}.}, envolvendo os componentes \textit{Parse Tree Classifier}, \textit{Parse Tree Validator} e \textit{Parse Tree Translator}; a segunda suporta a formulação da \textit{query} de base de dados correspondente, usando os componentes \textit{Query Repository} e \textit{Message Generator}~\parencite{nalix_interactive_nli_querying_xml}.
+%
+\begin{figure}
     \centering
-    \includegraphics[width=.7\textwidth]{ch03/assets/nalix_architecture.jpg}
-    \caption{Arquitetura do sistema NALIX, extraído de~\textcite{nalix_interactive_nli_querying_xml}}
+    \includegraphics[width=.8\textwidth]{ch03/assets/nalix_architecture.jpg}
+    \caption{Arquitetura do sistema NaLIX, extraído de~\textcite{nalix_interactive_nli_querying_xml}}
     \label{fig:nalix_architecture}
 \end{figure}
 
-De salientar é que a linguagem de \textit{query} usada pelo NALIX (\textit{Schema Free XQuery}) não necessita que seja explicitado qual o \textit{schema} a ser usado, sendo que é capaz de encontrar automaticamente, para uma dada coleção de expressões/palavras-chave, todas as relações existentes entre estes elementos. Assim, é possível abstrair o sistema do domínio existente~\parencite{nalix_interactive_nli_querying_xml, survey_nlidb}.
+De salientar é que a linguagem de \textit{query} usada pelo NaLIX (\textit{Schema Free XQuery}) não necessita que seja explicitado qual o \textit{schema} a ser usado, sendo que é capaz de encontrar automaticamente, para uma dada coleção de expressões/palavras-chave, todas as relações existentes entre estes elementos. Assim, é possível abstrair o sistema do domínio existente~\parencite{nalix_interactive_nli_querying_xml, survey_nlidb}.
 
-\subsection{GINLIDB}
+\subsubsection*{GINLIDB}
 Este sistema -- \textit{Generic Interactive Natural Language Interface to Databases} -- foi desenvolvido em 2009 com o propósito de ser genérico o suficiente para se adaptar a bases de dados diferentes, dada a base de conhecimento apropriada~\parencite{ginlidb}. A arquitetura do GINLIDB, apresentada na Figura~\ref{fig:ginlidb_architecture}, consiste em dois principais componentes: \textit{Linguistic Handling Component}, o qual gere a exatidão da \textit{query} de linguagem natural, nomeadamente a estrutura gramatical e possibilidade de ser corretamente convertida para \gls{sql}; \textit{SQL Construting Component}, responsável por construir a \textit{query} de \gls{sql} apropriada e gerir a ligação à base de dados~\parencite{ginlidb}.
-
-\begin{figure}[!ht]
+%
+\begin{figure}
     \centering
-    \includegraphics[width=.62\textwidth]{ch03/assets/ginlidb_architecture.jpg}
+    \includegraphics[width=.8\textwidth]{ch03/assets/ginlidb_architecture.jpg}
     \caption{Arquitetura do sistema GINLIDB, extraído de~\textcite{ginlidb}}
     \label{fig:ginlidb_architecture}
 \end{figure}
@@ -178,10 +200,10 @@ Este sistema -- \textit{Generic Interactive Natural Language Interface to Databa
 O GINLIDB destaca-se pelo seu processo de análise sintática, no qual usa \gls{atn}, que verifica se a estrutura dos \textit{tokens} é permitida na estrutura gramatical. Este processo é suportado pelo \textit{parser} desenvolvido para o sistema usando uma gramática de contexto livre. Outro destaque deste sistema diz respeito à base de conhecimento usada, que é extensível pelo utilizador, permitindo adicionar novas palavras no dicionário, associar-lhes os respetivos sinónimos e definir o \textit{schema} da base de dados em uso, mapeando assim o domínio. Em termos de resultados, o sistema mostrou-se capaz de responder às questões mais comuns, embora não tenha sido testado em diferentes domínios~\parencite{ginlidb}.
 
 \subsection{Sinopse}
-Na tabela apresentada em seguida, descriminam-se os casos de estudo abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica.
-
-\begin{table}[!ht]
-\caption{Sumário dos casos de estudo de \glsfirst{ilnbd}, baseado em \textcite{survey_nlidb}}
+Na Tabela~\ref{tab:study_cases} descriminam-se os trabalhos abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica. Uma análise cuidada sobre os trabalhos demonstra que não existe uma abordagem recorrente. Existe sim, uma combinação adequada à realidade do problema a resolver, que não deve ser generalizada. Também é possível constatar que a representação intermediária de linguagem é a técnica mais frequente, pelo que parece ser adequado a sua aplicação.
+%
+\begin{table}
+\caption{Sumário dos trabalhos estudados}
 \label{tab:study_cases}
 \centering
 \resizebox{\textwidth}{!}{
@@ -191,17 +213,17 @@ Na tabela apresentada em seguida, descriminam-se os casos de estudo abordados an
 }
 \end{table}
 
-Uma análise cuidada sobre os projetos apresentados na Tabela~\ref{tab:study_cases} demonstra que não existe uma abordagem ou técnica recorrente. Para a solução a desenvolver, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \gls{ml} ou \gls{dl} podem constituir um novo passo na implementação de \gls{ilnbd}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a ser consideradas e cuja conceção da solução irá ter em consideração.
+Para a solução a desenvolver, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \gls{ml} ou \gls{dl}, aliados à representação intermediária de linguagem, podem constituir um novo passo na implementação da \gls{iln}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a serem consideradas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ferramentas para Processamento de Linguagem Natural}
+\section{Ferramentas}
 \label{sec:chap03_existingtools}
-Atualmente, são disponibilizadas várias ferramentas para lidar com o \gls{pln}, sendo que se torna necessário destacar as mais relevantes e perceber qual pode ser a mais adequada na resolução do problema , dadas as particularidades de cada uma. Posteriormente, faz-se o comparativo de todas as ferramentas, selecionando aquela que se revela ser a mais apropriada, usando uma matriz de decisão para o efeito.
+Atualmente, estão disponíveis várias ferramentas para lidar com o \gls{pln}, sendo que se torna necessário destacar as mais relevantes para aplicação numa \gls{iln} e perceber qual pode ser a mais adequada na resolução do problema, dadas as particularidades de cada uma. Posteriormente, faz-se o comparativo de todas as ferramentas, selecionando aquela que se revela ser a mais apropriada, usando uma matriz de decisão para o efeito.
 
 \subsection{NLTK}
-O NLTK, \textit{Natural Language Toolkit}, foi criado em 2001 na Universidade da Pennsylvania e, desde então, tem-se expandido graças à comunidade \textit{open source} que contribui para o projecto~\parencite{applied_natural_language_processing_with_python}. Esta biblioteca, desenvolvida em \textit{Python} para processamento de linguagem natural e análise textual, caracteriza-se pela sua simplicidade, consistência, extensibilidade e modularidade, apresentando um conjunto de funções otimizadas para suportar estas tarefas listadas~\parencite{applied_natural_language_processing_with_python, python_text_processing_nltk_cookbook}. De acordo com~\textcite{nltk_education_scientific_purposes}, a combinação de \textit{Python} e NLTK dá a capacidade a qualquer programador de resolver facilmente tarefas de \gls{pln}, evitando demasiado tempo a  estudar os conceitos inerentes. Neste contexto, a biblioteca está integrada com \textit{WordNet}\footnote{Disponível em \url{https://wordnet.princeton.edu/}}, uma base de dados de relações semânticas entre nomes, verbos, adjetivos e advérbios da Língua Inglesa~\parencite{nltk_education_scientific_purposes}.
+O NLTK, \textit{Natural Language Toolkit}, foi criado ems 2001 na Universidade da Pennsylvania e, desde então, tem-se expandido graças à comunidade \textit{open source} que contribui para o projecto~\parencite{applied_natural_language_processing_with_python}. Esta biblioteca, desenvolvida em \textit{Python} para processamento de linguagem natural e análise textual, caracteriza-se pela sua simplicidade, consistência, extensibilidade e modularidade, apresentando um conjunto de funções otimizadas para suportar estas tarefas listadas~\parencite{applied_natural_language_processing_with_python, python_text_processing_nltk_cookbook}. De acordo com~\textcite{nltk_education_scientific_purposes}, a combinação de \textit{Python} e NLTK dá a capacidade a qualquer programador de resolver facilmente tarefas de \gls{pln}, evitando demasiado tempo a  estudar os conceitos inerentes. Neste contexto, a biblioteca está integrada com \textit{WordNet}\footnote{Disponível em \url{https://wordnet.princeton.edu/}}, uma base de dados de relações semânticas entre nomes, verbos, adjetivos e advérbios da Língua Inglesa~\parencite{nltk_education_scientific_purposes}.
 
 O NLTK providencia poderosas ferramentas estatísticas, está preparado para trabalhar com grandes \textit{datasets}, criar modelos linguísticos robustos, possibilitando a sua extensão para componentes que possam ser usados em sistemas produtivos~\parencite{nltk_education_scientific_purposes, applied_natural_language_processing_with_python}.
 
@@ -258,8 +280,8 @@ Para os critérios de avaliação consideram-se que têm todos o mesmo grau de i
 \end{itemize}
 
 Quanto à escala de avaliação, opta-se por três níveis: um ($1$) até três ($3$), para indicar a baixa e elevada adequabilidade, respetivamente. Por exemplo, se para o critério \textit{Custo} a pontuação dada é um ($1$), significa que o item/ferramenta, nesse critério, é pouco adequado para a solução. A soma de todas as pontuações define a adequabilidade da ferramenta. Quanto mais alta for, mais adequada é. De salientar que a avaliação é feita com base na bibliografia recolhida para as ferramentas estudadas. Na Tabela~\ref{tab:tools_comparison} apresenta-se a matriz de decisão para as ferramentas estudadas anteriormente.
-
-\begin{table}[!ht]
+%
+\begin{table}
 \caption{Comparativo das ferramentas de processamento de linguagem natural}
 \label{tab:tools_comparison}
 \centering
@@ -270,12 +292,19 @@ Quanto à escala de avaliação, opta-se por três níveis: um ($1$) até três 
 }
 \end{table}
 
-A matriz de decisão apresentada na Tabela~\ref{tab:tools_comparison} aponta o spaCy e o Rasa como as ferramentas mais adequadas para o módulo de linguagem natural, pois cumprem a maioria dos critérios e não se tratam de ferramentas na \textit{cloud}, visto que esta última é uma restrição da empresa. Em suma, tanto o spaCy como o Rasa são bons candidatos para o desenvolvimento da solução final, embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. É importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta. Já no caso do Rasa, os módulos disponibilizados parecem ser suficientes para a resolução do problema, sendo importante estudar com mais detalhe esta \textit{framework}.
+A matriz aponta o spaCy e o Rasa como as ferramentas mais adequadas para o módulo de linguagem natural, pois cumprem a maioria dos critérios e não se tratam de ferramentas na \textit{cloud}, visto que esta última é uma restrição da empresa. Em suma, tanto o spaCy como o Rasa são bons candidatos para o desenvolvimento da solução final, embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. É importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta. Já no caso do Rasa, os módulos disponibilizados parecem ser suficientes para a resolução do problema, sendo importante estudar com mais detalhe esta \textit{framework}.
 
-No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \textit{cloud} é aceitável -- o Microsoft LUIS, por exemplo --, visto que se pretende validar uma abordagem. Teoricamente, o reconhecimento de intenções e entidades, uma abordagem seguida pelas ferramentas da \textit{cloud} e que estão indicadas na bibliografia, parece constituir uma forma robusta de responder ao problema, pelo que poderão ser exploradas na prática.
+No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \textit{cloud} é aceitável -- o Microsoft LUIS, por exemplo --, visto que se pretende validar o modelo proposto. Teoricamente, o reconhecimento de intenções e entidades, uma abordagem seguida pelas ferramentas da \textit{cloud} que estão indicadas na bibliografia, parece constituir uma forma robusta de responder ao problema.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Síntese do Capítulo}
+\section{Síntese}
 \label{sec:chap03_chaptersummary}
+Este capítulo introduziu a área do \gls{pln}, fazendo referência à sua história e aos fundamentos intrínsecos à compreensão da linguagem humana, sobretudo os níveis de conhecimento usados na extração de significado. 
+
+De seguida, focaram-se as \glspl{iln}, sendo o campo de maior relevo para esta tese. Explanaram-se os sistemas contextuais e não-contextuais, as abordagens e arquiteturas aplicadas no desenvolvimento deste tipo aplicacional, explicando de uma forma global os conceitos associados.
+
+Mediante a exposição dos trabalhos relevantes, quer no panorama fabril, associado à natureza do problema em mãos, quer noutros, foi dado a conhecer as abordagens seguidas por cada um deles, procurando constatar uma tendência de aplicação de técnica e abordagem, que não foi encontrada, levando assim a concluir que o conjunto de \gls{ml} ou \gls{dl} e representação intermediária de linguagem pode contribuir para a solução.
+
+Por fim, fez-se o estudo das ferramentas para \gls{pln}, entre elas o NLTK, o TensorFlow e o Amazon Lex, e com base nas suas características, procedeu-se à escolha das mais adequadas neste quadro. Conclui-se que o spaCy e Rasa são candidatos para o desenvolvimento da solução final, no entanto, para a prova de conceito a desenvolver neste trabalho, o recurso ao Microsoft LUIS é admitido.
