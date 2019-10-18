@@ -1,0 +1,34 @@
+\begin{tabular}{l*{2}{|l}}
+%
+\toprule
+%
+\tabhead{Expressão de Exemplo}&\tabhead{Intenção}&\tabhead{Entidades}\\
+%
+\midrule
+%
+{What's the total of operations per week?}&{SumOperationsByWeek}&{--}\\[7pt]
+%
+{What's the total of operations per week on \underline{January}?}&{SumOperationsByWeek}&{DatetimeV2}\\[7pt]
+%
+{How many \underline{trackout} operations were done by product?}&{CountOperationsByProduct}&{DimensionValue}\\[7pt]
+%
+{How many \underline{trackout} operations were executed by product on \underline{February}?}&{CountOperationsByProduct}&{DimensionValue, DatetimeV2}\\[7pt]
+%
+{How many \underline{trackout} operations were executed by product on \underline{February}, per shift?}&{CountOperationsByProductPerShift}&{DimensionValue, DatetimeV2}\\[7pt]
+%
+{What's the average \underline{primary quantity} of \underline{trackin} operations on \underline{burnin} step?}&{AverageOperationsOnStep}&{Dimension, DimensionValue}\\[7pt]
+%
+{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}What's the average \underline{primary quantity} of\\ \underline{trackin} operations on \underline{burnin} step on \underline{January}?\end{tabular}
+}&{AverageOperationsOnStep}&{Dimension, DimensionValue DatetimeV2}\\[7pt]
+%
+{How many materials are with \underline{primary quantity} \underline{less than} \underline{1000}?}&{CountMaterialsOnCondition}&{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}Dimension, Operator,\\Number\end{tabular}}\\[15pt]
+%
+{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}How many materials, on \underline{wire inspection} step\\have a \underline{primary quantity} \underline{inferior} to \underline{1000}?\end{tabular}
+}&{CountMaterialsOnConditionOnStep}&{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}Dimension, DimensionValue\\Operator, Number\end{tabular}}\\[15pt]
+%
+{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}How many materials by \underline{operation} on \underline{wire inspection} step\\have \underline{primary quantity} \underline{over} \underline{1000}?\end{tabular}
+}&{CountMaterialsOnConditionOnStepGrouped}&{\renewcommand{\arraystretch}{1.0}\begin{tabular}[x]{@{}l@{}}Dimension, DimensionValue\\Operator, Number\end{tabular}}\\[7pt]
+%
+\bottomrule
+%
+\end{tabular}

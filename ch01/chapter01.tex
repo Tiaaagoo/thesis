@@ -6,26 +6,46 @@ A Indústria 4.0 assenta numa variedade de conceitos fundamentais, de diferentes
 
 Segundo~\textcite[p.1]{natural_language_translation_intersaction_ai_hci}~\inquotes{as áreas de \gls{ia} e \glsfirst{ihc} estão, cada vez mais, a influenciar-se mutuamente. Alguns sistemas amplamente usados como o Google Translate, Facebook Graph Search e RelateIQ, escondem a complexidade de sistemas de larga escala de \gls{ia} através de interfaces intuitivas.}\footnote{Tradução livre do autor. No original~\inquotes{The fields of artificial intelligence (AI) and human-computer interaction (HCI) are influencing each other like never before. Widely used systems such as Google Translate, Facebook Graph Search, and RelateIQ hide the complexity of large-scale AI systems behind intuitive interfaces.}.}. Apesar de terem propósitos diferentes, ambas as áreas se complementam, na medida em que se focam na relação entre ser humano e máquina. Se a \gls{ia} tem como objetivo emular o intelecto humano, já a \gls{ihc} foca-se em abordagens empíricas de usabilidade e fatores humanos, que influenciam a forma como os utilizadores interagem com o computador~\parencite{natural_language_translation_intersaction_ai_hci}. 
 
-A capacidade dum sistema interpretar a linguagem dos seres humanos e apresentar a informação de uma forma adequada, principalmente no contexto da Indústria 4.0, destaca-se como um fator impulsionador da adaptabilidade do mundo digital à necessidade humana. Nesse sentido, a área de \gls{pln}, a qual se debruça na capacidade dos computadores \inquotes{entenderem} a linguagem humana~\parencite[p.1]{applied_natural_language_processing_with_python}, permite construir ferramentas capazes de definir ações, extrair conhecimento dum sistema e apresentá-lo num formato adequado, a partir de conteúdo textual especificado pelo utilizador, de acordo com a sua própria linguagem. Portanto, este trabalho foca-se no estudo do \gls{pln} e na definição de uma abordagem que permita interação com um sistema produtivo, através de linguagem natural, possibilitando a consulta e pesquisa de informação. 
+A capacidade dum sistema interpretar a linguagem dos seres humanos e apresentar a informação de uma forma adequada, principalmente no contexto da Indústria 4.0, destaca-se como um fator impulsionador da adaptabilidade do mundo digital à necessidade humana. Nesse sentido, a área de \gls{pln}, a qual se debruça na capacidade dos computadores \inquotes{entenderem} a linguagem humana~\parencite[p.1]{applied_natural_language_processing_with_python}, permite construir ferramentas capazes de definir ações, extrair conhecimento dum sistema e apresentá-lo num formato adequado, a partir de conteúdo textual especificado pelo utilizador, de acordo com a sua própria linguagem. Portanto, este trabalho foca-se no estudo do \gls{pln} aplicado às \glspl{iln}, e na definição de uma abordagem e desenvolvimento dum protótipo que permita interação com um sistema, através de linguagem natural, possibilitando consulta de informação acerca de estados de processos de fabrico.
 
-O capítulo atual faz um pequeno enquadramento do trabalho, esmiúça o problema a resolver, os objetivos e âmbito da tese, a metodologia de avaliação e experimentação, as contribuições do trabalho para a área e o plano de trabalho e respetivo método a ser seguido. Posteriormente, no Capítulo~\ref{chap:Chapter2}, contextualiza-se o problema, fazendo uma descrição da empresa e negócio, e aborda-se o propósito e relevância da resolução do mesmo. O Capítulo~\ref{chap:Chapter3} descreve o estado da arte, introduzindo os conceitos importantes de explorar, os trabalhos de referência e outros trabalhos relevantes na área, e as ferramentas destacadas para a resolução do problema, perspetivando estratégias e possíveis abordagens de solução. No Capítulo~\ref{chap:Chapter4} expõe-se o processo de experimentação prática e o modelo proposto como solução, revelando a visão, os requisitos identificados e arquitetura prevista. Seguidamente, os Capítulos~\ref{chap:Chapter5} e \ref{chap:Chapter6} abordam, respetivamente, o processo de desenvolvimento do protótipo com base no modelo proposto e a validação deste, tendo em conta os critérios de avaliação estipulados. Por fim, o Capítulo~\ref{chap:Chapter7} anuncia as conclusões do trabalho realizado, inferindo sobre os objetivos e critérios da tese, evidenciando-se limitações da abordagem e problemas por explorar.
+O capítulo atual faz um pequeno enquadramento do trabalho, apresenta o problema, os objetivos e âmbito da tese, os critérios de sucesso definidos, as contribuições do trabalho para a área e o plano de trabalho e respetivo método a ser seguido. 
+
+Posteriormente, no Capítulo~\ref{chap:Chapter2}, contextualiza-se o problema, fazendo uma descrição da empresa e negócio, e aborda-se o propósito e relevância da resolução do mesmo. 
+
+O Capítulo~\ref{chap:Chapter3} descreve o estado da arte, introduzindo os conceitos importantes de explorar, os trabalhos de referência e outros trabalhos relevantes na área, bem com ferramentas tipicamente usadas no enquadramento do \gls{pln}, perspetivando estratégias e possíveis abordagens.
+
+No Capítulo~\ref{chap:Chapter4} expõe-se o processo de experimentação prática e o modelo proposto como solução, revelando a visão, os requisitos identificados e arquitetura prevista. 
+
+Seguidamente, os Capítulos~\ref{chap:Chapter5} e \ref{chap:Chapter6} abordam, respetivamente, o processo de desenvolvimento do protótipo com base no modelo proposto e a validação deste, tendo em conta os critérios de sucesso estipulados. 
+
+Por fim, o Capítulo~\ref{chap:Chapter7} anuncia as conclusões do trabalho realizado, inferindo sobre os objetivos atingidos e a resposta ao problema, evidenciando-se limitações da solução e problemas por explorar.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Problema}
 \label{sec:chap01_problem}
-O conceito de \gls{mes}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0, uma iniciativa que se destina a criar fábricas inteligentes, usando tecnologias como os \glspl{cps}, a \gls{iot} e \textit{Cloud Computing}~\parencite{intelligent_manufacturing_context_industry40_review}. O {\productname} é um destes sistemas. Contudo, a capacidade de adaptação às características dos utilizador é um requisito complexo, que nem sempre é passível de ser cumprido. Isso pode dificultar o uso do produto, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão~\parencite{intelligent_manufacturing_context_industry40_review}. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} (através de texto ou voz) ao sistema que lhe devolva o resultado.
+O conceito de \gls{mes}, um sistema que, além de gerir as operações dum determinado processo fabril, mantém dados relativos às diversas etapas inerentes ao processo em questão, está intrinsecamente relacionado com a Indústria 4.0, uma iniciativa que se destina a criar fábricas inteligentes, usando tecnologias como os \glspl{cps}, a \gls{iot} e \textit{Cloud Computing}~\parencite{intelligent_manufacturing_context_industry40_review}. O {\productname} é um destes sistemas. Contudo, a capacidade de adaptação às características dos utilizador é um requisito complexo, que nem sempre é passível de ser cumprido. Isso pode dificultar o utilização do produto, numa perspetiva de acesso a informação relevante para o processo e de apoio à decisão~\parencite{intelligent_manufacturing_context_industry40_review}. Por outras palavras, se o utilizador pretende efetuar uma determinada pesquisa, necessita de conhecer os detalhes da ferramenta a usar, ao invés de simplesmente \inquotes{pedir} ao sistema que lhe devolva o resultado. Posto isto, levanta-se a seguinte questão: \textit{Será que o uso de linguagem natural na interação com o produto pode melhorar a sua usabilidade e simplificar processo de apoio à decisão?}. Partindo desta questão, 
+procura-se a conceção de um módulo de linguagem natural para interface com o {\productname}.
 
-\textbf{A conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
+%pressupõe-se a interação com o {\productname} através de texto. 
+
+% criação de um módulo de linguagem natural para interface com o produto.
+
+% o uso de linguagem natural para interface com {\productname}, possibilitando a consulta de estados do processo de fabrico, através de texto.
+
+% Dada a questão, depreende-se que o uso de linguagem natural poderá possibilitar o utilizador de interagir com o sistema de um forma simples, eficiente e natural.
+
+%\textbf{A conceção de um módulo de linguagem natural para interface com o {\productname}, permitindo a consulta e pesquisa de estados do processo de fabrico}, torna-se importante para o sistema, uma vez que possibilita o utilizador interagir com o sistema de uma forma simples, intuitiva, eficiente e natural, através de escrita.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivos}
 \label{sec:chap01_objectives}
-De uma maneira geral, com este trabalho pretende-se o desenvolvimento de um protótipo apoiado no modelo idealizado para a solução final. Com o intuito de solucionar o problema enunciado, definem-se os seguintes objetivos:
+Com este trabalho pretende-se a conceção de um módulo de linguagem natural. Para tal, também se objetiva o desenvolvimento de um protótipo, baseado no modelo concebido, capaz de de compreender três níveis de linguagem natural (aplicada ao contexto do produto): adimensional (sem entidades de domínio associadas), unidimensional (lida com uma entidade de domínio) e multidimensional (lida com múltiplas entidades de domínio).
 
+Para os objetivos mencionados esperam-se as seguintes tarefas:
 \begin{enumerate}
     \item
     {
@@ -37,35 +57,34 @@ De uma maneira geral, com este trabalho pretende-se o desenvolvimento de um prot
     }
     \item
     {
-        \textit{Definir a ferramenta e abordagem mais adequadas, considerando as diversas opções apresentadas} -- comparação e avaliação das diversas opções identificadas, concluindo acerca do caminho a seguir (Capítulo~\ref{chap:Chapter3} e \ref{chap:Chapter4});
+        \textit{Definir abordagem considerando as diversas opções apresentadas} -- comparação e avaliação das diversas opções identificadas, concluindo acerca do caminho a seguir (Capítulo~\ref{chap:Chapter3} e \ref{chap:Chapter4});
     }
     \item
     {
-        \textit{Especificação da arquitetura prevista para módulo} -- que permita responder aos requisitos definidos e antecipar soluções para possíveis problemas (Capítulo~\ref{chap:Chapter4});
-    }
-    % \item
-    % {
-    %     \textit{Descrever a semântica de domínio} -- exploração de abordagens ao tratamento e suporte de diferentes domínios (Capítulo~\ref{chap:Chapter4});
-    % }
-    \item
-    {
-        \textit{Desenvolvimento de prova de conceito} -- implementação do protótipo de acordo com a arquitetura conceptualizada (Capítulo~\ref{chap:Chapter5});
+        \textit{Desenvolvimento de prova de conceito} -- implementação do protótipo de acordo com o modelo concetualizado (Capítulo~\ref{chap:Chapter4} e \ref{chap:Chapter5});
     }
     \item
     {
-        \textit{Prover o protótipo de um mecanismo de feedback para auto-aprendizagem} -- permitirá a adaptabilidade às necessidades do utilizador, melhorando a qualidade das respostas.
-        Numa fase inicial, este mecanismo pode não constar no protótipo, ou pode consistir em simplesmente questionar o utilizador sobre a exatidão da resposta apresentada (Capítulo~\ref{chap:Chapter5});
-    }
-    \item
-    {
-        \textit{Avaliar a qualidade da solução desenvolvida} -- com base na hipótese formulada e na estratégia de avaliação decidida, concluir acerca da qualidade da abordagem seguida e do contributo do trabalho para a resolução do problema (Capítulo~\ref{chap:Chapter6} e \ref{chap:Chapter7}).
+        \textit{Validação da prova de conceito} -- concluir acerca do protótipo desenvolvido, face aos critérios de sucesso estipulados (Capítulo~\ref{chap:Chapter6}).
     }
 \end{enumerate}
+
+% Com o intuito de dar resposta a este objetivo definem-se dois objetivos mais específicos:
+% \begin{enumerate}
+%     \item
+%     {
+%         \textit{Desenvolvimento de prova de conceito capaz de compreender a linguagem natural} -- implementação de um protótipo, que além de ter a capacidade de compreensão da linguagem natural, possa ter o seu modelo arquitetural a ser usado no contexto dum futuro módulo de linguagem natural para o {\productname};
+%     }
+%     \item
+%     {
+%         \textit{Garantir que a prova de conceito desenvolvida analisa e responde corretamente a um conjunto de perguntas pré-definidas, próprias do problema em questão} -- a solução deverá responder adequadamente a um conjunto limitado de perguntas associadas à consulta de estados do processo de fabrico.
+%     }
+% \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Âmbito}
+\section{Âmbito e Pressupostos}
 \label{sec:chap01_scope}
 Embora os objetivos estejam definidos, surge a necessidade de explicitar sucintamente o âmbito deste trabalho, bem como os pressupostos a ter em consideração. Por conseguinte, os seguintes assuntos serão abordados:
 
@@ -101,7 +120,7 @@ Por outro lado, alguns tópicos são demasiado amplos para serem explorados, ou 
     }
     \item
     {
-        As ferramentas para linguagem natural que não mostrem evidências de relevância para o problema, tendo em conta os critérios de complexidade e adesão da comunidade de desenvolvimento;
+        As ferramentas para linguagem natural que não mostrem evidências de relevância para o problema;
     }
     \item 
     {
@@ -109,118 +128,162 @@ Por outro lado, alguns tópicos são demasiado amplos para serem explorados, ou 
     }
 \end{itemize}
 
-O termo \inquotes{Domínio} é empregue ao longo do texto para denotar um conjunto de características que descrevem uma família de conceitos comuns a um determinado processo. Por exemplo, duas empresas que produzem equipamentos médicos, apesar de poderem ter processos de fabrico diferentes, abordam o mesmo domínio.
+Quanto aos pressupostos deste trabalhos, enunciam-se a seguir.
 
-Assume-se que a prova de conceito desenvolvida visa provar que o modelo proposto atende ao problema, por isso não se espera que todos os casos de uso ou detalhes esperados para a solução final (\exempligratia{uso de \textit{feedback} de utilizador}) sejam contemplados no protótipo.
+\begin{itemize}
+    \item 
+    {
+        O termo \inquotes{domínio} é empregue ao longo do texto para denotar um conjunto de características que descrevem uma família de conceitos comuns a um determinado processo. Por exemplo, duas empresas que produzem equipamentos médicos, apesar de poderem ter processos de fabrico diferentes, abordam o mesmo domínio;
+    }
+    \item
+    {
+        Assume-se o inglês como a língua a aplicar no protótipo, pois é a língua principal do {\productname}. Nesse sentido, o inglês abrange todo o tipo de interação com o protótipo, incluindo as questões a serem avaliadas;
+    }
+    \item
+    {
+        Também se assume o inglês para os artefactos produzidos, pelo motivo evidenciado no ponto anterior e pelo facto de ser a linguagem mais usada pela comunidade de desenvolvimento.
+    }
+\end{itemize}
+
+%por isso não se espera que todos os casos de uso ou detalhes esperados para a solução final (\exempligratia{uso de \textit{feedback} de utilizador}) sejam contemplados no protótipo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Avaliação e Experimentação}
+\section{Critérios de Sucesso}
 \label{sec:chap01_solutionevaluation}
-A avaliação do resultado final é imprescindível para a concluir acerca do sucesso do trabalho, permitindo perceber se a conjetura fundada a respeito da prova de conceito é aceite. Desse modo, formula-se a hipótese colocada para o modelo arquitetado, a respetiva metodologia de avaliação e experimentação e os critérios de sucesso a serem considerados.
-
-\subsection{Formulação das Hipóteses}
-\label{sec:chap01_hypothesis}
-Para a resolução do problema da empresa, o qual foca a melhoria da interação do {\productname} com o utilizador, surgem as seguintes questões:
-
+A avaliação do resultado final é imprescindível para a concluir acerca do sucesso do trabalho, permitindo perceber se a conjetura fundada a respeito da prova de conceito é aceite. Desse modo, apresentam-se os critérios de sucesso a serem considerados:
+%
 \begin{enumerate}
+    % \item 
+    % {
+    %     \textit{A hipótese apresentada anteriormente é aceite} -- a abordagem (modelo) escolhida apresenta resultados satisfatórios face à metodologia de avaliação definida para este trabalho;
+    % }
+    % \item
+    % {
+    %     \textit{O modelo apresentado é extensível e de fácil integração no {\productname}} -- garante-se que a arquitetura especificada considerou a existência de diversos domínios, facilidade e capacidade de integração com o produto;
+    % }
     \item
     {
-        A integração de um módulo de linguagem natural pode, de facto, melhorar a usabilidade do produto e consequentemente, simplificar processo de apoio à decisão?
+        \textit{O protótipo desenvolvido é capaz de compreender a linguagem natural} -- tem a capacidade de identificar os metadados associados à pergunta colocada, ou seja, de identificar linguagem natural adimensional, unidimensional e multidimensional;
     }
     \item
     {
-        De que forma se pode avaliar a adequabilidade das respostas da solução às necessidades básicas dos utilizadores?
+        \textit{O protótipo dá resposta às questões que lhe são colocadas} -- que implica responder às questões-chave, esperando que resposta fornecida seja semelhante à resposta que seria esperada.
     }
 \end{enumerate}
 
-Embora as perguntas anteriores sejam relevantes para a formulação de hipóteses para a solução final, e devem ser tidas em consideração na abordagem escolhida, não terão um peso significativo na avaliação do resultado deste trabalho. O foco desta tese é o desenvolvimento de um protótipo, cuja abordagem pode ser seguida na implementação de uma solução definitiva no {\productname}. Assim, surge outra pergunta mais pertinente para esta fase, e respetiva hipótese:
+Relativamente às questões-chave abordadas no ponto 2, prevêem-se que estejam relacionadas com o domínio do produto. Alguns exemplos são:
 
 \begin{itemize}
-    \item
-    {  
-        \textit{Questão} -- Qual o modelo adequado para a extração de informação de um sistema, usando linguagem natural?
+\item 
+    {
+        \textit{What's the total of dispatch operations per week during October?} -- \idest{Quantas operações \textit{dispatch} foram executadas por semana, durante o mês de outubro?};
     }
     \item
     {
-        \textit{Hipótese} -- O modelo escolhido permite a extração de informação a partir de linguagem natural.
+        \textit{How many trackout operations were executed by product, on September, per shift?} -- \idest{Quantas operações \textit{track-out} foram executadas, por produto e turno, durante o mês de setembro?};
+    }
+    \item
+    {
+        \textit{What's the average primary quantity of trackin operations on burnin step, on september?} -- \idest{Qual a média de quantidade primária, no passo \textit{burnin} do processo, por turno, no mês de Setembro?};
+    }
+    \item
+    {
+        \textit{How many materials, by operation and on wire inspection step, have primary quantity inferior to 1000?} -- \idest{Quantos materiais, por operação e no passo \textit{wire inspection}, têm a quantidade primária inferior a 1000?}.
     }
 \end{itemize}
 
-A hipótese apresentada auxilia na definição da metodologia de avaliação a adotar nesta tese. A aceitação ou refutação da hipótese formulada permite concluir acerca do trabalho realizado, e da necessidade de reformulação ou adoção de novas hipóteses.
+As questões apresentadas são exemplos fornecidos pelo supervisor do projeto e correspondem aos tipos de pesquisa mais relevantes no {\productname}.
 
-\subsection{Metodologia de Avaliação}
-Com o propósito de perceber se o modelo idealizado, aplicado no protótipo desenvolvido, é adequado para o desenvolvimento de uma solução definitiva, e levando em consideração a hipótese formulada anteriormente, definem-se as seguintes estratégias para a metodologia de avaliação deste trabalho:
-
-\begin{enumerate}
-    \item 
-    {
-        \textit{Garantir que o protótipo analisa e responde corretamente a um conjunto de perguntas pré-definidas} -- a solução deverá responder adequadamente a um conjunto limitado de perguntas:
-        \begin{itemize}
-            \item 
-            {
-                Quantas operações $O$ foram executadas por semana, durante o mês $M$?
-            }
-            \item
-            {
-                Qual o número de operações $O$ por produto e turno, durante o mês $M$?
-            }
-            \item
-            {
-                Qual a média de $X$ de operações $O$, no passo $P$ do processo, por turno, no mês $M$? 
-            }
-            \item
-            {
-                Qual o número de materiais cujo valor de $X$ é inferior a $Y$, para o passo $P$ do processo, agrupando por $G$?
-            }
-        \end{itemize}
-        
-        Nas questões apresentadas, as letras representam as variáveis inerentes ao domínio, que o utilizador conhece e que o sistema deve ser capaz de reconhecer. É importante referir que, na reposta às perguntas referidas anteriormente, é considerado o conjunto de dados de exemplo, entregue pelo supervisor desta tese.
-    }
-    \item
-    {
-        \textit{Usar as respostas devolvidas pelo protótipo para concluir acerca da sua exatidão} -- as respostas fornecidas pelo protótipo, face à resposta expectável, permitirão perceber se a abordagem seguida é adequada.
-    }
-\end{enumerate}
-
-Ambas estratégias possibilitam perceber a adequabilidade do modelo proposto, para a solução a ser integrada no produto e para o utilizador final, quer numa perspetiva de facilidade de utilização, quer na exatidão da resposta dada.
-
-\subsection{Critérios de Sucesso}
-De seguida, enumeram-se os critérios de sucesso para o trabalho:
-
-\begin{enumerate}
-    \item 
-    {
-        \textit{A hipótese apresentada anteriormente é aceite} -- a abordagem (modelo) escolhida apresenta resultados satisfatórios face à metodologia de avaliação definida para este trabalho;
-    }
-    \item
-    {
-        \textit{O modelo apresentado é extensível e de fácil integração no {\productname}} -- garante-se que a arquitetura especificada considerou a existência de diversos domínios, facilidade e capacidade de integração com o produto;
-    }
-    \item
-    {
-        \textit{Prova de conceito dá resposta correta às questões que lhe são colocadas} -- que implica responder corretamente às questões-chave, estabelecidas na metodologia de avaliação, garantindo que a resposta fornecida é semelhante ou igual à resposta que seria esperada;
-    }
-    \item
-    {
-        \textit{O modelo é adotado ou refinado de forma a que possa ser usado na solução final} -- o modelo arquitetado revela-se efetivo na resolução do problema, e com o levantamento de possíveis melhorias, pode ser implementado no {\productname}.
-    }
+Relativamente à metodologia de validação dos critérios os critérios mencionados, optam-se por testes manuais de interação com a plataforma subjacente e também com o protótipo desenvolvido.
+    
+% Nas questões apresentadas, as letras representam as variáveis inerentes ao domínio, que o utilizador conhece.
+    
+    % \item
+    % {
+    %     \textit{O modelo é adotado ou refinado de forma a que possa ser usado na solução final} -- o modelo arquitetado revela-se efetivo na resolução do problema, e com o levantamento de possíveis melhorias, pode ser implementado no {\productname}.
+    % }
     % \item 
     % {
     %     \textit{Tese escrita} -- na qual se abordam o problema, o contexto no qual se insere e o valor que traz ao produto final. Deve conter o estado da arte, apresentando a revisão da literatura existente, focando nas soluções semelhantes e/ou ferramentas relevantes que perspetivam estratégias de solução para o problema. Por fim, descreve-se a solução proposta, contemplando cada uma das fases inerentes ao seu desenvolvimento (visão, análise, desenho e implementação) e faz-se a conclusão acerca do trabalho (todos os objetivos descritos em~\ref{sec:chap01_objectives});
     % }
-\end{enumerate}
+
+
+
+% \subsection{Formulação das Hipóteses}
+% \label{sec:chap01_hypothesis}
+% Para a resolução do problema da empresa, o qual foca a melhoria da interação do {\productname} com o utilizador, surgem as seguintes questões:
+
+% \begin{enumerate}
+%     \item
+%     {
+%         A integração de um módulo de linguagem natural pode, de facto, melhorar a usabilidade do produto e consequentemente, simplificar processo de apoio à decisão?
+%     }
+%     \item
+%     {
+%         De que forma se pode avaliar a adequabilidade das respostas da solução às necessidades básicas dos utilizadores?
+%     }
+% \end{enumerate}
+
+% Embora as perguntas anteriores sejam relevantes para a formulação de hipóteses para a solução final, e devem ser tidas em consideração na abordagem escolhida, não terão um peso significativo na avaliação do resultado deste trabalho. O foco desta tese é o desenvolvimento de um protótipo, cuja abordagem pode ser seguida na implementação de uma solução definitiva no {\productname}. Assim, surge outra pergunta mais pertinente para esta fase, e respetiva hipótese:
+
+% \begin{itemize}
+%     \item
+%     {  
+%         \textit{Questão} -- Qual o modelo adequado para a extração de informação de um sistema, usando linguagem natural?
+%     }
+%     \item
+%     {
+%         \textit{Hipótese} -- O modelo escolhido permite a extração de informação a partir de linguagem natural.
+%     }
+% \end{itemize}
+
+% A hipótese apresentada auxilia na definição da metodologia de avaliação a adotar nesta tese. A aceitação ou refutação da hipótese formulada permite concluir acerca do trabalho realizado, e da necessidade de reformulação ou adoção de novas hipóteses.
+
+% \subsection{Metodologia de Avaliação}
+% Com o propósito de perceber se o modelo idealizado, aplicado no protótipo desenvolvido, é adequado para o desenvolvimento de uma solução definitiva, e levando em consideração a hipótese formulada anteriormente, definem-se as seguintes estratégias para a metodologia de avaliação deste trabalho:
+
+% \begin{enumerate}
+%     \item 
+%     {
+%         \textit{Garantir que o protótipo analisa e responde corretamente a um conjunto de perguntas pré-definidas} -- a solução deverá responder adequadamente a um conjunto limitado de perguntas:
+%         \begin{itemize}
+%             \item 
+%             {
+%                 Quantas operações $O$ foram executadas por semana, durante o mês $M$?
+%             }
+%             \item
+%             {
+%                 Qual o número de operações $O$ por produto e turno, durante o mês $M$?
+%             }
+%             \item
+%             {
+%                 Qual a média de operações $O$, no passo $P$ do processo, por turno, no mês $M$? 
+%             }
+%             \item
+%             {
+%                 Qual o número de materiais cujo valor de $X$ é inferior a $Y$, para o passo $P$ do processo, agrupando por $G$?
+%             }
+%         \end{itemize}
+        
+%         Nas questões apresentadas, as letras representam as variáveis inerentes ao domínio, que o utilizador conhece e que o sistema deve ser capaz de reconhecer. É importante referir que, na reposta às perguntas referidas anteriormente, é considerado o conjunto de dados de exemplo, entregue pelo supervisor desta tese.
+%     }
+%     \item
+%     {
+%         \textit{Usar as respostas devolvidas pelo protótipo para concluir acerca da sua exatidão} -- as respostas fornecidas pelo protótipo, face à resposta expectável, permitirão perceber se a abordagem seguida é adequada.
+%     }
+% \end{enumerate}
+
+% Ambas estratégias possibilitam perceber a adequabilidade do modelo proposto, para a solução a ser integrada no produto e para o utilizador final, quer numa perspetiva de facilidade de utilização, quer na exatidão da resposta dada.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Contribuições}
 \label{sec:chap01_contributions}
-O trabalho a ser desenvolvido pretende providenciar uma abordagem de resolução do problema apresentado. Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{um protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente, trazendo-lhe mais-valia funcional, destacando-o dos seus concorrentes. No decorrer deste trabalho serão abordados temas relativos a \gls{mes}, a \gls{ia}, especificamente \gls{pln}, e \textit{Business Intelligence}.
-
-Resumidamente, as contribuições esperadas são a seguir enunciadas:
-
+O trabalho desenvolvido pretende providenciar uma abordagem de resolução do problema apresentado. Não se aspira fornecer uma solução definitiva, espera-se sim, contribuir com conhecimento de carácter teórico e prático (\idest{um protótipo}), que possibilite a integração futura de uma nova funcionalidade num produto já existente. No decorrer deste trabalho foram abordados temas relativos a \gls{mes} e a \gls{ia}, especificamente \gls{pln} e \gls{iln}. Resumidamente, as contribuições esperadas são a seguir mencionadas:
+%
 \begin{itemize}
     \item
     {
@@ -228,23 +291,19 @@ Resumidamente, as contribuições esperadas são a seguir enunciadas:
     }
     \item 
     {
-        Documentação dos requisitos de sistema, incluindo análise e desenho, constando os respetivos artefactos de \gls{uml};
-    }
-    \item 
-    {
-        Identificação de abordagens para lidar com semântica de diferentes domínios;
-    }
-    \item 
-    {
         Definição de um modelo que possibilita a \inquotes{conversão} da linguagem natural em informação pertinente para o utilizador do sistema; 
     }
     \item
     {
-        Especificação e desenvolvimento do protótipo, considerando a futura integração com o sistema {\productname}.
+        Especificação e desenvolvimento do protótipo, considerando uma possível integração com o sistema {\productname}.
+    }
+    \item 
+    {
+        Documentação dos requisitos de sistema, incluindo análise e desenho, constando os respetivos artefactos de \gls{uml};
     }
 \end{itemize}
 
-De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{ia}, mais especificamente na área da \gls{pln}, aplicada ao contexto dos sistemas \gls{mes} e que servirá como base para a integração duma solução deste tipo no {\productname}.
+De uma forma geral, é realçada a contribuição para o avanço do conhecimento no domínio da \gls{ia}, mais especificamente na área das \glspl{iln}, aplicada ao contexto dos sistemas \glspl{mes}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
@@ -272,7 +331,7 @@ Um plano de trabalho é uma ferramenta importante na gestão de qualquer projeto
     }
     \item
     {
-        \textit{Documentação} -- engloba a escrita da tese como veículo de transmissão de conhecimento obtido e de outros documentos de suporte, a serem usados no contexto empresarial (\exempligratia{documento de especificação de requisitos de \textit{software}}).
+        \textit{Documentação} -- engloba a escrita da tese como veículo de transmissão de conhecimento obtido.
     }
 \end{itemize}
 
@@ -281,11 +340,11 @@ Quanto ao método de trabalho a seguir na realização deste trabalho, são cons
 \begin{enumerate}
     \item 
     {
-        \textit{Revisão de literatura disponível sobre o contexto do problema} -- com o objetivo de perceber o estado atual do {\productname} e as implicações que o módulo trará, assim como concluir acerca da relevância do problema e do valor da solução para o produto;
+        \textit{Revisão de literatura disponível sobre o contexto do problema} -- com o objetivo de perceber o estado atual do {\productname} e as implicações que o módulo pode trazer, assim como concluir acerca da relevância do problema e do valor da solução para o produto;
     }
     \item
     {
-        \textit{Revisão de literatura existente acerca de \gls{pln}, paradigmas arquiteturais relacionados e trabalhos de referência} -- adquirir conhecimentos sobre o estado \gls{pln}, quais os trabalhos de referência na área, outros também relevantes, técnicas e ferramentas usadas, identificando aspetos relevantes para o trabalho;
+        \textit{Revisão de literatura existente acerca de \gls{pln} e \gls{iln}, paradigmas arquiteturais relacionados e trabalhos de referência} -- adquirir conhecimentos sobre o estado do \gls{pln} e das \gls{iln}, quais os trabalhos de referência na área, outros também relevantes, técnicas e ferramentas usadas, identificando aspetos relevantes para o trabalho;
     }
     \item
     {
@@ -294,7 +353,7 @@ Quanto ao método de trabalho a seguir na realização deste trabalho, são cons
     }
     \item
     {
-        \textit{Implementação do protótipo e validação} -- o foco é pôr em prática a solução concetualizada nas fases anteriores. Após a implementação, valida-se a mesma, com vista a perceber se os resultados obtidos são os esperados e proceder ao registo das melhorias que forem evidentes;
+        \textit{Implementação do protótipo e validação} -- o foco é pôr em prática a solução concetualizada nas fases anteriores. Após a implementação, valida-se a mesma, de acordo com os critérios de sucesso definidos;
     }
     \item
     {

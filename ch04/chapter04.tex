@@ -1,18 +1,18 @@
 \chapter{Conceção}
 \label{chap:Chapter4}
-Neste capítulo apresenta-se o processo de idealização do modelo de \glsfirst{iln}. Inicialmente, mostra-se o processo de experimentação de algumas ferramentas ou abordagens analisadas no capítulo anterior, procurando perceber se a sua aplicação prática é plausível. Depois, apresenta-se o modelo concetualizado, concretamente a visão geral, em que se faz uma descrição do modelo na sua globalidade, os casos de uso identificados e por fim, a arquitetura definida.
+Neste capítulo apresenta-se o processo de idealização do módulo de linguagem natural. Inicialmente, explica-se o processo de experimentação de algumas ferramentas ou abordagens analisadas no capítulo anterior, procurando perceber se a sua aplicação prática é plausível. Depois, mostra-se o modelo concetualizado, concretamente a visão geral, em que se faz uma descrição do modelo na sua globalidade, os casos de uso identificados e por fim, a arquitetura definida.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Apreciação Prática}
 \label{sec:chap04_approaches}
-Com o propósito de colocar em prática o estudo das \glspl{iln}, decidiu-se realizar experiências envolvendo algumas abordagens e ferramentas previamente estudadas (ver Capítulo~\ref{chap:Chapter3}). Posto isto, optou-se por desenvolver pequenas provas de conceito, num período bem definido, de forma a fazer uma rápida avaliação das abordagens, técnicas e ferramentas usadas. Para cada uma, é abordado em que consiste, algumas observações pertinentes e referência dos pontos favoráveis e desfavoráveis.
+Com o propósito de colocar em prática o estudo das \glspl{iln}, decidiu-se a realização de experiências envolvendo algumas abordagens e ferramentas previamente estudadas (ver Capítulo~\ref{chap:Chapter3}). Posto isto, optou-se por desenvolver pequenas provas de conceito, de forma a fazer uma rápida avaliação das abordagens, técnicas e ferramentas usadas. Para cada uma, é abordado em que consiste, algumas observações pertinentes e referência dos pontos favoráveis e desfavoráveis.
 
 \subsection{Gramática Baseada em Semântica}
 Como proposto em~\textcite[p.~361-403]{natural_language_processing_with_python}, o uso do NLTK permite o desenvolvimento de gramáticas que possibilitam a análise de uma frase pela sua semântica, tal como o exemplo demonstrado a seguir.
 
-\begin{lstlisting}[language=Python,caption={Excerto de uma gramática extraída de~\textcite{natural_language_processing_with_python}},numbers=none,label=lst:grammarexample,basicstyle=\scriptsize]
+\begin{lstlisting}[language={},caption={Excerto de uma gramática, extraído de~\textcite{natural_language_processing_with_python}},numbers=none,label=lst:grammarexample,basicstyle=\scriptsize]
 S[SEM=(?np + WHERE + ?vp)] -> NP[SEM=?np] VP[SEM=?vp]
 VP[SEM=(?v + ?pp)] -> IV[SEM=?v] PP[SEM=?pp]
 VP[SEM=(?v + ?ap)] -> IV[SEM=?v] AP[SEM=?ap]
@@ -28,7 +28,7 @@ A[SEM=''] -> 'located'
 P[SEM=''] -> 'in'
 \end{lstlisting}
 
-O código apresentado em~\ref{lst:grammarexample}, usando o NLTK, para a pergunta \inquotes{What cities are located in China?} permite gerar a seguinte \textit{query} de \gls{sql}: SELECT City FROM city\_table WHERE Country=\inquotes{china}. Com esta metodologia é possível mapear diretamente linguagem natural em \gls{sql}, sendo que a gramática funciona como a base de conhecimento. Por conseguinte, torna-se viável a codificação de um \textit{parser} que usa as gramáticas definidas, verificando
+O código apresentado em~\ref{lst:grammarexample}, usando o NLTK, para a pergunta \inquotes{What cities are located in China?} permite gerar a seguinte \textit{query} de \gls{sql}: \textit{SELECT City FROM city\_table WHERE Country=\inquotes{china}}. Com esta metodologia é possível mapear diretamente linguagem natural em \gls{sql}, sendo que a gramática funciona como a base de conhecimento. Por conseguinte, torna-se viável a codificação de um \textit{parser} que usa as gramáticas definidas, verificando
 alguma é capaz de dar resposta à \textit{query} de linguagem natural.
 
 \subsubsection*{Pontos Favoráveis}
@@ -72,9 +72,9 @@ alguma é capaz de dar resposta à \textit{query} de linguagem natural.
 \end{itemize}
 
 \subsection{Pesquisa Semântica}
-Nesta abordagem foi usada uma \textit{framework} que não consta nas ferramentas estudadas (ver Secção~\ref{sec:chap03_existingtools}), principalmente porque o seu desenvolvimento encontra-se estagnado desde 2013. Ainda assim, é aceitável o seu uso para testar esta mesma abordagem, no ponto de vista prático. O Quepy é desenvolvido em \textit{Python} e tem como objetivo a transformação de linguagem natural em \textit{SPARQL Protocol and RDF Query Language} (SPARQL)\footnote{Disponível em \url{https://www.w3.org/TR/rdf-sparql-query/}.} e \textit{Metaweb Query Language} (MQL)\footnote{Disponível em \url{https://github.com/nchah/freebase-mql}.}, linguagens de \textit{query} usadas com tecnologia \gls{rdf}\footnote{Disponível em \url{https://www.w3.org/RDF/}.}, \inquotes{um modelo padrão para permuta de dados na Web}\footnote{Tradução livre do autor. No original \inquotes{is a standard model for data interchange on the Web.}.}, intrinsecamente ligado ao campo da Web Semântica~\parencite{resource_description_framework}.
+Nesta abordagem usou-se uma \textit{framework} que não consta nas ferramentas estudadas (ver Secção~\ref{sec:chap03_existingtools}), principalmente porque o seu desenvolvimento encontra-se estagnado desde 2013. Ainda assim, contemplou-se o seu uso para testar esta abordagem, no ponto de vista prático. O Quepy foi desenvolvido em \textit{Python} e tem como objetivo a transformação de linguagem natural em \textit{SPARQL Protocol and RDF Query Language} (SPARQL)\footnote{Disponível em \url{https://www.w3.org/TR/rdf-sparql-query/}.} e \textit{Metaweb Query Language} (MQL)\footnote{Disponível em \url{https://github.com/nchah/freebase-mql}.}, linguagens de \textit{query} usadas com tecnologia \gls{rdf}\footnote{Disponível em \url{https://www.w3.org/RDF/}.}, \inquotes{um modelo padrão para permuta de dados na Web}\footnote{Tradução livre do autor. No original \inquotes{is a standard model for data interchange on the Web.}.}, intrinsecamente ligado ao campo da Web Semântica~\parencite{resource_description_framework}.
 
-Neste caso, o uso do Quepy implica a definição da linguagem específica de domínio através de código \textit{Python}, respeitando as restrições colocadas na documentação da \textit{framework}, de maneira a que esta seja capaz de reconhecer o padrão introduzido.
+Neste caso, o uso do Quepy implicou a definição da linguagem específica de domínio através de código \textit{Python}, respeitando as restrições colocadas na documentação da \textit{framework}, de maneira a que esta fosse capaz de reconhecer o padrão introduzido.
 
 \begin{lstlisting}[language=python, caption={Excerto da definição semântica da frase que lida com listagem de produtos},numbers=none,label=lst:quepyexample,basicstyle=\scriptsize]
 from quepy.dsl import FixedType, FixedRelation
@@ -147,29 +147,48 @@ No excerto demonstrado em~\ref{lst:quepyexample}, define-se a expressão regular
 \end{itemize}
 
 \subsection{Reconhecimento de Intenções e Entidades}
-Neste contexto, foi utilizado o Microsoft LUIS. A razão para esta escolha deve-se principalmente a dois fatores: o facto de ser uma das plataformas mais usadas e documentadas e pela Microsoft disponibilizar este tipo de ferramentas a quem possua subscrição de estudante. Para esta prova de conceito criou-se um \textit{chatbot} capaz de responder a algumas perguntas colocadas pelo utilizador (\textit{utterance}), identificando qual a sua intenção (\textit{intent}) e quais as entidades envolvidas (\textit{entity}), descritas na Tabela~\ref{tab:luis_intents}.
-%
-\begin{table}
-\caption{Descrição de algumas das intenções e entidades dada a expressão de exemplo, baseado em~\textcite[Concepts]{microsoft_luis_official}}
-\label{tab:luis_intents}
-\centering
-\resizebox{\textwidth}{!}{
-\renewcommand{\arraystretch}{1.3}
-\footnotesize
-\input{ch03/assets/luis_intents.tex}
-}
-\end{table}
+Neste contexto, utilizou-se o Microsoft LUIS, uma das ferramentas previamente estudadas (ver Secção~\ref{sec:chap03_existingtools}). A razão para esta escolha deve-se principalmente a dois fatores: o facto de ser uma plataforma bastante documentada e pela Microsoft disponibilizar (ainda que de forma limitada) este tipo de ferramentas a quem possua subscrição de estudante. 
 
-O \textit{chatbot} recorre ao Microsoft LUIS para identificar a intenção do utilizador, e com base nisso e nas entidades recolhidas, pode carregar os dados necessários e apresentá-los da forma que for mais adequada. Neste caso, o \textit{chatbot} retorna apenas a intenção que foi capaz de identificar (ver Figura~\ref{fig:chatbotexample}).
+Para esta prova de conceito criou-se um \textit{chatbot} capaz de responder a algumas perguntas colocadas pelo utilizador, identificando qual a sua intenção e quais as entidades envolvidas, como se apresenta a seguir:
+%
+\begin{itemize}
+    \item
+    {
+        \textit{Good Morning} -- corresponde à intenção de \textit{Greeting} (saudação), não existindo entidades associadas;
+    }
+    \item
+    {
+        \textit{What's the weather like in \underline{Porto}?} -- intenção de \textit{CheckWeather} (verificar condições meteorológicas), cuja entidade dinâmica é o \textit{Place} (lugar) indicado pelo utilizador.
+    }
+    \item
+    {
+        \textit{Book me a flight to \underline{Lisbon} \underline{next week}} -- intenção de \textit{BookFlight} (agendar voo), que possui duas entidades dinâmicas: o lugar de destino (\textit{Place}) e o momento da viagem (\textit{Datetime}).
+    }
+\end{itemize}
+
+% , descritas na Tabela~\ref{tab:luis_intents}.
+% %
+% \begin{table}
+% \caption{Descrição de algumas das intenções e entidades dada a expressão de exemplo, baseado em~\textcite[Concepts]{microsoft_luis_official}}
+% \label{tab:luis_intents}
+% \centering
+% \resizebox{\textwidth}{!}{
+% \renewcommand{\arraystretch}{1.3}
+% \footnotesize
+% \input{ch04/assets/luis_intents.tex}
+% }
+% \end{table}
+
+O \textit{chatbot} recorreu ao Microsoft LUIS para a identificar a intenção do utilizador, e com base nisso, respondia com a intenção e entidades que foi capaz de identificar (ver Figura~\ref{fig:chatbotexample}). 
 %
 \begin{figure}
 \centering
-\includegraphics[width=.8\textwidth]{ch03/assets/chatbot.png}
-\caption{Resultado do teste com \textit{chatbot} desenvolvido usando Microsoft LUIS}
+\includegraphics[width=.45\textwidth]{ch04/assets/chatbot.jpg}
+\caption{Amostra de teste com \textit{chatbot} desenvolvido usando Microsoft LUIS}
 \label{fig:chatbotexample}
 \end{figure}
 %
-É possível dotar o \textit{chatbot} de comportamento para manipular os metadados obtidos, e assim, obter dados de uma base de dados relacional ou obter dados estáticos dum serviço de respostas pré-fabricadas, tal como o QnA Maker\footnote{Disponível em \url{https://www.qnamaker.ai/}}. É importante frisar que, embora esta abordagem tenha sido aplicada recorrendo a um \textit{chatbot}, por imposição da própria plataforma, tal não é obrigatório na utilização da mesma numa solução customizada. 
+Notou-se ser possível dotar o \textit{chatbot} de comportamento para manipular os metadados obtidos, e assim, obter dados de uma base de dados relacional ou obter dados estáticos dum serviço de respostas pré-fabricadas, tal como o QnA Maker\footnote{Disponível em \url{https://www.qnamaker.ai/}}.
 
 \subsubsection*{Pontos Favoráveis}
 \begin{itemize}
@@ -206,103 +225,100 @@ O \textit{chatbot} recorre ao Microsoft LUIS para identificar a intenção do ut
 \subsection{Sinopse}
 As abordagens descritas anteriormente baseiam-se nas observações e experiências realizadas, no ponto de vista prático. Portanto, a conclusão aqui exposta leva em consideração os pontos favoráveis e desfavoráveis de cada uma.
 
-A abordagem que parece a mais adequada é a que diz respeito ao reconhecimento de intenções e entidades, principalmente pela facilidade de compreensão e aplicação do conceito. Além do mais, os pontos desfavoráveis mencionados são de índole operacional, pelo que podem ser superados ou até descartados aquando a conceção e/ou desenvolvimento da solução final. Relativamente às abordagens descartadas, aponta-se que a primeira -- gramática baseada em semântica -- se usada no contexto de uma solução final, será difícil manter o seu desenvolvimento e capacidade de cobrir uma gama aceitável de questões válidas. Já a segunda -- pesquisa semântica --, ainda que assente sobre uma tecnologia especificada e aprovada pelo W3C, necessita de uma camada adicional (\gls{rdf}), contribuindo assim para o aumento do esforço em configuração e manutenção do sistema. Por isso, a terceira abordagem revela-se a mais adequada e será contemplada no protótipo a desenvolver.
+A abordagem que parece a mais adequada é a que diz respeito ao reconhecimento de intenções e entidades, principalmente pela facilidade de compreensão e aplicação do conceito. Além do mais, os pontos desfavoráveis mencionados são de índole operacional, pelo que não parecem comprometer a conceção de um modelo e desenvolvimento do respetivo protótipo. 
+
+Relativamente às abordagens descartadas, aponta-se que a primeira -- gramática baseada em semântica -- se usada no contexto comercial, seria difícil manter o seu desenvolvimento e capacidade de cobrir uma gama aceitável de questões válidas. Já a segunda -- pesquisa semântica --, ainda que assente sobre uma tecnologia especificada e aprovada pelo W3C, necessitaria de uma camada adicional (\gls{rdf}), contribuindo assim para o aumento do esforço em configuração e manutenção do sistema. Por isso, a terceira abordagem revela-se a mais adequada e será contemplada no protótipo a desenvolver.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Modelo Proposto}
 \label{sec:chap04_proposal}
-O estudo das \glspl{iln}, associado à aplicação prática de algumas ferramentas e abordagens estudadas, permitiram retirar conclusões relevantes de considerar na conceção do modelo. Nesta secção apresenta-se o modelo idealizado para uma \gls{iln} que permita consulta e pesquisa e estados do processo de fabrico, usando uma abordagem de reconhecimento de intenções e entidades.
+O estudo das \glspl{iln}, associado à aplicação prática de algumas ferramentas e abordagens estudadas, permitiram retirar conclusões relevantes de considerar na conceção do módulo. Nesta secção apresenta-se o modelo idealizado segundo uma abordagem de reconhecimento de intenções e entidades.
 
 \subsection{Visão Geral}
-O intuito é especificar um modelo que seja possa ser seguido na futura implementação de uma \gls{iln} integrada no {\productname}, que por sua vez irá permitir a consulta e pesquisa de informação acerca do processo fabril, por parte de operadores de linha, engenheiros de produção e gestores. Como se apresenta na Figura~\ref{fig:generic-vision}, o sistema \gls{mes} disponibiliza uma interface para que o utilizador interaja com ele, através de texto e posteriormente voz, esperando obter informação relevante do processo, no formato que melhor se enquadrar.
+A visão incide na conceção um módulo de linguagem natural para interface com o {\productname}, que permita aos operadores de linha, engenheiros de produção e gestores, consultar informação acerca do processo fabril. Como se apresenta na Figura~\ref{fig:generic-vision}, o sistema \gls{mes} disponibiliza uma interface para que o utilizador interaja com ele, através de texto, esperando obter informação relevante do processo, no formato que melhor se enquadrar.
 %
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=.9\textwidth]{ch04/assets/generic-vision.jpg}
     \caption{Visão da solução desejada para o produto}
     \label{fig:generic-vision}
 \end{figure}
 
-O modelo deve ter em conta quatro fatores considerados importantes na possível implementação final: a experiência de utilizador, a extensão da base de conhecimento com o propósito de suportar diferentes domínios, a utilização de \textit{feedback} de utilizador para a aprimoramento da qualidade das respostas geradas e a fácil integração com o {\productname}.
-
-Relativamente à estratégia de reconhecimento de intenções e entidades a ser aplicada no modelo, definem-se os conceitos que lhe estão inerentes, apresentados na Figura~\ref{fig:domain_model}:
+O modelo tem em conta três fatores: a experiência de utilizador, a extensibilidade das bases de conhecimento e integração com o {\productname}. Relativamente à estratégia de reconhecimento de intenções e entidades a ser aplicada no modelo, definem-se os conceitos que lhe estão inerentes, apresentados na Figura~\ref{fig:domain_model}:
 
 \begin{itemize}
-    \item 
+    \item
     {
         \textit{Dynamic Knowledge Base} -- Base de conhecimento dinâmica. Fonte de dados que liga as expressões às intenções e entidades correspondentes e é usado no treino dos modelos \gls{ml} para previsão;
     }
-    \item 
+    \item
     {
-        \textit{Static Knowledge Base} -- Base de conhecimento estática. Dicionário onde consta um determinada expressão e respetiva resposta. Pode ser usada para implementar conversação casual ou lidar com expressões que não constam na base de dados dinâmica;
+        \textit{Static Knowledge Base} -- Base de conhecimento estática. Dicionário onde consta uma determinada expressão e respetiva resposta. Pode ser usada para implementar conversação casual ou lidar com expressões que não constam na base de dados dinâmica;
     }
-    \item 
+    \item
     {
-        \textit{Intention} -- Intenção. Mapeia ação que o utilizador deseja executar. Normalmente estão-lhe associadas diversas expressões;
+        \textit{Intent} -- Intenção. Mapeia ação que o utilizador deseja executar. Normalmente estão-lhe associadas diversas expressões;
     }
-    \item 
+    \item
     {
         \textit{Expression} -- Expressão. Corresponde ao exemplo de estrutura de uma pergunta que o utilizador pode fazer;
     }
-    \item 
+    \item
     {
         \textit{Entity} -- Entidade. Tipicamente refere-se a um conceito de domínio ou do mundo real;
     }
-    \item 
+    \item
     {
-        \textit{Static Answer} -- Resposta Estática. Definida na base de conhecimento estática, associada a diferentes expressões. Por exemplo, expressões como \inquotes{Olá} ou \inquotes{Viva} podem ter associadas a respostas como \inquotes{Oi} e \inquotes{Olá}.
+        \textit{Static Answer} -- Resposta Estática. Definida na base de conhecimento estática, associada a diferentes expressões. Por exemplo, expressões como \inquotes{Olá} ou \inquotes{Viva} podem ter associadas respostas como \inquotes{Oi} e \inquotes{Olá}.
     }
 \end{itemize}
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.9\textwidth]{ch04/assets/domain-model.jpg}
+    \includegraphics[width=.75\textwidth]{ch04/assets/domain-model.jpg}
     \caption{Conceitos associados ao reconhecimento de intenções e entidades e os respetivos relacionamentos}
     \label{fig:domain_model}
 \end{figure}
 %
-Portanto, uma intenção é um conceito composto, base do modelo, que se apresenta como uma indireção face à questão colocada pelo utilizador, ou seja, a questão é analisada pela ação que lhe está associada e não propriamente pelo seu significado. Desta forma, possibilita-se a escalabilidade e a generalização de domínio, \idest{um pedido para obter os materiais mais fabricados num determinado setor constitui uma intenção única, apesar de apresentar entidades diferentes, consoante o domínio}.
+Portanto, uma intenção é um conceito composto, base do modelo, que se apresenta como uma indireção face à questão colocada pelo utilizador, ou seja, a questão é analisada pela ação que lhe está associada e não propriamente pelo seu significado, \exempligratia{um pedido para obter os materiais mais fabricados num determinado setor constitui uma intenção única, apesar de apresentar entidades diferentes, consoante o domínio}.
 
 \subsection{Casos de Uso}
-De um ponto de vista de utilização, o modelo aqui proposto deve saber lidar com \textit{Perguntas}, \textit{Respostas} e \textit{Feedback}, que se podem considerar as principais áreas funcionais de sistema. Todas têm implicações no bom funcionamento do modelo, sendo que a última, ainda que não seja essencial, é importante na medida em que contribui para melhoria contínua do sistema. Em relação às \textit{Perguntas} e \textit{Respostas}, uma vez que estão profundamente ligadas, apresentando funcionalidades comuns, são então enquadradas numa área funcional única, denominada \textit{Q\&A}. A Figura~\ref{fig:use_cases} dá uma visão geral das áreas funcionais do sistema.
+De um ponto de vista de utilização, o modelo aqui proposto deve saber lidar com \textit{Perguntas}, \textit{Respostas} e \textit{Bases de Conhecimento}, que se podem considerar as principais áreas funcionais de sistema. Todas têm implicações no comportamento do módulo. Em relação às \textit{Perguntas} e \textit{Respostas}, uma vez que estão profundamente ligadas, apresentando funcionalidades comuns, são então enquadradas numa área funcional única, denominada \textit{QA}. A Figura~\ref{fig:use_cases} dá uma visão geral das áreas funcionais do sistema, que são descritas em seguida:
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.9\textwidth]{ch04/assets/use-cases.jpg}
+    \includegraphics[width=.72\textwidth]{ch04/assets/use-cases.jpg}
     \caption{Áreas funcionais de sistema}
     \label{fig:use_cases}
 \end{figure}
-
-As áreas funcionais são descritas em seguida:
-
+%
 \begin{itemize}
     \item 
     {
-        \textit{Q\&A} -- corresponde ao conjunto de funcionalidades relacionadas com as perguntas colocadas pelos utilizadores e respetiva procura de respostas;
+        \textit{QA} -- corresponde ao conjunto de funcionalidades relacionadas com as perguntas colocadas pelos utilizadores e respetiva procura de respostas;
     }
-    \item 
-    {
-        \textit{Feedback} -- conjunto de funções de sistema que lida com a recolha de \textit{feedback} do utilizador, para contribuir para a melhoria contínua da qualidade das respostas;
-    }
+    % \item 
+    % {
+    %     \textit{Feedback} -- conjunto de funções de sistema que lida com a recolha de \textit{feedback} do utilizador, para contribuir para a melhoria contínua da qualidade das respostas;
+    % }
     \item 
     {
         \textit{Knowledge Base} -- área funcional \textit{Base de Conhecimento}. Apresenta funcionalidades para a gestão de intenções, expressões, entidades, ou seja, tudo o que as restantes áreas funcionais necessitam para o seu funcionamento.
     }
 \end{itemize}
 
-A área funcional \textit{Q\&A} é essencial no contexto deste trabalho, já que se trata da base de interação com o utilizador. Por isso, a Figura~\ref{fig:detailed_use_cases}, apresentada em seguida, detalha algo mais essa área funcional.
+A área funcional \textit{QA} é essencial no contexto deste trabalho, já que se trata da base de interação com o utilizador. Por isso, a Figura~\ref{fig:detailed_use_cases}, apresentada a seguir, detalha algo mais essa área funcional.
 %
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{ch04/assets/questions-use-cases.jpg}
-    \caption{Casos de uso identificados para a área funcional \textit{Q\&A}}
+    \includegraphics[width=.93\textwidth]{ch04/assets/questions-use-cases.jpg}
+    \caption{Casos de uso identificados para a área funcional \textit{QA}}
     \label{fig:detailed_use_cases}
 \end{figure}
 
 Os casos de uso apresentados no diagrama são descritos a seguir:
-
 \begin{itemize}
     \item 
     {
@@ -314,7 +330,7 @@ Os casos de uso apresentados no diagrama são descritos a seguir:
     }
     \item 
     {
-        \textit{Recognize Intent and Entities} -- Reconhecer a Intenção e as Entidades. O sistema faz o reconhecimento da intenção e das entidades da pergunta feita com base nos modelo de \gls{ml} treinado com os dados que constam na base de conhecimento;
+        \textit{Recognize Intent and Entities} -- Reconhecer a Intenção e as Entidades. O sistema faz o reconhecimento da intenção e das entidades da pergunta feita com base no modelo de \gls{ml} treinado com os dados que constam na base de conhecimento;
     }
     \item 
     {
@@ -334,10 +350,10 @@ Os casos de uso apresentados no diagrama são descritos a seguir:
     }
 \end{itemize}
 
-Os casos de uso apresentados são a base das funcionalidades do modelo, e por isso, serão explorados em contexto prático no capítulo seguinte.
+Os casos de uso apresentados são a base das funcionalidades do módulo, e por isso, serão explorados em contexto prático no capítulo seguinte.
 
 \subsection{Arquitetura}
-Dada a visão geral do modelo e dos seus casos de uso, pretende-se expor a estrutura da solução numa perspetiva lógica, partindo do pressuposto que será o modelo usado na solução final a desenvolver para o {\productname}. Assim, a Figura~\ref{fig:prototype_architecture} demonstra a arquitetura do modelo, primeiro num vista a alto nível e depois mais focado no elemento principal, explicando a responsabilidade inerente a cada componente.
+Dada a visão geral do modelo e dos seus casos de uso, pretende-se expor a estrutura da solução numa perspetiva lógica, enquadrando-a no contexto {\productname}. Assim, a Figura~\ref{fig:model_architecture} demonstra a arquitetura do modelo, primeiro num vista a alto nível e depois mais focado no elemento principal, explicando a responsabilidade inerente a cada componente.
 %
 \begin{figure}
 \centering
@@ -351,12 +367,12 @@ Dada a visão geral do modelo e dos seus casos de uso, pretende-se expor a estru
      \bigbreak
      \begin{subfigure}{\textwidth}
          \centering
-         \includegraphics[width=\textwidth]{ch04/assets/nl-engine.jpg}
+         \includegraphics[width=.65\textwidth]{ch04/assets/nl-engine.jpg}
          \caption{Arquitetura detalhada do \textit{NL Engine}}
          \label{fig:nlengine_architecture}
      \end{subfigure}
 \caption{Arquitetura do protótipo, apresentando um vista genérica e uma mais específica do componente \textit{NL Engine}}
-\label{fig:prototype_architecture}
+\label{fig:model_architecture}
 \end{figure}
 %
 \begin{itemize}
@@ -370,33 +386,33 @@ Dada a visão geral do modelo e dos seus casos de uso, pretende-se expor a estru
     }
     \item 
     {
-        \textit{Q\&A Service} -- trata-se de um subcomponente o \textit{NL Engine}, que conhece as partes envolvidas no processo de aquisição de resposta, sendo responsável orquestrar esse processo. Trabalha em conjunto com o \textit{Comprehension Service} com o objetivo de identificar e mapear a intenção e entidades de uma dada \textit{query} de linguagem natural para obter a resposta da fonte de dados produtivos. Numa analogia à anatomia humana, pode ser considerado o \inquotes{cérebro} do processo;
+        \textit{QA Service} -- trata-se de um subcomponente o \textit{NL Engine}, que conhece as partes envolvidas no processo de aquisição de resposta, sendo responsável por orquestrar esse processo. Trabalha em conjunto com o \textit{Comprehension Service} com o objetivo de identificar e mapear a intenção e entidades de uma dada \textit{query} de linguagem natural para obter a resposta da fonte de dados produtivos. Numa analogia à anatomia humana, pode ser considerado o \inquotes{cérebro} do processo;
     }
     \item 
     {
-        \textit{Comprehension Service} -- outro subcomponente do \textit{NL Engine}, trabalha com a base de conhecimento definida (\textit{NL Knowledge Base}) para executar a tarefa de compreender a pergunta colocada. É neste componente que se insere a ferramenta para processamento de linguagem natural escolhida;
+        \textit{Comprehension Service} -- outro subcomponente do \textit{NL Engine}, trabalha com a base de conhecimento definida (\textit{NL Knowledge Base}) para executar a tarefa de compreender a pergunta colocada. É neste componente que se insere a ferramenta escolhida para processamento de linguagem natural;
+    }
+    % \item 
+    % {
+    %     \textit{Feedback Management} -- tem a responsabilidade de gerir o \textit{feedback} providenciado pelo utilizador e disponibiliza serviços para a gestão dessa mesma informação, que incluem o desencadear do processo de aprendizagem, por exemplo. Inicialmente, o \textit{feedback} pode ser consultado manualmente, possibilitando o uso dessa informação para a melhoria do sistema. Contudo, podem ser aplicadas estratégias que façam uso desta informação de forma automática;
+    % }
+    \item 
+    {
+        \textit{NL Knowledge Base} -- base de conhecimento de domínio, incluída na camada de persistência do {\productname}. É configurada pela equipa de desenvolvimento e deve mapear as entidades de domínio e as intenções em que estão envolvidas;
     }
     \item 
     {
-        \textit{Feedback Management} -- tem a responsabilidade de gerir o \textit{feedback} providenciado pelo utilizador e disponibiliza serviços para a gestão dessa mesma informação, que incluem o desencadear do processo de aprendizagem, por exemplo. Inicialmente, o \textit{feedback} pode ser consultado manualmente, possibilitando o uso dessa informação para a melhoria do sistema. Contudo, podem ser aplicadas estratégias que façam uso desta informação de forma automática;
-    }
-    \item 
-    {
-        \textit{NL Knowledge Base} -- base de conhecimento de domínio, incluída na camada de persistência do {\productname}. É configurada pela equipa de desenvolvimento e deve mapear as entidades de domínio, as intenções em que estão envolvidas e suportar o registo de \textit{feedback}, para que possa ser usado na aprendizagem do módulo;
-    }
-    \item 
-    {
-        \textit{ProductionDB} -- armazém de dados de negócio. Contém a informação que o utilizador deseja obter através de linguagem natural.
+        \textit{Production Store} -- armazém de dados de negócio. Contém a informação que o utilizador deseja obter através de linguagem natural.
     }
 \end{itemize}
 
-Apesar da elucidação acerca da responsabilidade de cada componente no sistema, é importante detalhar a forma como estes interagem entre si, para atingir o objetivo. A Figura~\ref{fig:prototype_sequence_diagram} mostra como se desenrola a comunicação entre os diversos componentes, que se passa a descrever: o utilizador (\textit{User}) questiona o sistema através da interface gráfica (\textit{NL Presentation}). A questão é encaminhada para o \textit{Q\&A Service} que se encarrega de \inquotes{pedir} ao \textit{Comprehension Service} para que lhe forneça a compreensão sob forma de representação intermediária. Posto isto, o \textit{Comprehension Service} consulta a base de conhecimento (\textit{NL Knowledge Base}) para consultar o conteúdo existente e, aplicando modelos de \gls{ml}, faz o reconhecimento das intenções e entidades presentes na questão. O \textit{Q\&A Service} trata de converter a representação numa linguagem compatível com o \textit{ProductionDB} e executa a \textit{query} gerada. Aquando a aquisição dos dados, o \textit{Q\&A Service} trata de \inquotes{documentá-los}, ou seja, colocar metadados que sejam importantes para processamento posterior. Por fim, a \textit{NL Presentation} processa o resultado para que este seja apresentado num formato adequado ao utilizador. Após o processo descrito, o sistema pede por \textit{feedback} do utilizador (\textit{User}). Aquando recebido, o \textit{feedback} é entregue ao \textit{Feedback Management}, que se encarrega de enviá-lo para a \textit{NL Knowledge Base} para que seja armazenado. Este último componente salva o \textit{feedback} terminando com sucesso o processo inteiro, estando o sistema pronto para inicializar um novo.
+Apesar da elucidação acerca da responsabilidade de cada componente no sistema, é importante detalhar a forma como estes interagem entre si, para atingir o objetivo. A Figura~\ref{fig:model_sequence_diagram} mostra como se desenrola a comunicação entre os diversos componentes, que se passa a descrever: o utilizador (\textit{User}) questiona o sistema através da interface gráfica (\textit{NL Presentation}). A questão é encaminhada para o \textit{QA Service} que se encarrega de \inquotes{pedir} ao \textit{Comprehension Service} para que lhe forneça a compreensão sob a forma de representação intermediária. Posto isto, o \textit{Comprehension Service} consulta a base de conhecimento (\textit{NL Knowledge Base}) para obter o conteúdo existente e, aplicando modelos de \gls{ml}, faz o reconhecimento das intenções e entidades presentes na questão. O \textit{QA Service} trata de converter a representação numa linguagem compatível com o \textit{Production Store} e executa a \textit{query} gerada. Aquando a aquisição dos dados, o \textit{QA Service} trata de \inquotes{documentá-los}, ou seja, colocar metadados que sejam importantes para processamento posterior. Por fim, a \textit{NL Presentation} processa o resultado para que este seja apresentado num formato adequado ao utilizador.
 
 \begin{sidewaysfigure}
     \centering
     \includegraphics[width=\textwidth]{ch04/assets/workflow.jpg}
     \caption{Comunicação entre os componentes do módulo de linguagem natural}
-    \label{fig:prototype_sequence_diagram}
+    \label{fig:model_sequence_diagram}
 \end{sidewaysfigure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -404,8 +420,8 @@ Apesar da elucidação acerca da responsabilidade de cada componente no sistema,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Síntese} 
 \label{sec:chap04_chaptersummary}
-Neste capítulo descreveu-se o processo que levou à especificação do modelo, dando ênfase aos detalhes da sua arquitetura. 
+Neste capítulo descreveu-se o processo que levou à especificação do módulo, dando ênfase aos detalhes da sua arquitetura. 
 
 Começou-se por descrever a apreciação feita, em contexto prático, a algumas das ferramentas e abordagens anteriormente estudadas, fazendo referência aos seus pontos favoráveis e desfavoráveis. A conclusão retirada foi a de que a abordagem de reconhecimento de intenções e entidades seria a escolha adequada para o modelo a conceber.
 
-Posteriormente, apresentou-se o modelo proposto para a solução de \gls{iln}, descrevendo a visão contemplada, as áreas funcionais -- \textit{Q\&A}, \textit{Feedback} e \textit{Knowledge Base} -- e os casos de uso identificados, detalhando os mais importantes. Finalmente, a arquitetura num ponto de vista lógica, explicando os componentes e o fluxo de trabalho entre eles, no qual se apresenta um cenário genérico do funcionamento do processo de tradução e \textit{feedback}.
+Posteriormente, apresentou-se o modelo proposto, descrevendo a visão contemplada, as áreas funcionais -- \textit{QA} e \textit{Knowledge Base} -- e os casos de uso identificados, detalhando os mais importantes. Finalmente, a arquitetura num ponto de vista lógica, explicando os componentes e o fluxo de trabalho entre eles, no qual se apresenta um cenário genérico do funcionamento do processo de tradução e resposta.

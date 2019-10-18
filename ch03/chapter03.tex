@@ -1,6 +1,6 @@
 \chapter{Estado da Arte}
 \label{chap:Chapter3}
-O presente capítulo tem como objetivo a exploração da área de estudo associada ao problema. Começa-se por introduzir o conceito de \glsfirst{pln}, dando um contexto histórico e explorando os fundamentos desta temática. Posteriormente, introduz-se a temática mais específica do problema, descrevendo as suas características, nomeadamente os tipos de abordagem adotados e arquiteturas de sistema típicos. Segue-se a apresentação dos trabalhos relevantes para o campo de estudo, quer na realidade do problema, quer noutros cenários. Por último, exploram-se as ferramentas tipicamente usadas na resolução de problemas associados ao \gls{pln}, tentando apurar a mais adequada para a solução final.
+O presente capítulo tem como objetivo a exploração da área de estudo associada ao problema. Começa-se por introduzir o conceito de \gls{pln}, dando um contexto histórico e explorando os fundamentos desta temática. Posteriormente, introduz-se a temática mais específica do problema, descrevendo as suas características, nomeadamente os tipos de abordagem adotados e arquiteturas de sistema típicos. Segue-se a apresentação dos trabalhos relevantes para o campo de estudo, quer na realidade do problema, quer noutros cenários. Por último, exploram-se as ferramentas tipicamente usadas na resolução de problemas associados ao \gls{pln} e que são passíveis de ser usadas no desenvolvimento de \glspl{iln}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
@@ -14,7 +14,7 @@ O início do \gls{pln} remonta aos anos 40, com o desenvolvimento da Ciência da
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.8\textwidth]{ch03/assets/slp_model.jpg}
+    \includegraphics[width=.7\textwidth]{ch03/assets/slp_model.jpg}
     \caption{\glsfirst{slp}, extraído de~\textcite{applied_natural_language_processing_with_python}}
     \label{fig:slp}
 \end{figure}
@@ -22,7 +22,7 @@ O início do \gls{pln} remonta aos anos 40, com o desenvolvimento da Ciência da
 Ao longo dos anos, várias técnicas foram surgindo na tentativa de resolver problemas associados à compreensão da linguagem natural. Mas, nos últimos 20 anos, notou-se o aumento de interesse no \gls{pln}, juntamente com \gls{ml}, sobretudo devido ao aumento do poder computacional e à facilidade de acesso a dados etiquetados através da Internet~\parencite{applied_natural_language_processing_with_python}.
 
 \subsection{Fundamentos}
-O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da própria linguagem~\parencite{nlp}. O desenvolvimento deste tipo de aplicações incorre em alguns problemas tais como a processo de pensamento, a representação e significado linguístico e/ou conhecimento do domínio, que estão associados à ambiguidade da linguagem natural~\parencite{nlp, pln_extracao_conhecimento}. Por outras palavras, a ambiguidade surge quando não é possível atribuir um significado único a uma dada expressão. Se uma pessoa é capaz de o fazer, baseada na sua experiência, capacidade de interpretação de contexto ou na sua cultura, já um computador não tem essa mesma capacidade~\parencite{pln_extracao_conhecimento}. Por isso, \textcite{nlp} enuncia que, para ser capaz de compreender a linguagem natural, é importante considerar os vários níveis de conhecimento interdependentes que o ser humano usa na extração de significado:
+O cerne de qualquer tarefa de \gls{pln} está relacionado com a compreensão da própria linguagem \parencite{nlp}. O desenvolvimento deste tipo de aplicações incorre em alguns problemas tais como a processo de pensamento, a representação e significado linguístico e/ou conhecimento do domínio, que estão associados à ambiguidade da linguagem natural~\parencite{nlp, pln_extracao_conhecimento}. Por outras palavras, a ambiguidade surge quando não é possível atribuir um significado único a uma dada expressão. Se uma pessoa é capaz de o fazer, baseada na sua experiência, capacidade de interpretação de contexto ou na sua cultura, já um computador não tem essa mesma capacidade~\parencite{pln_extracao_conhecimento}. Por isso, \textcite{nlp} enuncia que, para ser capaz de compreender a linguagem natural, é importante considerar os vários níveis de conhecimento interdependentes que o ser humano usa na extração de significado:
 
 \begin{itemize}
     \item 
@@ -66,9 +66,9 @@ Uma \gls{iln} é um componente que aceita expressões de consulta ou comandos em
 
 As \glspl{ilnbd} apresentam um problema clássico na área de \gls{pln} e constitui um campo de estudo em desenvolvimento. Genericamente, a solução inerente a este problema pode ser divida em duas fases: processamento linguístico, em que a frase de pesquisa é mapeada e traduzida para a \textit{query} de \gls{sql} correspondente, usando funções de mapeamento adequadas; processamento na base de dados, na qual é executado a gestão de acesso ao sistema e execução da respetiva consulta~\parencite{overview_nlidb_approaches_implementation_airline}. Este tipo de sistemas é capaz de responder a uma grande variedade de \textit{queries} de linguagem natural mas são pouco usados comercialmente, principalmente pela pouca robustez nas capacidades de processamento de contexto~\parencite{novel_approach_towards_incorporating_context_processing_nlidb}, pela falta de cobertura linguística ou pelo facto de utilizador poder assumir inteligência por parte do sistema~\parencite{survey_nlidb, overview_nlidb_approaches_implementation_airline}. Ainda assim, existem várias vantagens que contribuem para o desenvolvimento deste tipo de aplicações, nomeadamente a facilidade e simplicidade de utilização, o facto de ser mais adequado para questões que envolvem negação ou quantificação ou a sua tolerância a erros gramaticais~\parencite{survey_nlidb, nlidb_brief_review, overview_nlidb_approaches_implementation_airline}.
 %
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=.7\textwidth]{ch03/assets/non_contextual_nlidb.jpg}
+    \includegraphics[width=.6\textwidth]{ch03/assets/non_contextual_nlidb.jpg}
     \caption{Sistema não-contextual, extraído de~\textcite{novel_approach_towards_incorporating_context_processing_nlidb}}
     \label{fig:noncontextual_nlidb}
 \end{figure}
@@ -105,13 +105,13 @@ Quanto à arquitetura das \glspl{ilnbd}, além de serem variadas, possuem també
 Os primeiros esforços no desenvolvimento de sistemas deste género começaram em meados do século XX. O conceito de \textit{Pattern Matching} permite mapear diretamente o \textit{input} do utilizador para a obter o resultado desejado. A implementação destes sistemas implica que os detalhes da base de dados estejam presentes no código, ou seja, torna a solução limitada a um contexto específico e ao número e complexidade de padrões existentes~\parencite{nlidb_brief_review}. A principal vantagem desta abordagem prende-se à simplicidade de implementação, pelo que não há necessidade em conceber módulos de interpretação ou \textit{parsing} da linguagem~\parencite{nlidb_brief_review, survey_nlidb}.
 
 \subsection{Sistemas Baseados em Sintaxe}
-Os sistemas baseados em sintaxe possibilitam que a \inquotes{questão} do utilizador seja analisada sintaticamente, dando origem a uma árvore que é diretamente mapeada para uma expressão \gls{sql}. Para isso, estes sistemas usam uma gramática que descreve as estruturas sintáticas das perguntas dos utilizadores~\parencite{nlidb_brief_review}. Geralmente, é difícil mapear todas regras que constituem a gramática e o processo de escolha de quais as regras devem ser representadas é complexo. Outro problema é o facto de uma frase poder ter múltiplas corretas árvores de análise sintática, que aquando traduzidas, podem levar a diferentes resultados. Também a dificuldade de transformar a árvore de análise sintática diretamente numa linguagem genérica de base de dados é um problema complexo de resolver~\parencite{survey_nlidb}. A principal vantagem desta abordagem é o facto de fornecer informação acerca da estrutura frásica, possibilitando o mapeamento da semântica em regras produtivas (nós da árvore de análise sintática)~\parencite{nlidb_brief_review}.
+Os sistemas baseados em sintaxe possibilitam que a questão do utilizador seja analisada sintaticamente, dando origem a uma árvore que é diretamente mapeada para uma expressão \gls{sql}. Para isso, estes sistemas usam uma gramática que descreve as estruturas sintáticas das perguntas dos utilizadores~\parencite{nlidb_brief_review}. Geralmente, é difícil mapear todas regras que constituem a gramática e o processo de escolha de quais as regras devem ser representadas é complexo. Outro problema é o facto de uma frase poder ter múltiplas corretas árvores de análise sintática, que aquando traduzidas, podem levar a diferentes resultados. Também a dificuldade de transformar a árvore de análise sintática diretamente numa linguagem genérica de base de dados é um problema complexo de resolver~\parencite{survey_nlidb}. A principal vantagem desta abordagem é o facto de fornecer informação acerca da estrutura frásica, possibilitando o mapeamento da semântica em regras produtivas (nós da árvore de análise sintática)~\parencite{nlidb_brief_review}.
 
 \subsection{Sistemas de Gramática Semântica}
 Apesar da sua semelhança com os sistemas baseados em sintaxe, a ideia inerente a um sistema deste tipo é a simplificar a árvore de análise sintática, através da combinação de alguns nós ou remoção dos mesmos. Posto isto, um sistema de gramática semântica é capaz de refletir melhor a representação semântica da frase, sem as estruturas complexas na árvore, com a possibilidade de designar nomes para os nós, reduzindo a ambiguidade. As principais desvantagens desta abordagem prendem-se com a necessidade de conhecimento prévio do domínio, tornando-se difícil a transposição para um outro e a estrutura específica das árvores de análise sintática não poderia ser usado noutra aplicação~\parencite{survey_nlidb, nlidb_brief_review}.
 
 \subsection{Sistemas de Representação Intermediária de Linguagem}
-Atualmente, as \glspl{ilnbd} transformam a linguagem natural numa representação intermediária, definida internamente. Assim, a \textit{query} lógica representada na linguagem intermédia expressa o significado da questão colocada pelo utilizador em termos dos conceitos do domínio, os quais são independentes da estrutura da base de dados. Posteriormente, a \textit{query} lógica é traduzida na linguagem genérica de base de dados e avaliada. Esta arquitetura surgiu da dificuldade de traduzir diretamente a linguagem natural para a \gls{sql}, ou outra semelhante. O processo de transformação da \textit{query} lógica para a linguagem de base de dados pode conter várias fases, dependendo da necessidade do sistema~\parencite{nlidb_brief_review}.
+Atualmente, as \glspl{iln} transformam a linguagem natural numa representação intermediária, definida internamente. Assim, a \textit{query} lógica representada na linguagem intermédia expressa o significado da questão colocada pelo utilizador em termos dos conceitos do domínio, os quais são independentes da estrutura da base de dados. Posteriormente, a \textit{query} lógica é traduzida na linguagem genérica de base de dados e avaliada. Esta arquitetura surgiu da dificuldade de traduzir diretamente a linguagem natural para a \gls{sql}, ou outra semelhante. O processo de transformação da \textit{query} lógica para a linguagem de base de dados pode conter várias fases, dependendo da necessidade do sistema~\parencite{nlidb_brief_review}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
@@ -164,7 +164,7 @@ A Figura~\ref{fig:precise_architecture} apresenta a arquitetura deste sistema, n
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.8\textwidth]{ch03/assets/precise_architecture.jpg}
+    \includegraphics[width=.6\textwidth]{ch03/assets/precise_architecture.jpg}
     \caption{Arquitetura do sistema PRECISE, extraído de~\textcite{towards_theory_nli_databases}}
     \label{fig:precise_architecture}
 \end{figure}
@@ -180,19 +180,19 @@ Relativamente à arquitetura do NaLIX (ver Figura~\ref{fig:nalix_architecture}),
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.8\textwidth]{ch03/assets/nalix_architecture.jpg}
+    \includegraphics[width=.75\textwidth]{ch03/assets/nalix_architecture.jpg}
     \caption{Arquitetura do sistema NaLIX, extraído de~\textcite{nalix_interactive_nli_querying_xml}}
     \label{fig:nalix_architecture}
 \end{figure}
 
-De salientar é que a linguagem de \textit{query} usada pelo NaLIX (\textit{Schema Free XQuery}) não necessita que seja explicitado qual o \textit{schema} a ser usado, sendo que é capaz de encontrar automaticamente, para uma dada coleção de expressões/palavras-chave, todas as relações existentes entre estes elementos. Assim, é possível abstrair o sistema do domínio existente~\parencite{nalix_interactive_nli_querying_xml, survey_nlidb}.
+De salientar que a linguagem de \textit{query} usada pelo NaLIX (\textit{Schema Free XQuery}) não necessita que seja explicitado qual o \textit{schema} a ser usado, sendo que é capaz de encontrar automaticamente, para uma dada coleção de expressões/palavras-chave, todas as relações existentes entre estes elementos. Assim, é possível abstrair o sistema do domínio existente~\parencite{nalix_interactive_nli_querying_xml, survey_nlidb}.
 
 \subsubsection*{GINLIDB}
 Este sistema -- \textit{Generic Interactive Natural Language Interface to Databases} -- foi desenvolvido em 2009 com o propósito de ser genérico o suficiente para se adaptar a bases de dados diferentes, dada a base de conhecimento apropriada~\parencite{ginlidb}. A arquitetura do GINLIDB, apresentada na Figura~\ref{fig:ginlidb_architecture}, consiste em dois principais componentes: \textit{Linguistic Handling Component}, o qual gere a exatidão da \textit{query} de linguagem natural, nomeadamente a estrutura gramatical e possibilidade de ser corretamente convertida para \gls{sql}; \textit{SQL Construting Component}, responsável por construir a \textit{query} de \gls{sql} apropriada e gerir a ligação à base de dados~\parencite{ginlidb}.
 %
 \begin{figure}
     \centering
-    \includegraphics[width=.8\textwidth]{ch03/assets/ginlidb_architecture.jpg}
+    \includegraphics[width=.9\textwidth]{ch03/assets/ginlidb_architecture.jpg}
     \caption{Arquitetura do sistema GINLIDB, extraído de~\textcite{ginlidb}}
     \label{fig:ginlidb_architecture}
 \end{figure}
@@ -200,27 +200,27 @@ Este sistema -- \textit{Generic Interactive Natural Language Interface to Databa
 O GINLIDB destaca-se pelo seu processo de análise sintática, no qual usa \gls{atn}, que verifica se a estrutura dos \textit{tokens} é permitida na estrutura gramatical. Este processo é suportado pelo \textit{parser} desenvolvido para o sistema usando uma gramática de contexto livre. Outro destaque deste sistema diz respeito à base de conhecimento usada, que é extensível pelo utilizador, permitindo adicionar novas palavras no dicionário, associar-lhes os respetivos sinónimos e definir o \textit{schema} da base de dados em uso, mapeando assim o domínio. Em termos de resultados, o sistema mostrou-se capaz de responder às questões mais comuns, embora não tenha sido testado em diferentes domínios~\parencite{ginlidb}.
 
 \subsection{Sinopse}
-Na Tabela~\ref{tab:study_cases} descriminam-se os trabalhos abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica. Uma análise cuidada sobre os trabalhos demonstra que não existe uma abordagem recorrente. Existe sim, uma combinação adequada à realidade do problema a resolver, que não deve ser generalizada. Também é possível constatar que a representação intermediária de linguagem é a técnica mais frequente, pelo que parece ser adequado a sua aplicação.
 %
 \begin{table}
 \caption{Sumário dos trabalhos estudados}
 \label{tab:study_cases}
 \centering
 \resizebox{\textwidth}{!}{
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.3}
 \footnotesize
-\input{ch03/assets/studycases_summary_table.tex}
-}
+\input{ch03/assets/studycases_summary_table.tex}}
 \end{table}
+%
+Na Tabela~\ref{tab:study_cases} discriminam-se os trabalhos abordados anteriormente, focando especialmente a abordagem utilizada e a respetiva técnica. Uma análise cuidada sobre os trabalhos demonstra que não existe uma abordagem recorrente. Existe sim, uma combinação adequada à realidade do problema a resolver, que não deve ser generalizada. Também é possível constatar que a representação intermediária de linguagem é a técnica mais frequente, pelo que parece ser adequado a sua aplicação.
 
-Para a solução a desenvolver, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \gls{ml} ou \gls{dl}, aliados à representação intermediária de linguagem, podem constituir um novo passo na implementação da \gls{iln}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a serem consideradas.
+Para a solução a conceber, qualquer das combinações pode ser válida, pelo que a integração com técnicas mais recentes de \gls{ml} ou \gls{dl}, aliados à representação intermediária de linguagem, podem constituir um novo passo na implementação da \gls{iln}. Nesse sentido, o uso de ferramentas \gls{pln} já existentes ou o desenvolvimento de raiz de uma para esse efeito são alternativas a serem consideradas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Ferramentas}
 \label{sec:chap03_existingtools}
-Atualmente, estão disponíveis várias ferramentas para lidar com o \gls{pln}, sendo que se torna necessário destacar as mais relevantes para aplicação numa \gls{iln} e perceber qual pode ser a mais adequada na resolução do problema, dadas as particularidades de cada uma. Posteriormente, faz-se o comparativo de todas as ferramentas, selecionando aquela que se revela ser a mais apropriada, usando uma matriz de decisão para o efeito.
+Atualmente, estão disponíveis várias ferramentas para lidar com o \gls{pln}, sendo que se torna necessário destacar as mais relevantes para aplicação numa \gls{iln} e perceber qual pode ser a mais adequada na resolução do problema, dadas as particularidades de cada uma. Posteriormente, faz-se o comparativo das ferramentas, pressupondo as que parecem ser mais apropriadas para a solução.
 
 \subsection{NLTK}
 O NLTK, \textit{Natural Language Toolkit}, foi criado ems 2001 na Universidade da Pennsylvania e, desde então, tem-se expandido graças à comunidade \textit{open source} que contribui para o projecto~\parencite{applied_natural_language_processing_with_python}. Esta biblioteca, desenvolvida em \textit{Python} para processamento de linguagem natural e análise textual, caracteriza-se pela sua simplicidade, consistência, extensibilidade e modularidade, apresentando um conjunto de funções otimizadas para suportar estas tarefas listadas~\parencite{applied_natural_language_processing_with_python, python_text_processing_nltk_cookbook}. De acordo com~\textcite{nltk_education_scientific_purposes}, a combinação de \textit{Python} e NLTK dá a capacidade a qualquer programador de resolver facilmente tarefas de \gls{pln}, evitando demasiado tempo a  estudar os conceitos inerentes. Neste contexto, a biblioteca está integrada com \textit{WordNet}\footnote{Disponível em \url{https://wordnet.princeton.edu/}}, uma base de dados de relações semânticas entre nomes, verbos, adjetivos e advérbios da Língua Inglesa~\parencite{nltk_education_scientific_purposes}.
@@ -251,50 +251,63 @@ O Watson Assistant é um produto do IBM Watson, um plataforma de serviços na \t
 O LUIS, acrónimo para \textit{Language Understanding Intelligent Service}, é um serviço da Microsoft, baseado na \textit{cloud} e parte do produto \textit{Cognitive Services}, e que por sua vez integra na plataforma Azure, que aplica métodos de \gls{ml} à linguagem natural, permitindo obter informação relevante acerca da mesma~\parencite{microsoft_luis_official}. O intuito do LUIS é tornar possível a criação de soluções que apliquem modelos específicos de \gls{ml} para a compreensão de linguagem específica de um determinado domínio, sem qualquer tipo de perícia nesta área~\parencite{luis_fast_easy_language_understanding}. Assim, o LUIS permite a construção do próprio modelo, através da identificação de entidades, de intenções e das frases que lhes são associadas, oferecendo diversas ferramentas ao desenvolvedor para que este processo seja mais simples~\parencite{microsoft_luis_official}. Relativamente à sua aplicabilidade ao problema, a combinação do LUIS com o QnA Maker (outro serviço integrante do \textit{Cognitive Services}) resulta numa solução capaz de identificar as intenções e entidades, entregando respostas pré-fabricadas ou informação de uma determinada fonte~\parencite{microsoft_luis_use_nl_processing_service}.
 
 \subsection{Sinopse}
-As ferramentas apresentadas previamente podem ser divididas por tipo; as cinco primeiras referem-se a bibliotecas ou \textit{frameworks} -- NLTK, Stanford CoreNLP, spaCy, TensorFlow e Rasa --, as últimas três dizem respeito a serviços disponibilizados na \textit{cloud} - Amazon Lex, IBM Watson Assistant e Microsoft LUIS. Por essa razão, sendo que o objetivo é perceber qual a ferramenta mais adequada, é importante notar que a natureza de cada uma é diferente, o que influencia o comparativo entre elas. Portanto, essa comparação não deve ser feita pelas funcionalidades que cada uma oferece, mas sim pelo o valor que poderá trazer à solução, ou seja, pelos critérios e/ou restrições que cumprem.
+As ferramentas apresentadas previamente podem ser divididas por tipo; as cinco primeiras referem-se a bibliotecas ou \textit{frameworks} -- NLTK, Stanford CoreNLP, spaCy, TensorFlow e Rasa --, as últimas três dizem respeito a serviços disponibilizados na \textit{cloud} - Amazon Lex, IBM Watson Assistant e Microsoft LUIS. De notar que que a natureza de cada uma é diferente, o que influencia o comparativo entre elas. Portanto, essa comparação não deve ser feita pelas funcionalidades que cada uma oferece, mas sim pelo o valor que poderá trazer à solução.
+% %
+% \begin{table}
+% \caption{Comparativo das ferramentas de processamento de linguagem natural}
+% \label{tab:tools_comparison}
+% \centering
+% \resizebox{\textwidth}{!}{
+% \renewcommand{\arraystretch}{1.3}
+% \footnotesize
+% \input{ch03/assets/tools_comparison.tex}}
+% \end{table}
+% Para auxiliar no processo de decisão, opta-se pelo uso de uma matriz de decisão, uma ferramenta que permite identificar rapidamente a melhor alternativa, a partir de um conjunto pré-definido de critérios e da escala de avaliação~\parencite{decisions_engineering_design}.
+% Para os critérios de avaliação consideram-se que têm todos o mesmo grau de importância, pelo que são descritos a seguir.
 
-Para auxiliar no processo de decisão, opta-se pelo uso de uma matriz de decisão, uma ferramenta que permite identificar rapidamente a melhor alternativa, a partir de um conjunto pré-definido de critérios e da escala de avaliação~\parencite{decisions_engineering_design}.
-Para os critérios de avaliação consideram-se que têm todos o mesmo grau de importância, pelo que são descritos a seguir.
+% \begin{itemize}
+%     \item
+%     {
+%         \textit{Dependência} -- a nível de plataforma, linguagem de programação, ambiente de desenvolvimento, acesso à Internet ou outras;
+%     }
+%     \item
+%     {
+%         \textit{Custo} -- possível preço da solução e/ou gastos com recursos;  
+%     }
+%     \item
+%     {
+%         \textit{Facilidade} -- utilização na perspetiva do programador, ou seja, se apresenta boa documentação, fácil e rápido de aprender e desenvolver;
+%     }
+%     \item
+%     {
+%         \textit{Esforço} -- dispêndio no desenvolvimento da solução. Ferramentas com modelos pré-treinados necessitarão de menos esforço do que ferramentas que não os forneçam;
+%     }
+%     \item
+%     {
+%         \textit{Escalabilidade} -- como é que a ferramenta se comporta quando a aplicação tem a necessidade de escalar, ou seja, se o nível de eficiência ou a facilidade de desenvolvimento se mantém constante.
+%     }
+% \end{itemize}
 
-\begin{itemize}
-    \item
-    {
-        \textit{Dependência} -- a nível de plataforma, linguagem de programação, ambiente de desenvolvimento, acesso à Internet ou outras;
-    }
-    \item
-    {
-        \textit{Custo} -- possível preço da solução e/ou gastos com recursos;  
-    }
-    \item
-    {
-        \textit{Facilidade} -- utilização na perspetiva do programador, ou seja, se apresenta boa documentação, fácil e rápido de aprender e desenvolver;
-    }
-    \item
-    {
-        \textit{Esforço} -- dispêndio no desenvolvimento da solução. Ferramentas com modelos pré-treinados necessitarão de menos esforço do que ferramentas que não os forneçam;
-    }
-    \item
-    {
-        \textit{Escalabilidade} -- como é que a ferramenta se comporta quando a aplicação tem a necessidade de escalar, ou seja, se o nível de eficiência ou a facilidade de desenvolvimento se mantém constante.
-    }
-\end{itemize}
-
-Quanto à escala de avaliação, opta-se por três níveis: um ($1$) até três ($3$), para indicar a baixa e elevada adequabilidade, respetivamente. Por exemplo, se para o critério \textit{Custo} a pontuação dada é um ($1$), significa que o item/ferramenta, nesse critério, é pouco adequado para a solução. A soma de todas as pontuações define a adequabilidade da ferramenta. Quanto mais alta for, mais adequada é. De salientar que a avaliação é feita com base na bibliografia recolhida para as ferramentas estudadas. Na Tabela~\ref{tab:tools_comparison} apresenta-se a matriz de decisão para as ferramentas estudadas anteriormente.
+% Quanto à escala de avaliação, opta-se por três níveis: um ($1$) até três ($3$), para indicar a baixa e elevada adequabilidade, respetivamente. Por exemplo, se para o critério \textit{Custo} a pontuação dada é um ($1$), significa que o item/ferramenta, nesse critério, é pouco adequado para a solução. A soma de todas as pontuações define a adequabilidade da ferramenta. Quanto mais alta for, mais adequada é. De salientar que a avaliação é feita com base na bibliografia recolhida para as ferramentas estudadas. Na Tabela~\ref{tab:tools_comparison} apresenta-se a matriz de decisão para as ferramentas estudadas anteriormente.
 %
-\begin{table}
-\caption{Comparativo das ferramentas de processamento de linguagem natural}
-\label{tab:tools_comparison}
-\centering
-\resizebox{\textwidth}{!}{
-\renewcommand{\arraystretch}{1.3}
-\footnotesize
-\input{ch03/assets/tools_comparison.tex}
-}
-\end{table}
+% \begin{table}
+% \caption{Comparativo das ferramentas de processamento de linguagem natural}
+% \label{tab:tools_comparison}
+% \centering
+% \resizebox{\textwidth}{!}{
+% \renewcommand{\arraystretch}{1.3}
+% \footnotesize
+% \input{ch03/assets/tools_comparison.tex}
+% }
+% \end{table}
 
-A matriz aponta o spaCy e o Rasa como as ferramentas mais adequadas para o módulo de linguagem natural, pois cumprem a maioria dos critérios e não se tratam de ferramentas na \textit{cloud}, visto que esta última é uma restrição da empresa. Em suma, tanto o spaCy como o Rasa são bons candidatos para o desenvolvimento da solução final, embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. É importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta. Já no caso do Rasa, os módulos disponibilizados parecem ser suficientes para a resolução do problema, sendo importante estudar com mais detalhe esta \textit{framework}.
+Uma análise com base na bibliografia estudada parece destacar o spaCy e o Rasa como as ferramentas mais adequadas para uma solução interna, ou seja, sem acesso à Internet, pois parecem estar preparadas para a implementação de soluções comerciais e não se tratam de ferramentas na \textit{cloud}. No caso do NLTK, Stanford CoreNLP ou o TensorFlow, parecem requerer maior estudo e tempo de adaptação.
 
-No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \textit{cloud} é aceitável -- o Microsoft LUIS, por exemplo --, visto que se pretende validar o modelo proposto. Teoricamente, o reconhecimento de intenções e entidades, uma abordagem seguida pelas ferramentas da \textit{cloud} que estão indicadas na bibliografia, parece constituir uma forma robusta de responder ao problema.
+Por outro lado, as ferramentas \textit{cloud} parecem providenciar todo o tipo de funcionalidades necessárias para a compreensão de linguagem natural e extração de informação. Aliás, todas elas apresentam estratégias para o desenvolvimento de \textit{chatbots} com a capacidade descrita anteriormente. Teoricamente, a abordagem seguida por este tipo de ferramentas parece constituir uma forma robusta de responder ao problema, pelo que deve ser explorada num ponto de vista experimental -- usando o Microsoft LUIS, por exemplo.
+
+% No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \textit{cloud} é aceitável -- o Microsoft LUIS, por exemplo --, visto que se pretende validar o modelo proposto. Teoricamente, o reconhecimento de intenções e entidades, uma abordagem seguida pelas ferramentas da \textit{cloud} que estão indicadas na bibliografia, parece constituir uma forma robusta de responder ao problema.
+
+% , embora possam existir ferramentas mais adequadas no mercado, que são desconhecidas, e por isso, não contempladas no estudo. É importante salientar que o uso isolado do spaCy pode não ser suficiente para responder a todas as necessidades ou casos de uso do sistema, pelo que a integração com outras ferramentas pode ser preferida, sendo assim necessário um estudo mais aprofundado sobre os conceitos teóricos abrangidos nesta ferramenta. Já no caso do Rasa, os módulos disponibilizados parecem ser suficientes para a resolução do problema, sendo importante estudar com mais detalhe esta \textit{framework}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
@@ -303,8 +316,8 @@ No contexto desta tese, como prova de conceito, o uso de uma ferramenta na \text
 \label{sec:chap03_chaptersummary}
 Este capítulo introduziu a área do \gls{pln}, fazendo referência à sua história e aos fundamentos intrínsecos à compreensão da linguagem humana, sobretudo os níveis de conhecimento usados na extração de significado. 
 
-De seguida, focaram-se as \glspl{iln}, sendo o campo de maior relevo para esta tese. Explanaram-se os sistemas contextuais e não-contextuais, as abordagens e arquiteturas aplicadas no desenvolvimento deste tipo aplicacional, explicando de uma forma global os conceitos associados.
+De seguida, focaram-se as \glspl{iln}, sendo o campo de maior relevo para esta tese. Explanaram-se os sistemas contextuais e não-contextuais, as abordagens e arquiteturas aplicadas no desenvolvimento deste tipo aplicacional, explicando-se de uma forma global os conceitos associados.
 
 Mediante a exposição dos trabalhos relevantes, quer no panorama fabril, associado à natureza do problema em mãos, quer noutros, foi dado a conhecer as abordagens seguidas por cada um deles, procurando constatar uma tendência de aplicação de técnica e abordagem, que não foi encontrada, levando assim a concluir que o conjunto de \gls{ml} ou \gls{dl} e representação intermediária de linguagem pode contribuir para a solução.
 
-Por fim, fez-se o estudo das ferramentas para \gls{pln}, entre elas o NLTK, o TensorFlow e o Amazon Lex, e com base nas suas características, procedeu-se à escolha das mais adequadas neste quadro. Conclui-se que o spaCy e Rasa são candidatos para o desenvolvimento da solução final, no entanto, para a prova de conceito a desenvolver neste trabalho, o recurso ao Microsoft LUIS é admitido.
+Por fim, fez-se o estudo das ferramentas para \gls{pln}, entre elas o NLTK, o TensorFlow e o Amazon Lex, fazendo-se um resumo das vantagens e desvantagens de cada, tendo em conta a bibliografia estudada. Destacam-se o spaCy, o Rasa e as ferramentas \textit{cloud} como bons candidatos paro desenvolvimento do protótipo.

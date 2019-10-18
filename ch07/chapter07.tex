@@ -1,26 +1,72 @@
 \chapter{Conclusões}
 \label{chap:Chapter7}
-Com o presente trabalho tentou-se contribuir para o conhecimento na área do Processamento de Linguagem Natural orientado às Bases de Dados. Tal como referido no início desta dissertação, pretende-se definir uma abordagem de resolução do problema, e não propriamente uma solução definitiva.
-
-Para finalização de qualquer trabalho, é conveniente salientar as conclusões alcançadas, relacioná-las com os objetivos propostos, criticar as suas limitações e referir as perspetivas futuras. Por isso, inicia-se por enumerar os objetivos para o trabalho e avaliar em que medida foram ou não cumpridos, de acordo com os critérios de sucesso definidos. Depois, especificam-se as contribuições e de que forma se apresentam como respostas para o problema. Finalmente, são constatadas as limitações do trabalho desenvolvido e perspetivas de trabalho futuro, apontando problemas em aberto ou as alternativas a contemplar.
+Com o presente trabalho tentou-se contribuir para o conhecimento na área das \gls{iln}, através da conceção de um módulo de linguagem natural. Assim, é conveniente salientar as conclusões alcançadas, relacioná-las com os objetivos, criticar as suas limitações e referir as perspetivas futuras. Por isso, inicia-se por avaliar em que medida os objetivos foram cumpridos. Depois, especificam-se as contribuições e de que forma se apresentam como respostas para o problema. Finalmente, são constatadas as limitações do trabalho desenvolvido e perspetivas de trabalho futuro, apontando problemas em aberto ou as alternativas a contemplar.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Avaliação de Objetivos} 
 \label{sec:chap07_goals_evaluation}
-\tbd
+O trabalho descrito nesta tese consistiu na conceção de um módulo de linguagem natural, levando ao desenvolvimento de um protótipo que se demonstra capaz de compreender perguntas em formato textual, associadas ao domínio da manufatura, possibilitando a extração de informação das fontes de dados produtivos.
+
+Na base da conceção do módulo e desenvolvimento do protótipo esteve um estudo teórico focado no \gls{pln}, mais especificamente das \gls{iln}, por forma conhecer o estado da arte desta área, nomeadamente para a compreensão de abordagens e seleção de ferramentas pertinentes para o trabalho. A abordagem adotada é fruto deste estudo, que não define nenhuma como sendo a ideal, mas sim aquela que melhor se enquadra na realidade do problema, oferecendo melhores contrapartidas. Assim, o modelo idealizado assenta sobre uma abordagem designada no âmbito desta tese por reconhecimento de intenções e entidades.
+
+Para comprovar a validade do módulo concebido, realizaram-se testes focados na capacidade do protótipo compreender a linguagem natural de diferentes níveis e de dar resposta às questões colocadas, que visam a extração de conhecimento acerca de processos de fabrico. O protótipo respondeu adequadamente aos critérios de sucesso fixados, pelo que é legítimo concluir que os objetivos propostos foram atingidos.
+% Face aos objetivos definidos (ver Secção~\ref{sec:chap01_objectives}), que englobam a conceção de um módulo, para interface com o {\productname} e o desenvolvimento de um protótipo capaz de compreender linguagem natural, conclui-se que o trabalho cumpriu-os, face ao critérios de sucesso apontados (ver Secção~\ref{sec:chap01_solutionevaluation}).
+
+% O desenvolvimento do protótipo e a sua validação levaram a perceber que o modelo idealizado permite, de facto, a compreensão da linguagem natural textual e a extração de conhecimento relativo a processos de fabrico, sendo possível a sua aplicabilidade num contexto industrial.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resposta ao Problema} 
 \label{sec:chap07_problem_response}
-\tbd
+O trabalho concretizado advém do pressuposto que o uso de linguagem natural no contexto do {\productname} pode melhorar a usabilidade do sistema e consequentemente, simplificar o processo de apoio à decisão dos seus clientes. Nesse sentido, tiveram-se como objetivos a conceção de um módulo de linguagem natural e desenvolvimento de um protótipo, aplicando o modelo idealizado.
+
+Ainda que se demonstre que o módulo concetualizado permite a compreensão da linguagem natural e a resposta a questões-chave no processo de fabrico, nada se pode concluir acerca do seu impacto na usabilidade ou no processo de decisão, dado à natureza da solução desenvolvida, sendo ela um protótipo.
+
+O trabalho atende à resolução do problema através da idealização de um módulo de linguagem natural, cuja aplicação prática se prova eficaz, ainda que de forma limitada. A especificação deste módulo, bem como o desenvolvimento do protótipo servem de base para a integração de \glspl{iln} no contexto do {\productname}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Limitações e Trabalho Futuro} 
 \label{sec:chap07_future_work_limitations}
-\tbd
+Dificilmente se pode considerar um trabalho neste contexto, ou em muitos outros, como acabado. Este trabalho tem algumas limitações, que ao serem identificadas, possibilitam a introdução de novas ideias e desafios. Por conseguinte, apresentam-se algumas das limitações encontradas, sugerindo formas das ultrapassar, sempre que possível, e também algumas indicações de trabalho futuro:
+
+\begin{itemize}
+    \item 
+    {
+        Uma das grandes limitações do protótipo é não fazer uso da capacidade de interação com o utilizador para obter \textit{feedback} sobre as respostas dadas, usando-o para melhorar a previsão das intenções. Nesse sentido, a inclusão de um novo componente na arquitetura proposta, para a gestão do \textit{feedback}, poderia contribuir para a robustez da fase de compreensão de linguagem natural;
+    }
+    \item
+    {
+        Ainda que o protótipo esteja preparado para a integração de novas fonte de dados, o processo de transformação da representação intermediária para a linguagem específica dessa fonte pode ser uma tarefa complexa e morosa, \exempligratia{a conversão de representação intermediária para \gls{sql}}. Posto isto, o constituição de uma camada de abstração (\inquotes{fachada}) para o acesso a essas fontes de dados, pelo uso de ferramentas como o GraphQL ou no contexto da Web Semântica, pode contribuir para o acesso mais simples a novas fontes de dados;
+    }
+    \item
+    {
+        Apesar do protótipo ser capaz de tratar entidades temporais, apenas o faz para os meses, ou seja, exclui datas e horas específicas ou outras variações. O Microsoft LUIS produz os metadados necessários para a transformação, pelo que é adequada a implementação de estratégias para a normalização das datas, com intuito de serem usadas no carregamento de dados;
+    }
+    \item
+    {
+        Para usar o protótipo é necessário o acesso à Internet, ou seja, não há mecanismo que possibilite o seu uso sem acesso à rede. Nesse sentido, uma das sugestões é a adaptação do modelo idealizado para o desenvolvimento de uma solução interna, usando as ferramentas estudadas. Assim, há a necessidade de aprofundar o conhecimento delas e em que medida podem ser aplicadas com o modelo concebido;
+    }
+    \item
+    {
+        A solução desenvolvida não é genérica o suficiente para se adaptar a diferentes domínios, uma vez que parte do modelo de dados deve constar na base de conhecimento. Para isto, requer-se um estudo mais aprofundado da área de \gls{ia} aplicada à linguagem natural ou às \glspl{iln};
+    }
+    \item
+    {
+        Para dar resposta a perguntas multidimensionais, o protótipo classifica as entidades da frase com base na sua posição na frase, sendo então necessário que o modelo \gls{ml} esteja treinado para esse efeito. Mas, pressupõe-se que a introdução de um \inquotes{fluxo de conversação} possa simplificar este processo, na medida em que se introduz o fator \inquotes{contexto}, quebrando o nível multidimensional em vários níveis unidimensionais, permitindo ao utilizador indicar o que pretende, passo a passo; 
+    }
+    \item 
+    {
+        O uso de outras línguas para além do inglês, no contexto deste protótipo, obrigariam a redefinir uma nova base de conhecimento para cada língua nova a adicionar. No entanto, e caso seja um requisito relevante, pode-se realizar um estudo que leve a concluir acerca das estratégias existentes e qual apresenta mais e melhores benefícios para uma solução final, adaptando o modelo para tal;
+    }
+    \item 
+    {
+        O protótipo não pode ser transposto diretamente para uma solução interna, devido à sua natureza. Por isso, de acordo com a ferramenta que seja escolhida para o efeito, propõe-se que esse processo de escolha leve também em consideração o esforço necessário para a transição, pelo que, das ferramentas estudadas, supõe-se que Rasa apresenta melhores contrapartidas.
+    }
+\end{itemize}
+
+Como  se  pode  constatar, há  ainda  imenso  trabalho  a  fazer, englobando desenvolvimento e mais pesquisa. No entanto, isso significa novos desafios e caminhos a percorrer, permitindo que este trabalho evolua, originando uma (primeira) \gls{iln} no contexto \gls{mes}, o que significa mais um passo para a Indústria 4.0.

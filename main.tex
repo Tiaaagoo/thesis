@@ -25,7 +25,8 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-11pt, % The default document font size, options: 10pt, 11pt, 12pt
+10pt, % The default document font size, options: 10pt, 11pt, 12pt
+%twoside,
 oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side (for drafting/reading purposes)
 %english, % english for English;
 portuguese,% for Portuguese; delete temporary files if you change language (e.g. 'make clean; make')
@@ -72,27 +73,29 @@ headsepline, % Uncomment to get a line under the header
 
 \thesistitle{Natural Language Querying} % Your thesis title, this is used in the title, print it elsewhere with \ttitle
 
-\thesissubtitle{Uma abordagem ao problema das Interfaces de Linguagem Natural} % Your thesis title, this is used in the title, print it elsewhere with \tsubtitle
+%\thesissubtitle{Uma abordagem ao problema das Interfaces de Linguagem Natural} % Your thesis title, this is used in the title, print it elsewhere with \tsubtitle
 
 \author{Tiago Gabriel da Silva} % Your name, this is used in the title page, print it elsewhere with \authorname
 
 \subjectarea{Sistemas Computacionais} % Specialization area (Computer Systems, Information and Knowledge Systems, Graphics, Systems and Multimedia, Software Engineering), used in the title page, print it elsewhere with \areaname
 
-\supervisor{Doutor Paulo Gandra de Sousa} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\supervisor{Prof. Doutor Paulo Gandra de Sousa} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 
-\cosupervisor{Engenheiro Ricardo Magalhães} % Your co-supervisor's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
+\cosupervisor{{Eng.\textordmasculine} Ricardo Magalhães} % Your co-supervisor's name, this is used in the title page, print it elsewhere with \cosupname (comment, if no co-supervisor)
 
-\committeepresident{} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
+\committeepresident{{Prof.\textordfeminine} Doutora Isabel Azevedo, DEI/ISEP} % Name of the president of the evaluation committee, print it elsewhere with \presidentname
 
-\committeemembers{} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
+\committeemembers{Prof. Doutor Nuno Escudeiro, DEI/ISEP} % Name of the evaluation committee members (up to four), print it elsewhere with \committee
 
-\keywords{\textit{Manufacturing Execution System}, Inteligência Artificial, Processamento de Linguagem Natural, \textit{Machine Learning}, \textit{Deep Learning}} % Please define up to 6 keywords that better describe your work, print it elsewhere with \keywordnames
+\keywords{\textit{Manufacturing Execution System}, Indústria 4.0, Inteligência Artificial, Interfaces de Linguagem Natural, \textit{Machine Learning}} % Please define up to 6 keywords that better describe your work, print it elsewhere with \keywordnames
 
 \university{\href{http://www.isep.ipp.pt}{Instituto Superior de Engenharia do Porto}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 
 \department{\href{http://www.dei.isep.ipp.pt}{Departamento de Engenharia Informática}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 
 \thesisdate{Porto, \today} % thesis date,  print it elsewhere with \tdate
+% \thesisdate{Porto, {\ifcase \month\or Janeiro\or Fevereiro\or Março\or Abril\or Maio\or Junho\or Julho\or Agosto\or Setembro\or Outubro\or Novembro\or Dezembro\fi \space \number\year}
+% }
 
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
@@ -144,7 +147,7 @@ headsepline, % Uncomment to get a line under the header
 
 \input{appendices/appendixA}
 \input{appendices/appendixB}
-%\input{appendices/appendixC}
+\input{appendices/appendixC}
 
 \printglossary
 \glsresetall
